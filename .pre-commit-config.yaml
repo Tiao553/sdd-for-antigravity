@@ -1,0 +1,47 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--unsafe]
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        additional_dependencies:
+          - tomli
+        # Ignora arquivos onde pequenos erros de digitação não são problemas graves ou onde o vocabulário é muito específico
+        exclude: >
+            (?x)^(
+                .*\.lock$|
+                .*\.json$|
+                .*\.csv$|
+                .*\.md$
+            )
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.38.0
+    hooks:
+      - id: markdownlint
+        # Relaxa um pouco as regras padrão de markdown, desativando tamanho máximo de linha (MD013)
+        # e HTML inline (MD033) que é muito usado no AgentSpec
+        args: ["--disable", "MD013", "MD033", "MD040", "MD041", "--"]
+
+  # Hooks de Segurança
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.7
+    hooks:
+      - id: bandit
+        args: ["-ll"] # Apenas severidade média ou alta
+        exclude: ^tests/
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.2
+    hooks:
+      - id: gitleaks

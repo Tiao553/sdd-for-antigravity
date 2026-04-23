@@ -15,7 +15,7 @@
 ## Repository Structure
 
 ```text
-sdd-for-gemini/
+sdd-for-antigravity/
 ├── GEMINI.md                # Main Antigravity context and system prompt
 ├── AGENTS.md                # Antigravity agent routing and escalation map
 ├── .agents/                 # Antigravity agent configuration

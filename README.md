@@ -7,7 +7,7 @@ flowchart LR
     classDef highlight fill:#cba6f7,stroke:#1e1e2e,stroke-width:2px,color:#1e1e2e,font-weight:bold
 
     Main("AgentSpec <br/> Spec-Driven Data Engineering"):::title
-    
+
     Phases["5-Phase Workflow <br/> Brainstorm ➔ Define ➔ Design ➔ Build ➔ Ship"]:::sub
     Agents["58 Specialized Agents <br/> Architect • Data Eng • Cloud • Platform"]:::sub
     KB["23 Knowledge Domains <br/> KB-First Resolution"]:::sub
@@ -22,6 +22,7 @@ flowchart LR
 <br/><br/>
 
 [![Antigravity Workspace](https://img.shields.io/badge/Antigravity-Workspace-blueviolet?style=flat-square)](/)
+[![CI Pipeline](https://github.com/tiao553/sdd-for-gemini/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/tiao553/sdd-for-gemini/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
 
@@ -46,6 +47,7 @@ flowchart LR
   project. I created my own customized version specifically for
   <strong>Antigravity</strong>, which is the IDE I use most in my daily workflow.
 </h3>
+
 ## About This Fork
 
 Every time you ask an AI to build a data pipeline, it starts from scratch — no memory of partition strategies, no awareness of SCD patterns, no understanding of your data contracts. You get hallucinated SQL, wrong incremental strategies, and pipelines that pass in dev but break in production.

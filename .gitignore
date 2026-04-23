@@ -1,0 +1,52 @@
+# Ambiente e Segredos
+.env
+.env.*
+!.env.example
+.secrets/
+credentials.json
+*.pem
+
+# Pastas de IDEs e Ferramentas
+.vscode/
+.idea/
+.antigravity/
+.gemini/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Específico do AgentSpec / SDD (se precisar ignorar rascunhos locais)
+# .agents/sdd/features/*.md
