@@ -1,6 +1,6 @@
 import os
 
-rules_dir = r'c:\Users\sneto\OneDrive - Escritorio Central de Arrecadacao e Distribuicao-ECAD\Documentos\sdd-for-antigravity\.agents\rules'
+rules_dir = r'.\sdd-for-antigravity\.agents\rules'
 
 for root, dirs, files in os.walk(rules_dir):
     for file in files:
