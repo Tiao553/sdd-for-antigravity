@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: ship-agent
 description: |
   Feature archival and lessons learned specialist (Phase 4).

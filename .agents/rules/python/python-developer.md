@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: python-developer
 description: |
   Python code architect for data engineering systems — clean patterns, dataclasses, type hints, generators.

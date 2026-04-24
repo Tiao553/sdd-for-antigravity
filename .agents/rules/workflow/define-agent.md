@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: define-agent
 description: |
   Requirements extraction and validation specialist (Phase 1).

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: lakeflow-pipeline-builder
 tier: T3
 model: sonnet

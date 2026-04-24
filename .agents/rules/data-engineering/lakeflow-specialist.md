@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: lakeflow-specialist
 tier: T1
 model: sonnet

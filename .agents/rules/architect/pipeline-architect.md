@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: pipeline-architect
 description: |
   Orchestration specialist for Airflow, Dagster, and pipeline design patterns.

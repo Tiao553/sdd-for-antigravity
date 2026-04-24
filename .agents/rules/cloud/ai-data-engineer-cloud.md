@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: ai-data-engineer-cloud
 tier: T3
 model: sonnet

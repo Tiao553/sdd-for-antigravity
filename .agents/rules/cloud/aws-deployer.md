@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: aws-deployer
 tier: T3
 model: sonnet

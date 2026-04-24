@@ -48,5 +48,9 @@ Thumbs.db
 # Logs
 *.log
 
+#conceitos de negocio
+specs/
+.agents/kb/arrecadacao/
+
 # Específico do AgentSpec / SDD (se precisar ignorar rascunhos locais)
 # .agents/sdd/features/*.md

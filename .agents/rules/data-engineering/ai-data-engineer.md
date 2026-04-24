@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: ai-data-engineer
 tier: T2
 description: |

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: streaming-engineer
 tier: T2
 description: |

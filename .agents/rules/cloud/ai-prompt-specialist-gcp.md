@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: ai-prompt-specialist-gcp
 tier: T3
 model: sonnet

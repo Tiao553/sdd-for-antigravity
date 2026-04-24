@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: dbt-specialist
 tier: T2
 description: |

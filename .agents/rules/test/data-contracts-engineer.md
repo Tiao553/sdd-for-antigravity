@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: data-contracts-engineer
 description: |
   Data contract specialist for ODCS, SLA enforcement, schema governance, and producer-consumer agreements.

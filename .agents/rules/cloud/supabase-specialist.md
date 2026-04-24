@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: supabase-specialist
 tier: T3
 model: opus

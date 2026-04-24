@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: llm-specialist
 description: |
   Prompt engineering specialist and LLM expert. Masters structured prompting, chain-of-thought reasoning, and AI-powered extraction. Uses KB + MCP validation for optimized, production-ready prompts.

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: data-quality-analyst
 description: |
   Data quality specialist for Great Expectations, Soda, dbt tests, data contracts, and observability.

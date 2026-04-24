@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: fabric-architect
 tier: T3
 model: opus

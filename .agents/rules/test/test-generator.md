@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: test-generator
 description: |
   Test automation expert for Python. Generates pytest unit tests, integration tests, and fixtures.

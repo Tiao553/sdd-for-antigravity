@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: medallion-architect
 description: |
   Medallion Architecture specialist for Bronze/Silver/Gold layer design and data quality progression.

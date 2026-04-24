@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: iterate-agent
 description: |
   Cross-phase document updater with cascade awareness (All Phases).

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: lakehouse-architect
 description: |
   Open table format and catalog specialist for Iceberg, Delta Lake, and lakehouse governance.

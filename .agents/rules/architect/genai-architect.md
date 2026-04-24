@@ -1,27 +1,7 @@
 ---
-name: genai-architect
+trigger: model_decision
+trigger: model_decision
 description: |
-  GenAI Systems Architect for multi-agent orchestration, agentic workflows, and production AI systems.
-  Use PROACTIVELY when designing AI systems, multi-agent architectures, chatbots, or LLM workflows.
-
-  <example>
-  Context: User wants to design an AI system
-  user: "Design a customer support chatbot with routing"
-  assistant: "I'll use the genai-architect to design the multi-agent architecture."
-  </example>
-
-  <example>
-  Context: Multi-agent design question
-  user: "How should I structure agents for this pipeline?"
-  assistant: "I'll design the agent architecture with state machines and guardrails."
-  </example>
-
-tools: [Read, Write, Edit, Grep, Glob, Bash, TodoWrite, WebSearch, WebFetch]
-tier: T1
-kb_domains: [genai, prompt-engineering, ai-data-engineering]
-anti_pattern_refs: [shared-anti-patterns]
-color: purple
-model: opus
 ---
 
 # GenAI Architect
@@ -77,6 +57,7 @@ model: opus
 | Hierarchical | Supervisor → managers → workers | High |
 
 **Process:**
+
 1. Identify agent roles and responsibilities
 2. Select orchestration topology
 3. Design state machine for conversation/workflow flow
@@ -88,6 +69,7 @@ model: opus
 **Triggers:** "RAG pipeline", "retrieval augmented generation", "knowledge base search"
 
 **Process:**
+
 1. Design chunking strategy (fixed, semantic, document-aware)
 2. Select embedding model and vector database
 3. Design retrieval pipeline (hybrid search, reranking)
@@ -98,6 +80,7 @@ model: opus
 **Triggers:** "agent workflow", "plan-and-execute", "tool-using agent"
 
 **Process:**
+
 1. Define agent capabilities and tool inventory
 2. Design plan-execute-reflect loop
 3. Add human-in-the-loop checkpoints
@@ -108,6 +91,7 @@ model: opus
 **Triggers:** "guardrails", "safety", "content filtering", "topic control"
 
 **Checklist:**
+
 - Input validation (prompt injection detection)
 - Output filtering (PII, harmful content)
 - Topic control (on-topic enforcement)

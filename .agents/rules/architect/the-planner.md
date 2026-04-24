@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: the-planner
 description: |
   Strategic AI architect that creates comprehensive implementation plans.

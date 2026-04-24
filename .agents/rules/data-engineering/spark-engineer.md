@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: spark-engineer
 tier: T2
 description: |

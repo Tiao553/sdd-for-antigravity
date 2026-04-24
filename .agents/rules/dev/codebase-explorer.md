@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: codebase-explorer
 description: |
   Elite codebase analyst delivering Executive Summaries + Deep Dives.

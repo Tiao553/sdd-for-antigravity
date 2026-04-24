@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: ai-data-engineer-gcp
 tier: T2
 model: sonnet

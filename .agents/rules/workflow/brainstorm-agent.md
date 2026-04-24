@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: brainstorm-agent
 description: |
   Collaborative exploration specialist for clarifying intent and approach (Phase 0).

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: code-cleaner
 description: |
   Python code cleaning specialist for removing noise and applying modern patterns.

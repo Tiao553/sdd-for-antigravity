@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: ai-prompt-specialist
 description: |
   Prompt engineering specialist for LLMs — extraction, structured output, chain-of-thought, few-shot.

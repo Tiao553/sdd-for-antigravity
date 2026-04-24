@@ -35,7 +35,7 @@ shared:
     path: shared/anti-patterns.md
     description: "Cross-agent anti-pattern library referenced by all data engineering agents"
 
-# Domain Registry — 23 Domains
+# Domain Registry — 25 Domains
 domains:
 
   # ─── Core Data Engineering ─────────────────────────────────────────
@@ -291,6 +291,46 @@ domains:
         confidence: 0.90
       - name: data-contract-authoring
         path: patterns/data-contract-authoring.md
+        confidence: 0.90
+
+  # ─── Data Visualization ───────────────────────────────────────────
+
+  dataviz:
+    name: dataviz
+    description: "Data visualization patterns — Chart selection, dashboard composition, storytelling, and Power BI DAX"
+    path: dataviz/
+    mcp_validated: "2026-04-23"
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: chart-selection
+        path: concepts/chart-selection.md
+        confidence: 0.95
+      - name: dashboard-composition
+        path: concepts/dashboard-composition.md
+        confidence: 0.90
+      - name: data-storytelling
+        path: concepts/data-storytelling.md
+        confidence: 0.90
+      - name: power-bi-dax
+        path: concepts/power-bi-dax.md
+        confidence: 0.90
+    patterns:
+      - name: plotly-patterns
+        path: patterns/plotly-patterns.md
+        confidence: 0.90
+      - name: echarts-patterns
+        path: patterns/echarts-patterns.md
+        confidence: 0.90
+      - name: evidence-dev-patterns
+        path: patterns/evidence-dev-patterns.md
+        confidence: 0.90
+      - name: vega-altair-patterns
+        path: patterns/vega-altair-patterns.md
+        confidence: 0.90
+      - name: power-bi-data-model
+        path: patterns/power-bi-data-model.md
         confidence: 0.90
 
   # ─── Infrastructure & Platforms ────────────────────────────────────
@@ -1088,3 +1128,40 @@ domains:
       - name: webhook-edge-function
         path: patterns/webhook-edge-function.md
         confidence: 0.95
+
+  # ─── Business Domains ──────────────────────────────────────────────
+
+  arrecadacao:
+    name: arrecadacao
+    description: "Business domain — Cobrança ECAD (SA and SGA systems), cardinality rules, and safe joins"
+    path: arrecadacao/
+    mcp_validated: "2026-04-23"
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: sa-vs-sga
+        path: concepts/sa-vs-sga.md
+        confidence: 0.95
+      - name: cardinalidade
+        path: concepts/cardinalidade.md
+        confidence: 0.95
+      - name: status
+        path: concepts/status.md
+        confidence: 0.90
+      - name: acordo-multinivel
+        path: concepts/acordo-multinivel.md
+        confidence: 0.90
+      - name: pagamentos
+        path: concepts/pagamentos.md
+        confidence: 0.90
+    patterns:
+      - name: joins-seguros
+        path: patterns/joins-seguros.md
+        confidence: 0.95
+      - name: tabela-agregada-credito
+        path: patterns/tabela-agregada-credito.md
+        confidence: 0.90
+      - name: view-cobranca-unions
+        path: patterns/view-cobranca-unions.md
+        confidence: 0.90

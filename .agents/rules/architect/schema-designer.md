@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: schema-designer
 description: |
   Data modeling specialist for dimensional modeling, Data Vault, SCD types, and schema evolution.

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: code-reviewer
 description: |
   Expert code review specialist ensuring quality, security, and maintainability.

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: qdrant-specialist
 tier: T3
 model: opus

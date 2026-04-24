@@ -6,7 +6,7 @@
 
 ## Project Context
 
-**What is AgentSpec?** An Antigravity plugin that provides structured AI-assisted development through a 5-phase SDD workflow, specialized for data engineering with 58 agents, 30 commands, 23 KB domains, and 2 skills.
+**What is AgentSpec?** An Antigravity plugin that provides structured AI-assisted development through a 5-phase SDD workflow, specialized for data engineering with 63 agents, 34 commands, 25 KB domains, and 2 skills.
 
 **Current Status:** v3.0.0 — Antigravity plugin distribution complete. Linear is the project tracker (source of truth).
 
@@ -27,12 +27,14 @@ sdd-for-antigravity/
 │   │   ├── python/          # 6 Python dev, code quality, prompts
 │   │   ├── test/            # 3 testing, data quality, contracts
 │   │   ├── data-engineering/ # 15 DE implementation specialists
+│   │   ├── data-viz/         # 5 visualization specialists
 │   │   ├── dev/             # 4 developer tools & productivity
 │   │   └── workflow/        # 6 SDD phase agents
 │   │
-│   ├── commands/            # 30 slash commands
+│   ├── commands/            # 34 slash commands
 │   │   ├── workflow/        # SDD commands (7)
 │   │   ├── data-engineering/ # DE commands (8)
+│   │   ├── data-viz/         # Data visualization commands (4)
 │   │   ├── core/            # Utility commands (5)
 │   │   ├── knowledge/       # KB commands (1)
 │   │   ├── review/          # Review commands (1)
@@ -109,7 +111,7 @@ Data engineering example:
 
 | Task | Status | Description |
 |------|--------|-------------|
-| Data engineering pivot | Done | 23 KB domains, 58 agents (8 categories), 30 commands |
+| Data engineering pivot | Done | 25 KB domains, 63 agents (9 categories), 34 commands |
 | Adapt existing agents for DE | Done | code-reviewer, code-cleaner, test-generator, design, define, build |
 | Adapt SDD templates for DE | Done | BRAINSTORM, DEFINE, DESIGN, BUILD_REPORT templates |
 | Documentation overhaul | Done | Getting started, concepts, tutorials, reference, README |
@@ -171,6 +173,10 @@ Data engineering example:
 | `/ai-pipeline` | RAG/embedding scaffolding |
 | `/data-contract` | Contract authoring (ODCS) |
 | `/migrate` | Legacy ETL migration |
+| `/chart` | Chart type recommendation |
+| `/dashboard` | Dashboard layout design |
+| `/viz-code` | Visualization code generation |
+| `/dataviz-story` | Data storytelling narrative |
 
 ### Core & Utilities (7)
 
@@ -209,7 +215,9 @@ Data engineering example:
 | `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml` | Phase transition rules |
 | `.agents/sdd/templates/*.md` | Document templates (DE-aware) |
 | `.agents/kb/_templates/*.template` | KB domain templates |
-| `.agents/kb/_index.yaml` | KB domain registry (23 domains) |
+| `.agents/kb/_index.yaml` | KB domain registry (25 domains) |
+| `.agents/rules/data-engineering/` | DE implementation specialists |
+| `.agents/rules/data-viz/` | Data visualization specialists |
 | `.agents/rules/architect/` | System-level design agents (schema, pipeline, lakehouse) |
 | `.agents/rules/cloud/` | AWS, GCP, CI/CD, deployment agents |
 | `.agents/rules/platform/` | Microsoft Fabric specialists |

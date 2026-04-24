@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: meeting-analyst
 description: |
   Master communication analyst that transforms meetings into structured, actionable documentation.

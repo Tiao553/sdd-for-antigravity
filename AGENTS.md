@@ -1,8 +1,8 @@
 # AgentSpec Agents (Antigravity Migration)
 
-AgentSpec deploys **58 specialized agents** across **8 categories**, each built on a **three-tier template system** with mandatory **KB-First knowledge resolution**. Every agent carries a cognitive framework that enforces structured confidence scoring, provenance tracking, and explicit stop conditions -- turning raw LLM capability into disciplined, auditable domain expertise.
+AgentSpec deploys **63 specialized agents** across **8 categories**, each built on a **three-tier template system** with mandatory **KB-First knowledge resolution**. Every agent carries a cognitive framework that enforces structured confidence scoring, provenance tracking, and explicit stop conditions -- turning raw LLM capability into disciplined, auditable domain expertise.
 
-`58 agents | 8 categories | 3 tiers (T1/T2/T3) | 23 KB domains | 100% template compliance`
+`63 agents | 8 categories | 3 tiers (T1/T2/T3) | 25 KB domains | 100% template compliance`
 
 ---
 
@@ -86,8 +86,8 @@ Every agent declares a tier in frontmatter (`tier: T1|T2|T3`). The tier governs 
 
 ### Current Distribution
 
-- **T1 (10 agents):** genai-architect, medallion-architect, aws-data-architect, gcp-data-architect, ai-prompt-specialist, python-developer, lakeflow-specialist, spark-performance-analyzer, spark-troubleshooter, prompt-crafter
-- **T2 (28 agents):** data-platform-engineer, kb-architect, lakehouse-architect, pipeline-architect, schema-designer, the-planner, ai-data-engineer-gcp, code-cleaner, code-documenter, code-reviewer, data-contracts-engineer, data-quality-analyst, test-generator, ai-data-engineer, dbt-specialist, spark-engineer, spark-specialist, sql-optimizer, streaming-engineer, codebase-explorer, meeting-analyst, shell-script-specialist, brainstorm-agent, build-agent, define-agent, design-agent, iterate-agent, ship-agent
+- **T1 (11 agents):** genai-architect, medallion-architect, aws-data-architect, gcp-data-architect, ai-prompt-specialist, python-developer, lakeflow-specialist, spark-performance-analyzer, spark-troubleshooter, prompt-crafter, chart-architect
+- **T2 (32 agents):** data-platform-engineer, kb-architect, lakehouse-architect, pipeline-architect, schema-designer, the-planner, ai-data-engineer-gcp, code-cleaner, code-documenter, code-reviewer, data-contracts-engineer, data-quality-analyst, test-generator, ai-data-engineer, dbt-specialist, spark-engineer, spark-specialist, sql-optimizer, streaming-engineer, codebase-explorer, meeting-analyst, shell-script-specialist, brainstorm-agent, build-agent, define-agent, design-agent, iterate-agent, ship-agent, dashboard-designer, power-bi-developer, storytelling-analyst, viz-code-generator
 - **T3 (20 agents):** ai-data-engineer-cloud, ai-prompt-specialist-gcp, aws-deployer, aws-lambda-architect, ci-cd-specialist, lambda-builder, supabase-specialist, fabric-ai-specialist, fabric-architect, fabric-cicd-specialist, fabric-logging-specialist, fabric-pipeline-developer, fabric-security-specialist, llm-specialist, airflow-specialist, lakeflow-architect, lakeflow-expert, lakeflow-pipeline-builder, qdrant-specialist, spark-streaming-architect
 
 ---

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: spark-streaming-architect
 tier: T3
 model: sonnet

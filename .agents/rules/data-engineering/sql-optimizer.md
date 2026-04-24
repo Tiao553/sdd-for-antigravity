@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: sql-optimizer
 tier: T2
 description: |

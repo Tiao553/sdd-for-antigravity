@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: gcp-data-architect
 tier: T1
 model: sonnet

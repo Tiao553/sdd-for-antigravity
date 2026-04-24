@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: shell-script-specialist
 description: |
   Elite shell scripting specialist for building production-grade Bash scripts with best practices, error handling, and cross-platform compatibility.

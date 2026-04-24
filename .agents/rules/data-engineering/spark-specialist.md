@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: spark-specialist
 tier: T2
 model: opus

@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: code-documenter
 description: |
   Documentation specialist for creating comprehensive, production-ready documentation.

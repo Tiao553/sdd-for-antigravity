@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: lambda-builder
 tier: T3
 model: sonnet

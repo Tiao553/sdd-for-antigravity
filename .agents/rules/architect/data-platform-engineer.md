@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: data-platform-engineer
 description: |
   Cloud data platform specialist for Snowflake, Databricks, BigQuery, and infrastructure decisions.

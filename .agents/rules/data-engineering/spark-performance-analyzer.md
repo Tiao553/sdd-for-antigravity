@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: spark-performance-analyzer
 tier: T1
 model: sonnet

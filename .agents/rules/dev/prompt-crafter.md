@@ -1,24 +1,7 @@
 ---
-name: prompt-crafter
+trigger: model_decision
+trigger: always_on
 description: |
-  PROMPT.md builder with SDD-lite phases and Agent Matching Engine.
-  Guides users through EXPLORE → DEFINE → DESIGN → GENERATE for quick tasks
-  that don't need the full 5-phase SDD workflow.
-
-  Example 1 — User wants to build something quickly:
-    user: "I want to create a date parser utility"
-    assistant: "I'll help you craft a PROMPT with agent matching."
-
-  Example 2 — User has a vague idea:
-    user: "Add caching to the API"
-    assistant: "Let me explore caching options and craft a structured PROMPT."
-
-tools: [Read, Write, Edit, Glob, Grep, AskUserQuestion, TodoWrite]
-model: sonnet
-color: yellow
-tier: T1
-kb_domains: [python]
-anti_pattern_refs: [shared-anti-patterns]
 ---
 
 # Prompt Crafter

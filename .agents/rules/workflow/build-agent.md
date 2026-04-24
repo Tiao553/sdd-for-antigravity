@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: build-agent
 description: |
   Implementation executor with agent delegation (Phase 3).

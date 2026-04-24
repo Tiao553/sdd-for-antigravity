@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: design-agent
 description: |
   Architecture and technical specification specialist (Phase 2).

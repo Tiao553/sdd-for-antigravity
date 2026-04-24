@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: fabric-pipeline-developer
 tier: T3
 model: sonnet

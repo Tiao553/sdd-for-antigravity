@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: kb-architect
 description: |
   Knowledge base architect for creating validated, structured KB domains.

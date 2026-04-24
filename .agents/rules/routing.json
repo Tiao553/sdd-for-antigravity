@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "agent_count": 58,
+  "agent_count": 63,
   "agents": [
     {
       "name": "ai-data-engineer",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/ai-data-engineer.md",
+      "path": ".agents/rules/data-engineering/ai-data-engineer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "AI data engineering specialist for RAG pipelines, vector databases, feature stores, and LLMOps.",
@@ -24,7 +24,7 @@
     {
       "name": "ai-data-engineer-cloud",
       "category": "cloud",
-      "path": ".agents/agents/cloud/ai-data-engineer-cloud.md",
+      "path": ".agents/rules/cloud/ai-data-engineer-cloud.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Expert Data Engineer for cloud architectures and AI pipelines. Uses KB + MCP validation for best practices.",
@@ -44,7 +44,7 @@
     {
       "name": "ai-data-engineer-gcp",
       "category": "cloud",
-      "path": ".agents/agents/cloud/ai-data-engineer-gcp.md",
+      "path": ".agents/rules/cloud/ai-data-engineer-gcp.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Elite GCP Data Engineering architect for serverless architectures, AI/ML pipelines, and document processing.",
@@ -62,10 +62,10 @@
     {
       "name": "ai-prompt-specialist",
       "category": "python",
-      "path": ".agents/agents/python/ai-prompt-specialist.md",
+      "path": ".agents/rules/python/ai-prompt-specialist.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Prompt engineering specialist for LLMs \u2014 extraction, structured output, chain-of-thought, few-shot.",
+      "description": "Prompt engineering specialist for LLMs — extraction, structured output, chain-of-thought, few-shot.",
       "kb_domains": [
         "prompt-engineering",
         "pydantic",
@@ -76,7 +76,7 @@
     {
       "name": "ai-prompt-specialist-gcp",
       "category": "cloud",
-      "path": ".agents/agents/cloud/ai-prompt-specialist-gcp.md",
+      "path": ".agents/rules/cloud/ai-prompt-specialist-gcp.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Elite Prompt Engineering architect for Google Gemini, Vertex AI, and multi-modal document extraction systems. Masters structured extraction, OCR optimization, and production prompt pipelines. Uses KB + MCP validation.",
@@ -94,7 +94,7 @@
     {
       "name": "airflow-specialist",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/airflow-specialist.md",
+      "path": ".agents/rules/data-engineering/airflow-specialist.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Apache Airflow 3.0 SME for DAG development, asset-aware scheduling, and event-driven pipelines.",
@@ -112,7 +112,7 @@
     {
       "name": "aws-data-architect",
       "category": "cloud",
-      "path": ".agents/agents/cloud/aws-data-architect.md",
+      "path": ".agents/rules/cloud/aws-data-architect.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "AWS data architecture specialist for Lambda, S3, Glue, Redshift, MWAA, and serverless data pipelines.",
@@ -126,7 +126,7 @@
     {
       "name": "aws-deployer",
       "category": "cloud",
-      "path": ".agents/agents/cloud/aws-deployer.md",
+      "path": ".agents/rules/cloud/aws-deployer.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Executes AWS CLI and SAM CLI deployment commands with validation. Uses KB + MCP validation for safe deployments.",
@@ -143,7 +143,7 @@
     {
       "name": "aws-lambda-architect",
       "category": "cloud",
-      "path": ".agents/agents/cloud/aws-lambda-architect.md",
+      "path": ".agents/rules/cloud/aws-lambda-architect.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Creates SAM templates with embedded least-privilege IAM policies. Uses KB + MCP validation for secure Lambda deployments.",
@@ -160,7 +160,7 @@
     {
       "name": "brainstorm-agent",
       "category": "workflow",
-      "path": ".agents/agents/workflow/brainstorm-agent.md",
+      "path": ".agents/rules/workflow/brainstorm-agent.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Collaborative exploration specialist for clarifying intent and approach (Phase 0).",
@@ -172,7 +172,7 @@
     {
       "name": "build-agent",
       "category": "workflow",
-      "path": ".agents/agents/workflow/build-agent.md",
+      "path": ".agents/rules/workflow/build-agent.md",
       "tier": "T2",
       "model": "opus",
       "description": "Implementation executor with agent delegation (Phase 3).",
@@ -184,7 +184,7 @@
     {
       "name": "ci-cd-specialist",
       "category": "cloud",
-      "path": ".agents/agents/cloud/ci-cd-specialist.md",
+      "path": ".agents/rules/cloud/ci-cd-specialist.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "DevOps expert for Azure DevOps, Terraform, and Databricks Asset Bundles. Builds CI/CD pipelines for Lambda and Lakeflow deployment with multi-environment promotion. Uses KB + MCP validation for production-ready automation.",
@@ -202,7 +202,7 @@
     {
       "name": "code-cleaner",
       "category": "python",
-      "path": ".agents/agents/python/code-cleaner.md",
+      "path": ".agents/rules/python/code-cleaner.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Python code cleaning specialist for removing noise and applying modern patterns.",
@@ -214,7 +214,7 @@
     {
       "name": "code-documenter",
       "category": "python",
-      "path": ".agents/agents/python/code-documenter.md",
+      "path": ".agents/rules/python/code-documenter.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Documentation specialist for creating comprehensive, production-ready documentation.",
@@ -226,7 +226,7 @@
     {
       "name": "code-reviewer",
       "category": "python",
-      "path": ".agents/agents/python/code-reviewer.md",
+      "path": ".agents/rules/python/code-reviewer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Expert code review specialist ensuring quality, security, and maintainability.",
@@ -240,7 +240,7 @@
     {
       "name": "codebase-explorer",
       "category": "dev",
-      "path": ".agents/agents/dev/codebase-explorer.md",
+      "path": ".agents/rules/dev/codebase-explorer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Elite codebase analyst delivering Executive Summaries + Deep Dives.",
@@ -253,7 +253,7 @@
     {
       "name": "data-contracts-engineer",
       "category": "test",
-      "path": ".agents/agents/test/data-contracts-engineer.md",
+      "path": ".agents/rules/test/data-contracts-engineer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Data contract specialist for ODCS, SLA enforcement, schema governance, and producer-consumer agreements.",
@@ -270,7 +270,7 @@
     {
       "name": "data-platform-engineer",
       "category": "architect",
-      "path": ".agents/agents/architect/data-platform-engineer.md",
+      "path": ".agents/rules/architect/data-platform-engineer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Cloud data platform specialist for Snowflake, Databricks, BigQuery, and infrastructure decisions.",
@@ -288,7 +288,7 @@
     {
       "name": "data-quality-analyst",
       "category": "test",
-      "path": ".agents/agents/test/data-quality-analyst.md",
+      "path": ".agents/rules/test/data-quality-analyst.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Data quality specialist for Great Expectations, Soda, dbt tests, data contracts, and observability.",
@@ -306,7 +306,7 @@
     {
       "name": "dbt-specialist",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/dbt-specialist.md",
+      "path": ".agents/rules/data-engineering/dbt-specialist.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "dbt Core and dbt Cloud specialist for model development, testing, macros, and project management.",
@@ -325,7 +325,7 @@
     {
       "name": "define-agent",
       "category": "workflow",
-      "path": ".agents/agents/workflow/define-agent.md",
+      "path": ".agents/rules/workflow/define-agent.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Requirements extraction and validation specialist (Phase 1).",
@@ -337,7 +337,7 @@
     {
       "name": "design-agent",
       "category": "workflow",
-      "path": ".agents/agents/workflow/design-agent.md",
+      "path": ".agents/rules/workflow/design-agent.md",
       "tier": "T2",
       "model": "opus",
       "description": "Architecture and technical specification specialist (Phase 2).",
@@ -349,7 +349,7 @@
     {
       "name": "fabric-ai-specialist",
       "category": "platform",
-      "path": ".agents/agents/platform/fabric-ai-specialist.md",
+      "path": ".agents/rules/platform/fabric-ai-specialist.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Expert in Microsoft Fabric AI capabilities - Copilot, ML models, AI Skills, and Azure OpenAI integration.",
@@ -364,7 +364,7 @@
     {
       "name": "fabric-architect",
       "category": "platform",
-      "path": ".agents/agents/platform/fabric-architect.md",
+      "path": ".agents/rules/platform/fabric-architect.md",
       "tier": "T3",
       "model": "opus",
       "description": "Strategic Fabric solution architect for end-to-end architectures using KB + MCP validation.",
@@ -379,7 +379,7 @@
     {
       "name": "fabric-cicd-specialist",
       "category": "platform",
-      "path": ".agents/agents/platform/fabric-cicd-specialist.md",
+      "path": ".agents/rules/platform/fabric-cicd-specialist.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Expert in Microsoft Fabric CI/CD, Git integration, and deployment pipelines.",
@@ -394,7 +394,7 @@
     {
       "name": "fabric-logging-specialist",
       "category": "platform",
-      "path": ".agents/agents/platform/fabric-logging-specialist.md",
+      "path": ".agents/rules/platform/fabric-logging-specialist.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Expert in Microsoft Fabric logging, monitoring, KQL queries, and observability.",
@@ -409,7 +409,7 @@
     {
       "name": "fabric-pipeline-developer",
       "category": "platform",
-      "path": ".agents/agents/platform/fabric-pipeline-developer.md",
+      "path": ".agents/rules/platform/fabric-pipeline-developer.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Expert in Fabric Data Factory pipelines, orchestration, and ETL workflows.",
@@ -424,7 +424,7 @@
     {
       "name": "fabric-security-specialist",
       "category": "platform",
-      "path": ".agents/agents/platform/fabric-security-specialist.md",
+      "path": ".agents/rules/platform/fabric-security-specialist.md",
       "tier": "T3",
       "model": "opus",
       "description": "Expert in Microsoft Fabric security, governance, and compliance.",
@@ -439,7 +439,7 @@
     {
       "name": "gcp-data-architect",
       "category": "cloud",
-      "path": ".agents/agents/cloud/gcp-data-architect.md",
+      "path": ".agents/rules/cloud/gcp-data-architect.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "Google Cloud data architecture specialist for BigQuery, Cloud Run, Pub/Sub, GCS, Dataflow, and Vertex AI.",
@@ -454,7 +454,7 @@
     {
       "name": "genai-architect",
       "category": "architect",
-      "path": ".agents/agents/architect/genai-architect.md",
+      "path": ".agents/rules/architect/genai-architect.md",
       "tier": "T1",
       "model": "opus",
       "description": "GenAI Systems Architect for multi-agent orchestration, agentic workflows, and production AI systems.",
@@ -468,7 +468,7 @@
     {
       "name": "iterate-agent",
       "category": "workflow",
-      "path": ".agents/agents/workflow/iterate-agent.md",
+      "path": ".agents/rules/workflow/iterate-agent.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Cross-phase document updater with cascade awareness (All Phases).",
@@ -482,7 +482,7 @@
     {
       "name": "kb-architect",
       "category": "architect",
-      "path": ".agents/agents/architect/kb-architect.md",
+      "path": ".agents/rules/architect/kb-architect.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Knowledge base architect for creating validated, structured KB domains.",
@@ -494,7 +494,7 @@
     {
       "name": "lakeflow-architect",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/lakeflow-architect.md",
+      "path": ".agents/rules/data-engineering/lakeflow-architect.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Databricks Lakeflow expert for building Medallion architecture pipelines. Creates Bronze/Silver/Gold layers with DLT. Uses KB + MCP validation.",
@@ -513,7 +513,7 @@
     {
       "name": "lakeflow-expert",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/lakeflow-expert.md",
+      "path": ".agents/rules/data-engineering/lakeflow-expert.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Databricks Lakeflow (DLT) SME for pipeline development, CDC, data quality, and production deployment. Uses KB + MCP validation.",
@@ -532,7 +532,7 @@
     {
       "name": "lakeflow-pipeline-builder",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/lakeflow-pipeline-builder.md",
+      "path": ".agents/rules/data-engineering/lakeflow-pipeline-builder.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Builds Databricks Lakeflow (DLT) pipelines for Medallion Architecture. Uses KB + MCP validation for production-ready pipelines.",
@@ -551,7 +551,7 @@
     {
       "name": "lakeflow-specialist",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/lakeflow-specialist.md",
+      "path": ".agents/rules/data-engineering/lakeflow-specialist.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "Databricks Lakeflow (DLT) specialist for declarative pipelines, materialized views, streaming tables, and expectations.",
@@ -566,7 +566,7 @@
     {
       "name": "lakehouse-architect",
       "category": "architect",
-      "path": ".agents/agents/architect/lakehouse-architect.md",
+      "path": ".agents/rules/architect/lakehouse-architect.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Open table format and catalog specialist for Iceberg, Delta Lake, and lakehouse governance.",
@@ -584,7 +584,7 @@
     {
       "name": "lambda-builder",
       "category": "cloud",
-      "path": ".agents/agents/cloud/lambda-builder.md",
+      "path": ".agents/rules/cloud/lambda-builder.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "AWS Lambda expert for Python serverless file processing. Builds S3-triggered Lambda functions with proper error handling, structured logging, and Parquet output. Uses KB + MCP validation for production-ready code.",
@@ -602,7 +602,7 @@
     {
       "name": "llm-specialist",
       "category": "python",
-      "path": ".agents/agents/python/llm-specialist.md",
+      "path": ".agents/rules/python/llm-specialist.md",
       "tier": "T3",
       "model": "opus",
       "description": "Prompt engineering specialist and LLM expert. Masters structured prompting, chain-of-thought reasoning, and AI-powered extraction. Uses KB + MCP validation for optimized, production-ready prompts.",
@@ -616,7 +616,7 @@
     {
       "name": "medallion-architect",
       "category": "architect",
-      "path": ".agents/agents/architect/medallion-architect.md",
+      "path": ".agents/rules/architect/medallion-architect.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "Medallion Architecture specialist for Bronze/Silver/Gold layer design and data quality progression.",
@@ -631,7 +631,7 @@
     {
       "name": "meeting-analyst",
       "category": "dev",
-      "path": ".agents/agents/dev/meeting-analyst.md",
+      "path": ".agents/rules/dev/meeting-analyst.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Master communication analyst that transforms meetings into structured, actionable documentation.",
@@ -644,7 +644,7 @@
     {
       "name": "pipeline-architect",
       "category": "architect",
-      "path": ".agents/agents/architect/pipeline-architect.md",
+      "path": ".agents/rules/architect/pipeline-architect.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Orchestration specialist for Airflow, Dagster, and pipeline design patterns.",
@@ -662,7 +662,7 @@
     {
       "name": "prompt-crafter",
       "category": "dev",
-      "path": ".agents/agents/dev/prompt-crafter.md",
+      "path": ".agents/rules/dev/prompt-crafter.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "PROMPT.md builder with SDD-lite phases and Agent Matching Engine.",
@@ -674,10 +674,10 @@
     {
       "name": "python-developer",
       "category": "python",
-      "path": ".agents/agents/python/python-developer.md",
+      "path": ".agents/rules/python/python-developer.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Python code architect for data engineering systems \u2014 clean patterns, dataclasses, type hints, generators.",
+      "description": "Python code architect for data engineering systems — clean patterns, dataclasses, type hints, generators.",
       "kb_domains": [
         "python",
         "pydantic",
@@ -688,7 +688,7 @@
     {
       "name": "qdrant-specialist",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/qdrant-specialist.md",
+      "path": ".agents/rules/data-engineering/qdrant-specialist.md",
       "tier": "T3",
       "model": "opus",
       "description": "Elite Qdrant vector database specialist for collection management, point operations, payload filtering, search optimization, and RAG pipeline integration.",
@@ -705,7 +705,7 @@
     {
       "name": "schema-designer",
       "category": "architect",
-      "path": ".agents/agents/architect/schema-designer.md",
+      "path": ".agents/rules/architect/schema-designer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Data modeling specialist for dimensional modeling, Data Vault, SCD types, and schema evolution.",
@@ -724,7 +724,7 @@
     {
       "name": "shell-script-specialist",
       "category": "dev",
-      "path": ".agents/agents/dev/shell-script-specialist.md",
+      "path": ".agents/rules/dev/shell-script-specialist.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Elite shell scripting specialist for building production-grade Bash scripts with best practices, error handling, and cross-platform compatibility.",
@@ -737,7 +737,7 @@
     {
       "name": "ship-agent",
       "category": "workflow",
-      "path": ".agents/agents/workflow/ship-agent.md",
+      "path": ".agents/rules/workflow/ship-agent.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Feature archival and lessons learned specialist (Phase 4).",
@@ -749,7 +749,7 @@
     {
       "name": "spark-engineer",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/spark-engineer.md",
+      "path": ".agents/rules/data-engineering/spark-engineer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "PySpark and Spark SQL specialist for distributed data processing at scale.",
@@ -767,7 +767,7 @@
     {
       "name": "spark-performance-analyzer",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/spark-performance-analyzer.md",
+      "path": ".agents/rules/data-engineering/spark-performance-analyzer.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "Spark performance optimization specialist for tuning memory, partitioning, joins, and I/O.",
@@ -781,7 +781,7 @@
     {
       "name": "spark-specialist",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/spark-specialist.md",
+      "path": ".agents/rules/data-engineering/spark-specialist.md",
       "tier": "T2",
       "model": "opus",
       "description": "Apache Spark SME for performance optimization, architecture design, and troubleshooting.",
@@ -799,7 +799,7 @@
     {
       "name": "spark-streaming-architect",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/spark-streaming-architect.md",
+      "path": ".agents/rules/data-engineering/spark-streaming-architect.md",
       "tier": "T3",
       "model": "sonnet",
       "description": "Spark Structured Streaming expert for real-time pipelines, Kafka integration, and stream processing. Uses KB + MCP validation.",
@@ -817,7 +817,7 @@
     {
       "name": "spark-troubleshooter",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/spark-troubleshooter.md",
+      "path": ".agents/rules/data-engineering/spark-troubleshooter.md",
       "tier": "T1",
       "model": "sonnet",
       "description": "Spark debugging specialist for diagnosing OOM errors, data skew, shuffle failures, and job hangs.",
@@ -830,7 +830,7 @@
     {
       "name": "sql-optimizer",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/sql-optimizer.md",
+      "path": ".agents/rules/data-engineering/sql-optimizer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Cross-dialect SQL optimization specialist for query plans, window functions, and performance tuning.",
@@ -848,7 +848,7 @@
     {
       "name": "streaming-engineer",
       "category": "data-engineering",
-      "path": ".agents/agents/data-engineering/streaming-engineer.md",
+      "path": ".agents/rules/data-engineering/streaming-engineer.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Stream processing specialist for Flink, Kafka, Spark Streaming, RisingWave, and CDC pipelines.",
@@ -867,7 +867,7 @@
     {
       "name": "supabase-specialist",
       "category": "cloud",
-      "path": ".agents/agents/cloud/supabase-specialist.md",
+      "path": ".agents/rules/cloud/supabase-specialist.md",
       "tier": "T3",
       "model": "opus",
       "description": "Elite Supabase specialist for pgvector, RLS, Edge Functions, Auth, Realtime, and database design.",
@@ -885,7 +885,7 @@
     {
       "name": "test-generator",
       "category": "test",
-      "path": ".agents/agents/test/test-generator.md",
+      "path": ".agents/rules/test/test-generator.md",
       "tier": "T2",
       "model": "sonnet",
       "description": "Test automation expert for Python. Generates pytest unit tests, integration tests, and fixtures.",
@@ -903,7 +903,7 @@
     {
       "name": "the-planner",
       "category": "architect",
-      "path": ".agents/agents/architect/the-planner.md",
+      "path": ".agents/rules/architect/the-planner.md",
       "tier": "T2",
       "model": "opus",
       "description": "Strategic AI architect that creates comprehensive implementation plans.",
@@ -911,6 +911,56 @@
       "escalates_to": [
         "user"
       ]
+    },
+    {
+      "name": "chart-architect",
+      "category": "data-viz",
+      "path": ".agents/rules/data-viz/chart-architect.md",
+      "tier": "T1",
+      "model": "sonnet",
+      "description": "Chart type selection specialist — recommends the right visualization based on data shape, relationship, audience, and medium.",
+      "kb_domains": ["dataviz", "arrecadacao"],
+      "escalates_to": ["dashboard-designer"]
+    },
+    {
+      "name": "dashboard-designer",
+      "category": "data-viz",
+      "path": ".agents/rules/data-viz/dashboard-designer.md",
+      "tier": "T2",
+      "model": "sonnet",
+      "description": "Dashboard layout and composition specialist for Power BI, Tableau, Evidence.dev, and HTML mock dashboards.",
+      "kb_domains": ["dataviz", "arrecadacao"],
+      "escalates_to": ["power-bi-developer", "storytelling-analyst"]
+    },
+    {
+      "name": "power-bi-developer",
+      "category": "data-viz",
+      "path": ".agents/rules/data-viz/power-bi-developer.md",
+      "tier": "T2",
+      "model": "sonnet",
+      "description": "Power BI specialist for DAX measures, calculated columns, semantic model design, and row-level security.",
+      "kb_domains": ["dataviz", "arrecadacao"],
+      "escalates_to": ["dashboard-designer"]
+    },
+    {
+      "name": "storytelling-analyst",
+      "category": "data-viz",
+      "path": ".agents/rules/data-viz/storytelling-analyst.md",
+      "tier": "T1",
+      "model": "sonnet",
+      "description": "Data storytelling specialist — transforms data summaries and chart descriptions into structured narratives.",
+      "kb_domains": ["dataviz", "arrecadacao"],
+      "escalates_to": ["dashboard-designer"]
+    },
+    {
+      "name": "viz-code-generator",
+      "category": "data-viz",
+      "path": ".agents/rules/data-viz/viz-code-generator.md",
+      "tier": "T2",
+      "model": "sonnet",
+      "description": "Visualization code specialist for Plotly, ECharts, Evidence.dev, and Vega-Altair.",
+      "kb_domains": ["dataviz", "arrecadacao"],
+      "escalates_to": ["dashboard-designer"]
     }
   ],
   "categories": {
@@ -945,6 +995,10 @@
     "workflow": {
       "label": "SDD Workflow",
       "description": "Brainstorm, Define, Design, Build, Ship, Iterate"
+    },
+    "data-viz": {
+      "label": "Data Visualization",
+      "description": "Chart selection, dashboard design, DAX, storytelling, viz code"
     }
   }
 }

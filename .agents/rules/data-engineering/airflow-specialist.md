@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: airflow-specialist
 tier: T3
 model: sonnet

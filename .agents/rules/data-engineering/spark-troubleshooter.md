@@ -1,4 +1,5 @@
 ---
+trigger: model_decision
 name: spark-troubleshooter
 tier: T1
 model: sonnet
