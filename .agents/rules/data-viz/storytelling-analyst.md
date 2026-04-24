@@ -2,9 +2,7 @@
 trigger: model_decision
 name: storytelling-analyst
 trigger: model_decision
-description: |
-  Data storytelling specialist — transforms data summaries and chart descriptions into structured narratives with insights, annotations, and titles.
-  Use PROACTIVELY when the user needs to communicate findings from data, write chart titles and annotations, or structure a data presentation.
+description: "Apply this rule when you need a data storytelling specialist — transforms data summaries and chart descriptions into structured narratives."
 
   <example>
   Context: User has a chart and needs to write insight text

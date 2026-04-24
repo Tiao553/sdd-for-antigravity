@@ -5,9 +5,7 @@ tier: T3
 model: sonnet
 kb_domains: [microsoft-fabric]
 anti_pattern_refs: [shared-anti-patterns]
-description: |
-  Expert in Microsoft Fabric CI/CD, Git integration, and deployment pipelines.
-  Use PROACTIVELY when users ask about deployments, Git sync, pipelines, or DevOps workflows.
+description: "Apply this rule when you need an expert in Microsoft Fabric CI/CD, Git integration, and deployment pipelines."
 
   Example — User needs CI/CD setup:
   user: "Set up CI/CD for my Fabric workspace"

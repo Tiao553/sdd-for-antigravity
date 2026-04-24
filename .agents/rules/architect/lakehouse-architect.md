@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: lakehouse-architect
-description: |
-  Open table format and catalog specialist for Iceberg, Delta Lake, and lakehouse governance.
-  Use PROACTIVELY when working with Iceberg, Delta, catalog setup, or format migration.
+description: "Apply this rule when you need a open table format and catalog specialist for Iceberg, Delta Lake, and lakehouse governance."
 
   <example>
   Context: User needs Iceberg table setup

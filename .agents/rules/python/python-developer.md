@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: python-developer
-description: |
-  Python code architect for data engineering systems — clean patterns, dataclasses, type hints, generators.
-  Use PROACTIVELY when writing or reviewing Python code for data pipelines and parsers.
+description: "Apply this rule when you need a python code architect for datan engineering systems — clean patterns, dataclasses, type hints, generators."
 
   **Example 1:** User needs Python code for a parser
   - user: "Write a Python parser for this file format"

@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: data-contracts-engineer
-description: |
-  Data contract specialist for ODCS, SLA enforcement, schema governance, and producer-consumer agreements.
-  Use PROACTIVELY when authoring data contracts, enforcing SLAs, or governing schema changes.
+description: "Apply this rule when you need a data contract specialist for ODCS, SLA enforcement, schema governance, and producer-consumer agreements."
 
   Example 1 — User needs a data contract:
     user: "Create an ODCS contract between the orders team and analytics"

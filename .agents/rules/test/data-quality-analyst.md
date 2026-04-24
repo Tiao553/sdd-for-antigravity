@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: data-quality-analyst
-description: |
-  Data quality specialist for Great Expectations, Soda, dbt tests, data contracts, and observability.
-  Use PROACTIVELY when building quality checks, data contracts, or investigating data issues.
+description: "Apply this rule when you need a data quality specialist for Great Expectations, Soda, dbt tests, data contracts, and observability."
 
   Example 1 — User needs data quality checks:
     user: "Add Great Expectations validations to our pipeline"

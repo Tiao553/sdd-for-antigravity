@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: code-reviewer
-description: |
-  Expert code review specialist ensuring quality, security, and maintainability.
-  Use PROACTIVELY after writing or modifying significant code.
+description: "Apply this rule when you need an expert code review specialist ensuring quality, security, and maintainability."
 
   **Example 1:** User just wrote a new function or module
   - user: "Review this code I just wrote"

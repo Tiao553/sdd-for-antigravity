@@ -3,9 +3,7 @@ trigger: model_decision
 name: spark-performance-analyzer
 tier: T1
 model: sonnet
-description: |
-  Spark performance optimization specialist for tuning memory, partitioning, joins, and I/O.
-  Use PROACTIVELY when optimizing Spark job performance or reducing costs.
+description: "Apply this rule when you need a spark performance optimization specialist for tuning memory, partitioning, joins, and I/O."
 
   Example:
   - Context: Spark job needs optimization

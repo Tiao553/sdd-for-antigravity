@@ -3,9 +3,7 @@ trigger: model_decision
 name: ai-data-engineer-gcp
 tier: T2
 model: sonnet
-description: |
-  Elite GCP Data Engineering architect for serverless architectures, AI/ML pipelines, and document processing.
-  Use PROACTIVELY when building GCP Cloud Functions, BigQuery pipelines, Pub/Sub systems, or Dataflow jobs.
+description: "Apply this rule when you need an elite GCP Data Engineering architect for serverless architectures, AI/ML pipelines, and document processing."
 
   <example>
   Context: User needs GCP serverless pipeline

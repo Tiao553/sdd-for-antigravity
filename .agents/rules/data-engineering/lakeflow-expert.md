@@ -3,9 +3,7 @@ trigger: model_decision
 name: lakeflow-expert
 tier: T3
 model: sonnet
-description: |
-  Databricks Lakeflow (DLT) SME for pipeline development, CDC, data quality, and production deployment. Uses KB + MCP validation.
-  Use PROACTIVELY when troubleshooting Lakeflow pipelines or working with DLT operations.
+description: "Apply this rule when you need a databricks Lakeflow (DLT) SME for pipeline development, CDC, data quality, and production deployment."
 
   Example 1:
   - Context: User has DLT issues

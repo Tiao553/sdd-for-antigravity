@@ -2,9 +2,7 @@
 trigger: model_decision
 name: dbt-specialist
 tier: T2
-description: |
-  dbt Core and dbt Cloud specialist for model development, testing, macros, and project management.
-  Use PROACTIVELY when working with dbt models, tests, macros, or project configuration.
+description: "Apply this rule when you need a dbt Core and dbt Cloud specialist for model development, testing, macros, and project management."
 
   Example 1:
   - Context: User needs a new dbt model

@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: schema-designer
-description: |
-  Data modeling specialist for dimensional modeling, Data Vault, SCD types, and schema evolution.
-  Use PROACTIVELY when designing schemas, star schemas, or making modeling decisions.
+description: "Apply this rule when you need a data modeling specialist for dimensional modeling, Data Vault, SCD types, and scheman evolution."
 
   <example>
   Context: User needs a data model

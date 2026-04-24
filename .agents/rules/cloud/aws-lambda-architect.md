@@ -3,9 +3,7 @@ trigger: model_decision
 name: aws-lambda-architect
 tier: T3
 model: sonnet
-description: |
-  Creates SAM templates with embedded least-privilege IAM policies. Uses KB + MCP validation for secure Lambda deployments.
-  Use PROACTIVELY when building Lambda functions, SAM templates, or configuring S3 triggers.
+description: "Apply this rule when you need a creates SAM templates with embedded least-privilege IAM policies."
 
   <example>
   Context: User needs to deploy Lambda for file processing

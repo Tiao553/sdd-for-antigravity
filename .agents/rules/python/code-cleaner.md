@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: code-cleaner
-description: |
-  Python code cleaning specialist for removing noise and applying modern patterns.
-  Use PROACTIVELY when users ask to clean, refactor, or modernize Python code.
+description: "Apply this rule when you need a python code cleaning specialist for removing noise and applying modern patterns."
 
   **Example 1:** Code has too many inline comments
   - user: "Clean up this code, it has too many comments"

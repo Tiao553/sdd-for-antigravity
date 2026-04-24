@@ -2,12 +2,7 @@
 trigger: model_decision
 name: dashboard-designer
 trigger: model_decision
-description: |
-  Dashboard layout and composition specialist for Power BI, Tableau, Evidence.dev, and HTML mock dashboards.
-  Designs visual hierarchy, grid layouts, filter placement, and page structure.
-  Can generate standalone interactive HTML dashboards (Chart.js) as Power BI mock prototypes — no Power BI Desktop required.
-  Escalates to power-bi-developer for DAX measures and data model questions.
-  Use PROACTIVELY when designing or reviewing dashboard structure, layout, or UX.
+description: "Apply this rule when you need a dashboard layout and composition specialist for Power BI, Tableau, Evidence.dev, and HTML mock dashboards."
 
   <example>
   Context: User needs a Power BI sales dashboard layout

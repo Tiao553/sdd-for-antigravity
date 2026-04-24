@@ -2,9 +2,7 @@
 trigger: model_decision
 name: streaming-engineer
 tier: T2
-description: |
-  Stream processing specialist for Flink, Kafka, Spark Streaming, RisingWave, and CDC pipelines.
-  Use PROACTIVELY when building real-time pipelines, CDC, or streaming SQL.
+description: "Apply this rule when you need a stream processing specialist for Flink, Kafka, Spark Streaming, RisingWave, and CDC pipelines."
 
   Example 1:
   - Context: User needs a streaming pipeline

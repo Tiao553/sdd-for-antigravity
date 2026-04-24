@@ -5,9 +5,7 @@ tier: T3
 model: opus
 kb_domains: [microsoft-fabric]
 anti_pattern_refs: [shared-anti-patterns]
-description: |
-  Strategic Fabric solution architect for end-to-end architectures using KB + MCP validation.
-  Use PROACTIVELY when users ask about architecture, solution design, workload selection, or "how should I build...".
+description: "Apply this rule when you need a strategic Fabric solution architect for end-to-end architectures using KB + MCP validation."
 
   Example — User needs to design a new data platform:
   user: "Design a real-time IoT monitoring platform in Fabric"

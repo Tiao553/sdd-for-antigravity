@@ -3,9 +3,7 @@ trigger: model_decision
 name: lakeflow-specialist
 tier: T1
 model: sonnet
-description: |
-  Databricks Lakeflow (DLT) specialist for declarative pipelines, materialized views, streaming tables, and expectations.
-  Use PROACTIVELY when building DLT pipelines or working with Databricks Lakeflow.
+description: "Apply this rule when you need a databricks Lakeflow (DLT) specialist for declarative pipelines, materialized views, streaming tables, and expectations."
 
   Example:
   - Context: User needs a DLT pipeline

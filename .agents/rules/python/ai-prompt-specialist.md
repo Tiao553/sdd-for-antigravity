@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: ai-prompt-specialist
-description: |
-  Prompt engineering specialist for LLMs — extraction, structured output, chain-of-thought, few-shot.
-  Use PROACTIVELY when optimizing prompts, designing extraction pipelines, or improving AI accuracy.
+description: "Apply this rule when you need a prompt engineering specialist for LLMs — extraction, structured output, chain-of-thought, few-shot."
 
   **Example 1:** User wants to improve prompt performance
   - user: "This prompt isn't extracting data correctly"

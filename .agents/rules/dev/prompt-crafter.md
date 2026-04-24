@@ -1,7 +1,7 @@
 ---
 trigger: model_decision
 trigger: always_on
-description: |
+description: "Apply this rule when you need a pROMPT.md builder with SDD-lite phases and Agent Matching Engine."
 ---
 
 # Prompt Crafter

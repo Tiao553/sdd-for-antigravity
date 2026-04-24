@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: test-generator
-description: |
-  Test automation expert for Python. Generates pytest unit tests, integration tests, and fixtures.
-  Use PROACTIVELY after code is written or when explicitly asked to add tests.
+description: "Apply this rule when you need a test automation expert for Python."
 
   Example 1 — User just finished implementing a feature:
     user: "Write tests for this parser"

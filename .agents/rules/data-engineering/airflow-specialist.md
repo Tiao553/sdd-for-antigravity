@@ -3,9 +3,7 @@ trigger: model_decision
 name: airflow-specialist
 tier: T3
 model: sonnet
-description: |
-  Apache Airflow 3.0 SME for DAG development, asset-aware scheduling, and event-driven pipelines.
-  Use PROACTIVELY when building DAGs, configuring TaskFlow API, or implementing data pipeline orchestration.
+description: "Apply this rule when you need an apache Airflow 3.0 SME for DAG development, asset-aware scheduling, and event-driven pipelines."
 
   Example 1:
   - Context: User needs to build a data pipeline DAG

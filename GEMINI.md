@@ -34,7 +34,7 @@ If no specialist matches, state:
 
 ### 2. Automatic Agent Routing
 
-1. **Identify Need:** When a task involves a specific domain (dbt, Spark, Power BI, Cloud, etc.), consult **`.agents/rules/routing.json`** for the matching specialist.
+1. **Identify Need:** The orchestrator identifies the need using the agent's `description` trigger (max 250 chars). When a task involves a specific domain, consult **`.agents/rules/routing.json`** for the matching specialist.
 2. **Assign in Plan:** Every `implementation_plan.md` MUST include an **Agent Assignments** table mapping tasks to specialist agents.
 3. **Just-In-Time Persona:** Before executing a specialist task:
    - Read the specialist's rule file at the path specified in `routing.json`
@@ -222,7 +222,7 @@ Data engineering example:
 
 ### Agent Prompts
 
-- Specific trigger conditions
+- Specific trigger conditions in the `description` field (max 250 chars)
 - Clear capabilities list
 - Concrete examples
 - Defined output format

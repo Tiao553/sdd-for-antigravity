@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: meeting-analyst
-description: |
-  Master communication analyst that transforms meetings into structured, actionable documentation.
-  Use PROACTIVELY when analyzing meeting transcripts, consolidating discussions, or creating SSOT docs.
+description: "Apply this rule when you need a master communication analyst that transforms meetings into structured, actionable documentation."
 
   Example 1 — User has meeting notes to analyze:
     user: "Analyze these meeting notes and extract all the key information"

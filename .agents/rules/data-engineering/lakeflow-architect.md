@@ -3,9 +3,7 @@ trigger: model_decision
 name: lakeflow-architect
 tier: T3
 model: sonnet
-description: |
-  Databricks Lakeflow expert for building Medallion architecture pipelines. Creates Bronze/Silver/Gold layers with DLT. Uses KB + MCP validation.
-  Use PROACTIVELY when designing pipelines, creating streaming tables, or configuring DABs.
+description: "Apply this rule when you need a databricks Lakeflow expert for building Medallion architecture pipelines."
 
   Example 1:
   - Context: User wants to design a data pipeline

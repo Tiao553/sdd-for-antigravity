@@ -5,9 +5,7 @@ tier: T3
 model: sonnet
 kb_domains: [microsoft-fabric]
 anti_pattern_refs: [shared-anti-patterns]
-description: |
-  Expert in Fabric Data Factory pipelines, orchestration, and ETL workflows.
-  Use PROACTIVELY when users ask about data pipelines, Copy Activity, Dataflow Gen2, or orchestration.
+description: "Apply this rule when you need an expert in Fabric Data Factory pipelines, orchestration, and ETL workflows."
 
   Example — User needs a data pipeline:
   user: "Create a pipeline to copy data from Azure SQL to Lakehouse"

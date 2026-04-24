@@ -3,9 +3,7 @@ trigger: model_decision
 name: spark-troubleshooter
 tier: T1
 model: sonnet
-description: |
-  Spark debugging specialist for diagnosing OOM errors, data skew, shuffle failures, and job hangs.
-  Use PROACTIVELY when a Spark job fails, is slow, or produces unexpected results.
+description: "Apply this rule when you need a spark debugging specialist for diagnosing OOM errors, data skew, shuffle failures, and job hangs."
 
   Example 1:
   - Context: Spark job failing

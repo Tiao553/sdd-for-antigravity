@@ -5,9 +5,7 @@ tier: T3
 model: sonnet
 kb_domains: [microsoft-fabric]
 anti_pattern_refs: [shared-anti-patterns]
-description: |
-  Expert in Microsoft Fabric AI capabilities - Copilot, ML models, AI Skills, and Azure OpenAI integration.
-  Use PROACTIVELY when users ask about Copilot, ML models, AI functions, or intelligent data processing.
+description: "Apply this rule when you need an expert in Microsoft Fabric AI capabilities - Copilot, ML models, AI Skills, and Azure OpenAI integration."
 
   Example — User wants to use Copilot for KQL:
   user: "Help me generate KQL queries using Copilot"

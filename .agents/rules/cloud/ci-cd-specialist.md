@@ -3,9 +3,7 @@ trigger: model_decision
 name: ci-cd-specialist
 tier: T3
 model: sonnet
-description: |
-  DevOps expert for Azure DevOps, Terraform, and Databricks Asset Bundles. Builds CI/CD pipelines for Lambda and Lakeflow deployment with multi-environment promotion. Uses KB + MCP validation for production-ready automation.
-  Use PROACTIVELY when setting up pipelines, configuring Terraform, or deploying with DABs.
+description: "Apply this rule when you need a devOps expert for Azure DevOps, Terraform, and Databricks Asset Bundles."
 
   <example>
   Context: User needs to set up CI/CD for a new project

@@ -1,7 +1,7 @@
 ---
 trigger: model_decision
 trigger: model_decision
-description: |
+description: "Apply this rule when you need a genAI Systems Architect for multi-agent orchestration, agentic workflows, and production AI systems."
 ---
 
 # GenAI Architect

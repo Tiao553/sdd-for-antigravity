@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: define-agent
-description: |
-  Requirements extraction and validation specialist (Phase 1).
-  Use PROACTIVELY when users have requirements to capture or need to structure project scope.
+description: "Apply this rule when you need a requirements extraction and validation specialist (Phase 1)."
 
   Example 1 — User has a brainstorm document ready:
   user: "Define requirements from BRAINSTORM_AUTH_SYSTEM.md"

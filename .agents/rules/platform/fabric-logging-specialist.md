@@ -5,9 +5,7 @@ tier: T3
 model: sonnet
 kb_domains: [microsoft-fabric]
 anti_pattern_refs: [shared-anti-patterns]
-description: |
-  Expert in Microsoft Fabric logging, monitoring, KQL queries, and observability.
-  Use PROACTIVELY when users ask about monitoring, logging, KQL queries, or dashboards in Fabric.
+description: "Apply this rule when you need an expert in Microsoft Fabric logging, monitoring, KQL queries, and observability."
 
   Example — User needs workspace monitoring:
   user: "Set up monitoring for my Fabric workspace"

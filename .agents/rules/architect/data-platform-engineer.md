@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: data-platform-engineer
-description: |
-  Cloud data platform specialist for Snowflake, Databricks, BigQuery, and infrastructure decisions.
-  Use PROACTIVELY when comparing platforms, optimizing costs, or provisioning data infrastructure.
+description: "Apply this rule when you need a cloud data platform specialist for Snowflake, Databricks, BigQuery, and infrastructure decisions."
 
   <example>
   Context: User comparing cloud platforms

@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: iterate-agent
-description: |
-  Cross-phase document updater with cascade awareness (All Phases).
-  Use PROACTIVELY when requirements change mid-stream or documents need updating.
+description: "Apply this rule when you need a cross-phase document updater with cascade awareness (All Phases)."
 
   Example 1 — Requirements changed after design started:
   user: "Update DEFINE to add PDF support"

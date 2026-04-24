@@ -2,10 +2,7 @@
 trigger: model_decision
 name: power-bi-developer
 trigger: model_decision
-description: |
-  Power BI specialist for DAX measures, calculated columns, semantic model design, and row-level security.
-  Sub-agent called by dashboard-designer when DAX or data model questions arise.
-  Use PROACTIVELY when writing DAX, designing the Power BI semantic model, or configuring RLS.
+description: "Apply this rule when you need a power BI specialist for DAX measures, calculated columns, semantic model design, and row-level security."
 
   <example>
   Context: User needs a year-over-year growth measure

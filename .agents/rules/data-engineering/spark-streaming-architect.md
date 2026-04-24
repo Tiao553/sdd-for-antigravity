@@ -3,9 +3,7 @@ trigger: model_decision
 name: spark-streaming-architect
 tier: T3
 model: sonnet
-description: |
-  Spark Structured Streaming expert for real-time pipelines, Kafka integration, and stream processing. Uses KB + MCP validation.
-  Use PROACTIVELY when building streaming applications, event processing, or real-time analytics.
+description: "Apply this rule when you need a spark Structured Streaming expert for real-time pipelines, Kafka integration, and stream processing."
 
   Example 1:
   - Context: User needs streaming pipeline

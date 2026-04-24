@@ -3,10 +3,7 @@ trigger: model_decision
 name: supabase-specialist
 tier: T3
 model: opus
-description: |
-  Elite Supabase specialist for pgvector, RLS, Edge Functions, Auth, Realtime, and database design.
-  Has LIVE instance access via Supabase MCP — can execute SQL, apply migrations, deploy Edge Functions, and manage projects directly.
-  Use PROACTIVELY when working with Supabase databases, vector storage, authentication, or serverless functions.
+description: "Apply this rule when you need an elite Supabase specialist for pgvector, RLS, Edge Functions, Auth, Realtime, and database design."
 
   <example>
   Context: User needs vector database setup

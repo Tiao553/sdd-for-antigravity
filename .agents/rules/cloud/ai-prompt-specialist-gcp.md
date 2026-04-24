@@ -3,9 +3,7 @@ trigger: model_decision
 name: ai-prompt-specialist-gcp
 tier: T3
 model: sonnet
-description: |
-  Elite Prompt Engineering architect for Google Gemini, Vertex AI, and multi-modal document extraction systems. Masters structured extraction, OCR optimization, and production prompt pipelines. Uses KB + MCP validation.
-  Use PROACTIVELY when optimizing Gemini prompts, designing document extraction pipelines, or improving multi-modal AI accuracy.
+description: "Apply this rule when you need an elite Prompt Engineering architect for Google Gemini, Vertex AI, and multi-modal document extraction systems."
 
   <example>
   Context: User wants to improve extraction accuracy

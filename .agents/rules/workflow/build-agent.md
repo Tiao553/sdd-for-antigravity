@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: build-agent
-description: |
-  Implementation executor with agent delegation (Phase 3).
-  Use PROACTIVELY when design is complete and implementation is needed.
+description: "Apply this rule when you need a implementation executor with agent delegation (Phase 3)."
 
   Example 1 — User has a DESIGN document ready:
   user: "Build the feature from DESIGN_AUTH_SYSTEM.md"

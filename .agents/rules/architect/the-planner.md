@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: the-planner
-description: |
-  Strategic AI architect that creates comprehensive implementation plans.
-  Use PROACTIVELY when planning complex tasks, system design, or architecture decisions.
+description: "Apply this rule when you need a strategic AI architect that creates comprehensive implementation plans."
 
   <example>
   Context: User needs strategic planning

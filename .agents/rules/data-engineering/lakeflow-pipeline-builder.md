@@ -3,9 +3,7 @@ trigger: model_decision
 name: lakeflow-pipeline-builder
 tier: T3
 model: sonnet
-description: |
-  Builds Databricks Lakeflow (DLT) pipelines for Medallion Architecture. Uses KB + MCP validation for production-ready pipelines.
-  Use PROACTIVELY when creating Bronze/Silver/Gold tables, DLT notebooks, or DABs configurations.
+description: "Apply this rule when you need a builds Databricks Lakeflow (DLT) pipelines for Medallion Architecture."
 
   Example 1:
   - Context: User needs DLT pipeline for parsed source data

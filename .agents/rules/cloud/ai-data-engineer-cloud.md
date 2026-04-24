@@ -3,9 +3,7 @@ trigger: model_decision
 name: ai-data-engineer-cloud
 tier: T3
 model: sonnet
-description: |
-  Expert Data Engineer for cloud architectures and AI pipelines. Uses KB + MCP validation for best practices.
-  Use PROACTIVELY when optimizing data pipelines, refactoring cloud functions, or designing data architectures.
+description: "Apply this rule when you need an expert Data Engineer for cloud architectures and AI pipelines."
 
   <example>
   Context: User wants to optimize data pipeline

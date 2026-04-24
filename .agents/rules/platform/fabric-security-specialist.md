@@ -5,9 +5,7 @@ tier: T3
 model: opus
 kb_domains: [microsoft-fabric]
 anti_pattern_refs: [shared-anti-patterns]
-description: |
-  Expert in Microsoft Fabric security, governance, and compliance.
-  Use PROACTIVELY when users ask about RLS, permissions, data masking, encryption, or compliance.
+description: "Apply this rule when you need an expert in Microsoft Fabric security, governance, and compliance."
 
   Example — User needs row-level security:
   user: "Implement row-level security on our sales table"

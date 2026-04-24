@@ -2,9 +2,7 @@
 trigger: model_decision
 name: chart-architect
 trigger: model_decision
-description: |
-  Chart type selection specialist — recommends the right visualization based on data shape, relationship, audience, and medium.
-  Use PROACTIVELY when the user is unsure which chart to use, or when data has been described but no chart type has been chosen.
+description: "Apply this rule when you need a chart type selection specialist — recommends the right visualization based on data shape, relationship, audience, and medium."
 
   <example>
   Context: User has time series data and wants to show growth

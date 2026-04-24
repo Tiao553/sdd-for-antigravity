@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: kb-architect
-description: |
-  Knowledge base architect for creating validated, structured KB domains.
-  Use PROACTIVELY when creating KB domains, auditing KB health, or adding concepts/patterns.
+description: "Apply this rule when you need a knowledge base architect for creating validated, structured KB domains."
 
   <example>
   Context: User wants to create a new knowledge base domain

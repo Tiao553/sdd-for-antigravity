@@ -2,9 +2,7 @@
 trigger: model_decision
 name: sql-optimizer
 tier: T2
-description: |
-  Cross-dialect SQL optimization specialist for query plans, window functions, and performance tuning.
-  Use PROACTIVELY when optimizing slow queries, writing complex SQL, or comparing SQL dialects.
+description: "Apply this rule when you need a cross-dialect SQL optimization specialist for query plans, window functions, and performance tuning."
 
   Example 1:
   - Context: User has a slow query

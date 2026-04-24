@@ -8,7 +8,7 @@
       "path": ".agents/rules/data-engineering/ai-data-engineer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "AI data engineering specialist for RAG pipelines, vector databases, feature stores, and LLMOps.",
+      "description": "Apply this rule when you need an aI datan engineering specialist for RAG pipelines, vector databases, feature stores, and LLMOps.",
       "kb_domains": [
         "ai-data-engineering",
         "data-quality",
@@ -27,7 +27,7 @@
       "path": ".agents/rules/cloud/ai-data-engineer-cloud.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Expert Data Engineer for cloud architectures and AI pipelines. Uses KB + MCP validation for best practices.",
+      "description": "Apply this rule when you need an expert Data Engineer for cloud architectures and AI pipelines.",
       "kb_domains": [
         "gcp",
         "aws",
@@ -47,7 +47,7 @@
       "path": ".agents/rules/cloud/ai-data-engineer-gcp.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Elite GCP Data Engineering architect for serverless architectures, AI/ML pipelines, and document processing.",
+      "description": "Apply this rule when you need an elite GCP Data Engineering architect for serverless architectures, AI/ML pipelines, and document processing.",
       "kb_domains": [
         "gcp",
         "terraform",
@@ -65,7 +65,7 @@
       "path": ".agents/rules/python/ai-prompt-specialist.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Prompt engineering specialist for LLMs — extraction, structured output, chain-of-thought, few-shot.",
+      "description": "Apply this rule when you need a prompt engineering specialist for LLMs \u2014 extraction, structured output, chain-of-thought, few-shot.",
       "kb_domains": [
         "prompt-engineering",
         "pydantic",
@@ -79,7 +79,7 @@
       "path": ".agents/rules/cloud/ai-prompt-specialist-gcp.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Elite Prompt Engineering architect for Google Gemini, Vertex AI, and multi-modal document extraction systems. Masters structured extraction, OCR optimization, and production prompt pipelines. Uses KB + MCP validation.",
+      "description": "Apply this rule when you need an elite Prompt Engineering architect for Google Gemini, Vertex AI, and multi-modal document extraction systems.",
       "kb_domains": [
         "prompt-engineering",
         "genai",
@@ -97,7 +97,7 @@
       "path": ".agents/rules/data-engineering/airflow-specialist.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Apache Airflow 3.0 SME for DAG development, asset-aware scheduling, and event-driven pipelines.",
+      "description": "Apply this rule when you need an apache Airflow 3.0 SME for DAG development, asset-aware scheduling, and event-driven pipelines.",
       "kb_domains": [
         "airflow",
         "sql-patterns",
@@ -115,7 +115,7 @@
       "path": ".agents/rules/cloud/aws-data-architect.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "AWS data architecture specialist for Lambda, S3, Glue, Redshift, MWAA, and serverless data pipelines.",
+      "description": "Apply this rule when you need an aWS datan architecture specialist for Lambda, S3, Glue, Redshift, MWAA, and serverless data pipelines.",
       "kb_domains": [
         "aws",
         "terraform",
@@ -129,7 +129,7 @@
       "path": ".agents/rules/cloud/aws-deployer.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Executes AWS CLI and SAM CLI deployment commands with validation. Uses KB + MCP validation for safe deployments.",
+      "description": "Apply this rule when you need an executes AWS CLI and SAM CLI deployment commands with validation.",
       "kb_domains": [
         "aws",
         "terraform"
@@ -146,7 +146,7 @@
       "path": ".agents/rules/cloud/aws-lambda-architect.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Creates SAM templates with embedded least-privilege IAM policies. Uses KB + MCP validation for secure Lambda deployments.",
+      "description": "Apply this rule when you need a creates SAM templates with embedded least-privilege IAM policies.",
       "kb_domains": [
         "aws",
         "terraform"
@@ -163,7 +163,7 @@
       "path": ".agents/rules/workflow/brainstorm-agent.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Collaborative exploration specialist for clarifying intent and approach (Phase 0).",
+      "description": "Apply this rule when you need a collaborative exploration specialist for clarifying intent and approach (Phase 0).",
       "kb_domains": [],
       "escalates_to": [
         "define-agent"
@@ -175,7 +175,7 @@
       "path": ".agents/rules/workflow/build-agent.md",
       "tier": "T2",
       "model": "opus",
-      "description": "Implementation executor with agent delegation (Phase 3).",
+      "description": "Apply this rule when you need a implementation executor with agent delegation (Phase 3).",
       "kb_domains": [],
       "escalates_to": [
         "design-agent"
@@ -187,7 +187,7 @@
       "path": ".agents/rules/cloud/ci-cd-specialist.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "DevOps expert for Azure DevOps, Terraform, and Databricks Asset Bundles. Builds CI/CD pipelines for Lambda and Lakeflow deployment with multi-environment promotion. Uses KB + MCP validation for production-ready automation.",
+      "description": "Apply this rule when you need a devOps expert for Azure DevOps, Terraform, and Databricks Asset Bundles.",
       "kb_domains": [
         "terraform",
         "aws",
@@ -205,7 +205,7 @@
       "path": ".agents/rules/python/code-cleaner.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Python code cleaning specialist for removing noise and applying modern patterns.",
+      "description": "Apply this rule when you need a python code cleaning specialist for removing noise and applying modern patterns.",
       "kb_domains": [
         "python"
       ],
@@ -217,7 +217,7 @@
       "path": ".agents/rules/python/code-documenter.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Documentation specialist for creating comprehensive, production-ready documentation.",
+      "description": "Apply this rule when you need a documentation specialist for creating comprehensive, production-ready documentation.",
       "kb_domains": [
         "python"
       ],
@@ -229,7 +229,7 @@
       "path": ".agents/rules/python/code-reviewer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Expert code review specialist ensuring quality, security, and maintainability.",
+      "description": "Apply this rule when you need an expert code review specialist ensuring quality, security, and maintainability.",
       "kb_domains": [
         "data-quality",
         "sql-patterns",
@@ -243,7 +243,7 @@
       "path": ".agents/rules/dev/codebase-explorer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Elite codebase analyst delivering Executive Summaries + Deep Dives.",
+      "description": "Apply this rule when you need an elite codebase analyst delivering Executive Summaries + Deep Dives.",
       "kb_domains": [],
       "escalates_to": [
         "python-developer",
@@ -256,7 +256,7 @@
       "path": ".agents/rules/test/data-contracts-engineer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Data contract specialist for ODCS, SLA enforcement, schema governance, and producer-consumer agreements.",
+      "description": "Apply this rule when you need a data contract specialist for ODCS, SLA enforcement, schema governance, and producer-consumer agreements.",
       "kb_domains": [
         "data-quality",
         "data-modeling"
@@ -273,7 +273,7 @@
       "path": ".agents/rules/architect/data-platform-engineer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Cloud data platform specialist for Snowflake, Databricks, BigQuery, and infrastructure decisions.",
+      "description": "Apply this rule when you need a cloud data platform specialist for Snowflake, Databricks, BigQuery, and infrastructure decisions.",
       "kb_domains": [
         "cloud-platforms",
         "lakehouse",
@@ -291,7 +291,7 @@
       "path": ".agents/rules/test/data-quality-analyst.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Data quality specialist for Great Expectations, Soda, dbt tests, data contracts, and observability.",
+      "description": "Apply this rule when you need a data quality specialist for Great Expectations, Soda, dbt tests, data contracts, and observability.",
       "kb_domains": [
         "data-quality",
         "dbt",
@@ -309,7 +309,7 @@
       "path": ".agents/rules/data-engineering/dbt-specialist.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "dbt Core and dbt Cloud specialist for model development, testing, macros, and project management.",
+      "description": "Apply this rule when you need a dbt Core and dbt Cloud specialist for model development, testing, macros, and project management.",
       "kb_domains": [
         "dbt",
         "data-quality",
@@ -328,7 +328,7 @@
       "path": ".agents/rules/workflow/define-agent.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Requirements extraction and validation specialist (Phase 1).",
+      "description": "Apply this rule when you need a requirements extraction and validation specialist (Phase 1).",
       "kb_domains": [],
       "escalates_to": [
         "design-agent"
@@ -340,7 +340,7 @@
       "path": ".agents/rules/workflow/design-agent.md",
       "tier": "T2",
       "model": "opus",
-      "description": "Architecture and technical specification specialist (Phase 2).",
+      "description": "Apply this rule when you need an architecture and technical specification specialist (Phase 2).",
       "kb_domains": [],
       "escalates_to": [
         "build-agent"
@@ -352,7 +352,7 @@
       "path": ".agents/rules/platform/fabric-ai-specialist.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Expert in Microsoft Fabric AI capabilities - Copilot, ML models, AI Skills, and Azure OpenAI integration.",
+      "description": "Apply this rule when you need an expert in Microsoft Fabric AI capabilities - Copilot, ML models, AI Skills, and Azure OpenAI integration.",
       "kb_domains": [
         "microsoft-fabric"
       ],
@@ -367,7 +367,7 @@
       "path": ".agents/rules/platform/fabric-architect.md",
       "tier": "T3",
       "model": "opus",
-      "description": "Strategic Fabric solution architect for end-to-end architectures using KB + MCP validation.",
+      "description": "Apply this rule when you need a strategic Fabric solution architect for end-to-end architectures using KB + MCP validation.",
       "kb_domains": [
         "microsoft-fabric"
       ],
@@ -382,7 +382,7 @@
       "path": ".agents/rules/platform/fabric-cicd-specialist.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Expert in Microsoft Fabric CI/CD, Git integration, and deployment pipelines.",
+      "description": "Apply this rule when you need an expert in Microsoft Fabric CI/CD, Git integration, and deployment pipelines.",
       "kb_domains": [
         "microsoft-fabric"
       ],
@@ -397,7 +397,7 @@
       "path": ".agents/rules/platform/fabric-logging-specialist.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Expert in Microsoft Fabric logging, monitoring, KQL queries, and observability.",
+      "description": "Apply this rule when you need an expert in Microsoft Fabric logging, monitoring, KQL queries, and observability.",
       "kb_domains": [
         "microsoft-fabric"
       ],
@@ -412,7 +412,7 @@
       "path": ".agents/rules/platform/fabric-pipeline-developer.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Expert in Fabric Data Factory pipelines, orchestration, and ETL workflows.",
+      "description": "Apply this rule when you need an expert in Fabric Data Factory pipelines, orchestration, and ETL workflows.",
       "kb_domains": [
         "microsoft-fabric"
       ],
@@ -427,7 +427,7 @@
       "path": ".agents/rules/platform/fabric-security-specialist.md",
       "tier": "T3",
       "model": "opus",
-      "description": "Expert in Microsoft Fabric security, governance, and compliance.",
+      "description": "Apply this rule when you need an expert in Microsoft Fabric security, governance, and compliance.",
       "kb_domains": [
         "microsoft-fabric"
       ],
@@ -442,7 +442,7 @@
       "path": ".agents/rules/cloud/gcp-data-architect.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Google Cloud data architecture specialist for BigQuery, Cloud Run, Pub/Sub, GCS, Dataflow, and Vertex AI.",
+      "description": "Apply this rule when you need a google Cloud datan architecture specialist for BigQuery, Cloud Run, Pub/Sub, GCS, Dataflow, and Vertex AI.",
       "kb_domains": [
         "gcp",
         "terraform",
@@ -457,7 +457,7 @@
       "path": ".agents/rules/architect/genai-architect.md",
       "tier": "T1",
       "model": "opus",
-      "description": "GenAI Systems Architect for multi-agent orchestration, agentic workflows, and production AI systems.",
+      "description": "Apply this rule when you need a genAI Systems Architect for multi-agent orchestration, agentic workflows, and production AI systems.",
       "kb_domains": [
         "genai",
         "prompt-engineering",
@@ -471,7 +471,7 @@
       "path": ".agents/rules/workflow/iterate-agent.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Cross-phase document updater with cascade awareness (All Phases).",
+      "description": "Apply this rule when you need a cross-phase document updater with cascade awareness (All Phases).",
       "kb_domains": [],
       "escalates_to": [
         "define-agent",
@@ -485,7 +485,7 @@
       "path": ".agents/rules/architect/kb-architect.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Knowledge base architect for creating validated, structured KB domains.",
+      "description": "Apply this rule when you need a knowledge base architect for creating validated, structured KB domains.",
       "kb_domains": [],
       "escalates_to": [
         "user"
@@ -497,7 +497,7 @@
       "path": ".agents/rules/data-engineering/lakeflow-architect.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Databricks Lakeflow expert for building Medallion architecture pipelines. Creates Bronze/Silver/Gold layers with DLT. Uses KB + MCP validation.",
+      "description": "Apply this rule when you need a databricks Lakeflow expert for building Medallion architecture pipelines.",
       "kb_domains": [
         "lakeflow",
         "lakehouse",
@@ -516,7 +516,7 @@
       "path": ".agents/rules/data-engineering/lakeflow-expert.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Databricks Lakeflow (DLT) SME for pipeline development, CDC, data quality, and production deployment. Uses KB + MCP validation.",
+      "description": "Apply this rule when you need a databricks Lakeflow (DLT) SME for pipeline development, CDC, data quality, and production deployment.",
       "kb_domains": [
         "lakeflow",
         "lakehouse",
@@ -535,7 +535,7 @@
       "path": ".agents/rules/data-engineering/lakeflow-pipeline-builder.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Builds Databricks Lakeflow (DLT) pipelines for Medallion Architecture. Uses KB + MCP validation for production-ready pipelines.",
+      "description": "Apply this rule when you need a builds Databricks Lakeflow (DLT) pipelines for Medallion Architecture.",
       "kb_domains": [
         "lakeflow",
         "lakehouse",
@@ -554,7 +554,7 @@
       "path": ".agents/rules/data-engineering/lakeflow-specialist.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Databricks Lakeflow (DLT) specialist for declarative pipelines, materialized views, streaming tables, and expectations.",
+      "description": "Apply this rule when you need a databricks Lakeflow (DLT) specialist for declarative pipelines, materialized views, streaming tables, and expectations.",
       "kb_domains": [
         "lakeflow",
         "lakehouse",
@@ -569,7 +569,7 @@
       "path": ".agents/rules/architect/lakehouse-architect.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Open table format and catalog specialist for Iceberg, Delta Lake, and lakehouse governance.",
+      "description": "Apply this rule when you need a open table format and catalog specialist for Iceberg, Delta Lake, and lakehouse governance.",
       "kb_domains": [
         "lakehouse",
         "spark",
@@ -587,7 +587,7 @@
       "path": ".agents/rules/cloud/lambda-builder.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "AWS Lambda expert for Python serverless file processing. Builds S3-triggered Lambda functions with proper error handling, structured logging, and Parquet output. Uses KB + MCP validation for production-ready code.",
+      "description": "Apply this rule when you need an aWS Lambdan expert for Python serverless file processing.",
       "kb_domains": [
         "aws",
         "python",
@@ -605,7 +605,7 @@
       "path": ".agents/rules/python/llm-specialist.md",
       "tier": "T3",
       "model": "opus",
-      "description": "Prompt engineering specialist and LLM expert. Masters structured prompting, chain-of-thought reasoning, and AI-powered extraction. Uses KB + MCP validation for optimized, production-ready prompts.",
+      "description": "Apply this rule when you need a prompt engineering specialist and LLM expert.",
       "kb_domains": [
         "prompt-engineering",
         "pydantic",
@@ -619,7 +619,7 @@
       "path": ".agents/rules/architect/medallion-architect.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Medallion Architecture specialist for Bronze/Silver/Gold layer design and data quality progression.",
+      "description": "Apply this rule when you need a medallion Architecture specialist for Bronze/Silver/Gold layer design and data quality progression.",
       "kb_domains": [
         "medallion",
         "data-modeling",
@@ -634,7 +634,7 @@
       "path": ".agents/rules/dev/meeting-analyst.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Master communication analyst that transforms meetings into structured, actionable documentation.",
+      "description": "Apply this rule when you need a master communication analyst that transforms meetings into structured, actionable documentation.",
       "kb_domains": [],
       "escalates_to": [
         "the-planner",
@@ -647,7 +647,7 @@
       "path": ".agents/rules/architect/pipeline-architect.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Orchestration specialist for Airflow, Dagster, and pipeline design patterns.",
+      "description": "Apply this rule when you need a orchestration specialist for Airflow, Dagster, and pipeline design patterns.",
       "kb_domains": [
         "airflow",
         "data-quality",
@@ -665,7 +665,7 @@
       "path": ".agents/rules/dev/prompt-crafter.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "PROMPT.md builder with SDD-lite phases and Agent Matching Engine.",
+      "description": "Apply this rule when you need a pROMPT.md builder with SDD-lite phases and Agent Matching Engine.",
       "kb_domains": [
         "python"
       ],
@@ -677,7 +677,7 @@
       "path": ".agents/rules/python/python-developer.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Python code architect for data engineering systems — clean patterns, dataclasses, type hints, generators.",
+      "description": "Apply this rule when you need a python code architect for datan engineering systems \u2014 clean patterns, dataclasses, type hints, generators.",
       "kb_domains": [
         "python",
         "pydantic",
@@ -691,7 +691,7 @@
       "path": ".agents/rules/data-engineering/qdrant-specialist.md",
       "tier": "T3",
       "model": "opus",
-      "description": "Elite Qdrant vector database specialist for collection management, point operations, payload filtering, search optimization, and RAG pipeline integration.",
+      "description": "Apply this rule when you need an elite Qdrant vector database specialist for collection management, point operations, payload filtering, search optimization, and RAG pipeline integration.",
       "kb_domains": [
         "ai-data-engineering",
         "genai"
@@ -708,7 +708,7 @@
       "path": ".agents/rules/architect/schema-designer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Data modeling specialist for dimensional modeling, Data Vault, SCD types, and schema evolution.",
+      "description": "Apply this rule when you need a data modeling specialist for dimensional modeling, Data Vault, SCD types, and scheman evolution.",
       "kb_domains": [
         "data-modeling",
         "sql-patterns",
@@ -727,7 +727,7 @@
       "path": ".agents/rules/dev/shell-script-specialist.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Elite shell scripting specialist for building production-grade Bash scripts with best practices, error handling, and cross-platform compatibility.",
+      "description": "Apply this rule when you need an elite shell scripting specialist for building production-grade Bash scripts with best practices, error handling, and cross-platform compatibility.",
       "kb_domains": [],
       "escalates_to": [
         "python-developer",
@@ -740,7 +740,7 @@
       "path": ".agents/rules/workflow/ship-agent.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Feature archival and lessons learned specialist (Phase 4).",
+      "description": "Apply this rule when you need a feature archival and lessons learned specialist (Phase 4).",
       "kb_domains": [],
       "escalates_to": [
         "build-agent"
@@ -752,7 +752,7 @@
       "path": ".agents/rules/data-engineering/spark-engineer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "PySpark and Spark SQL specialist for distributed data processing at scale.",
+      "description": "Apply this rule when you need a pySpark and Spark SQL specialist for distributed data processing at scale.",
       "kb_domains": [
         "spark",
         "sql-patterns",
@@ -770,7 +770,7 @@
       "path": ".agents/rules/data-engineering/spark-performance-analyzer.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Spark performance optimization specialist for tuning memory, partitioning, joins, and I/O.",
+      "description": "Apply this rule when you need a spark performance optimization specialist for tuning memory, partitioning, joins, and I/O.",
       "kb_domains": [
         "spark",
         "cloud-platforms",
@@ -784,7 +784,7 @@
       "path": ".agents/rules/data-engineering/spark-specialist.md",
       "tier": "T2",
       "model": "opus",
-      "description": "Apache Spark SME for performance optimization, architecture design, and troubleshooting.",
+      "description": "Apply this rule when you need an apache Spark SME for performance optimization, architecture design, and troubleshooting.",
       "kb_domains": [
         "spark",
         "sql-patterns",
@@ -802,7 +802,7 @@
       "path": ".agents/rules/data-engineering/spark-streaming-architect.md",
       "tier": "T3",
       "model": "sonnet",
-      "description": "Spark Structured Streaming expert for real-time pipelines, Kafka integration, and stream processing. Uses KB + MCP validation.",
+      "description": "Apply this rule when you need a spark Structured Streaming expert for real-time pipelines, Kafka integration, and stream processing.",
       "kb_domains": [
         "spark",
         "streaming",
@@ -820,7 +820,7 @@
       "path": ".agents/rules/data-engineering/spark-troubleshooter.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Spark debugging specialist for diagnosing OOM errors, data skew, shuffle failures, and job hangs.",
+      "description": "Apply this rule when you need a spark debugging specialist for diagnosing OOM errors, data skew, shuffle failures, and job hangs.",
       "kb_domains": [
         "spark",
         "sql-patterns"
@@ -833,7 +833,7 @@
       "path": ".agents/rules/data-engineering/sql-optimizer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Cross-dialect SQL optimization specialist for query plans, window functions, and performance tuning.",
+      "description": "Apply this rule when you need a cross-dialect SQL optimization specialist for query plans, window functions, and performance tuning.",
       "kb_domains": [
         "sql-patterns",
         "data-modeling",
@@ -851,7 +851,7 @@
       "path": ".agents/rules/data-engineering/streaming-engineer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Stream processing specialist for Flink, Kafka, Spark Streaming, RisingWave, and CDC pipelines.",
+      "description": "Apply this rule when you need a stream processing specialist for Flink, Kafka, Spark Streaming, RisingWave, and CDC pipelines.",
       "kb_domains": [
         "streaming",
         "spark",
@@ -870,7 +870,7 @@
       "path": ".agents/rules/cloud/supabase-specialist.md",
       "tier": "T3",
       "model": "opus",
-      "description": "Elite Supabase specialist for pgvector, RLS, Edge Functions, Auth, Realtime, and database design.",
+      "description": "Apply this rule when you need an elite Supabase specialist for pgvector, RLS, Edge Functions, Auth, Realtime, and database design.",
       "kb_domains": [
         "supabase",
         "ai-data-engineering",
@@ -888,7 +888,7 @@
       "path": ".agents/rules/test/test-generator.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Test automation expert for Python. Generates pytest unit tests, integration tests, and fixtures.",
+      "description": "Apply this rule when you need a test automation expert for Python.",
       "kb_domains": [
         "data-quality",
         "dbt",
@@ -906,7 +906,7 @@
       "path": ".agents/rules/architect/the-planner.md",
       "tier": "T2",
       "model": "opus",
-      "description": "Strategic AI architect that creates comprehensive implementation plans.",
+      "description": "Apply this rule when you need a strategic AI architect that creates comprehensive implementation plans.",
       "kb_domains": [],
       "escalates_to": [
         "user"
@@ -918,9 +918,14 @@
       "path": ".agents/rules/data-viz/chart-architect.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Chart type selection specialist — recommends the right visualization based on data shape, relationship, audience, and medium.",
-      "kb_domains": ["dataviz", "arrecadacao"],
-      "escalates_to": ["dashboard-designer"]
+      "description": "Apply this rule when you need a chart type selection specialist \u2014 recommends the right visualization based on data shape, relationship, audience, and medium.",
+      "kb_domains": [
+        "dataviz",
+        "arrecadacao"
+      ],
+      "escalates_to": [
+        "dashboard-designer"
+      ]
     },
     {
       "name": "dashboard-designer",
@@ -928,9 +933,15 @@
       "path": ".agents/rules/data-viz/dashboard-designer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Dashboard layout and composition specialist for Power BI, Tableau, Evidence.dev, and HTML mock dashboards.",
-      "kb_domains": ["dataviz", "arrecadacao"],
-      "escalates_to": ["power-bi-developer", "storytelling-analyst"]
+      "description": "Apply this rule when you need a dashboard layout and composition specialist for Power BI, Tableau, Evidence.dev, and HTML mock dashboards.",
+      "kb_domains": [
+        "dataviz",
+        "arrecadacao"
+      ],
+      "escalates_to": [
+        "power-bi-developer",
+        "storytelling-analyst"
+      ]
     },
     {
       "name": "power-bi-developer",
@@ -938,9 +949,14 @@
       "path": ".agents/rules/data-viz/power-bi-developer.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Power BI specialist for DAX measures, calculated columns, semantic model design, and row-level security.",
-      "kb_domains": ["dataviz", "arrecadacao"],
-      "escalates_to": ["dashboard-designer"]
+      "description": "Apply this rule when you need a power BI specialist for DAX measures, calculated columns, semantic model design, and row-level security.",
+      "kb_domains": [
+        "dataviz",
+        "arrecadacao"
+      ],
+      "escalates_to": [
+        "dashboard-designer"
+      ]
     },
     {
       "name": "storytelling-analyst",
@@ -948,9 +964,14 @@
       "path": ".agents/rules/data-viz/storytelling-analyst.md",
       "tier": "T1",
       "model": "sonnet",
-      "description": "Data storytelling specialist — transforms data summaries and chart descriptions into structured narratives.",
-      "kb_domains": ["dataviz", "arrecadacao"],
-      "escalates_to": ["dashboard-designer"]
+      "description": "Apply this rule when you need a data storytelling specialist \u2014 transforms data summaries and chart descriptions into structured narratives.",
+      "kb_domains": [
+        "dataviz",
+        "arrecadacao"
+      ],
+      "escalates_to": [
+        "dashboard-designer"
+      ]
     },
     {
       "name": "viz-code-generator",
@@ -958,9 +979,14 @@
       "path": ".agents/rules/data-viz/viz-code-generator.md",
       "tier": "T2",
       "model": "sonnet",
-      "description": "Visualization code specialist for Plotly, ECharts, Evidence.dev, and Vega-Altair.",
-      "kb_domains": ["dataviz", "arrecadacao"],
-      "escalates_to": ["dashboard-designer"]
+      "description": "Apply this rule when you need a visualization code specialist for Plotly, ECharts, Evidence.dev, and Vega-Altair.",
+      "kb_domains": [
+        "dataviz",
+        "arrecadacao"
+      ],
+      "escalates_to": [
+        "dashboard-designer"
+      ]
     }
   ],
   "categories": {

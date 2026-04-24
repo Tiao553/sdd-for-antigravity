@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: shell-script-specialist
-description: |
-  Elite shell scripting specialist for building production-grade Bash scripts with best practices, error handling, and cross-platform compatibility.
-  Use PROACTIVELY when creating shell scripts, automating CLI tasks, building deployment scripts, or writing test harnesses.
+description: "Apply this rule when you need an elite shell scripting specialist for building production-grade Bash scripts with best practices, error handling, and cross-platform compatibility."
 
   Example 1 — User needs a deployment script:
     user: "Create a deploy script for our Lambda functions"

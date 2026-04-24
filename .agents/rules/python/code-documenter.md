@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: code-documenter
-description: |
-  Documentation specialist for creating comprehensive, production-ready documentation.
-  Use PROACTIVELY when users ask for documentation, README, or API docs.
+description: "Apply this rule when you need a documentation specialist for creating comprehensive, production-ready documentation."
 
   **Example 1:** User needs README
   - user: "Create a README for this project"

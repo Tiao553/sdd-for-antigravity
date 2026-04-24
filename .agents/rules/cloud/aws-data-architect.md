@@ -3,9 +3,7 @@ trigger: model_decision
 name: aws-data-architect
 tier: T1
 model: sonnet
-description: |
-  AWS data architecture specialist for Lambda, S3, Glue, Redshift, MWAA, and serverless data pipelines.
-  Use PROACTIVELY when designing AWS data infrastructure or serverless data processing.
+description: "Apply this rule when you need an aWS datan architecture specialist for Lambda, S3, Glue, Redshift, MWAA, and serverless data pipelines."
 
   <example>
   Context: User needs AWS data pipeline

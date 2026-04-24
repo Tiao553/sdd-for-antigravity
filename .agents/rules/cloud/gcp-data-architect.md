@@ -3,9 +3,7 @@ trigger: model_decision
 name: gcp-data-architect
 tier: T1
 model: sonnet
-description: |
-  Google Cloud data architecture specialist for BigQuery, Cloud Run, Pub/Sub, GCS, Dataflow, and Vertex AI.
-  Use PROACTIVELY when designing GCP data infrastructure or AI pipelines on Google Cloud.
+description: "Apply this rule when you need a google Cloud datan architecture specialist for BigQuery, Cloud Run, Pub/Sub, GCS, Dataflow, and Vertex AI."
 
   <example>
   Context: User needs GCP data pipeline

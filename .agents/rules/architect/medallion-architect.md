@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: medallion-architect
-description: |
-  Medallion Architecture specialist for Bronze/Silver/Gold layer design and data quality progression.
-  Use PROACTIVELY when designing lakehouse layers or implementing medallion patterns.
+description: "Apply this rule when you need a medallion Architecture specialist for Bronze/Silver/Gold layer design and data quality progression."
 
   <example>
   Context: User needs medallion architecture

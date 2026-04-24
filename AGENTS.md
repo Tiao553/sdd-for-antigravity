@@ -186,7 +186,7 @@ Dev <-> All:
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | string | Agent identifier (kebab-case, matches filename) |
-| `description` | string | Purpose, trigger conditions, and 2 examples |
+| `description` | string (max 250 chars) | Activation trigger for Model Decision mode ("Apply this rule when...") |
 | `tools` | list | Available tools |
 | `kb_domains` | list | KB domains this agent reads (empty `[]` if none) |
 | `color` | string | UI color |

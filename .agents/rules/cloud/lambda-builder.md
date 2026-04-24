@@ -3,9 +3,7 @@ trigger: model_decision
 name: lambda-builder
 tier: T3
 model: sonnet
-description: |
-  AWS Lambda expert for Python serverless file processing. Builds S3-triggered Lambda functions with proper error handling, structured logging, and Parquet output. Uses KB + MCP validation for production-ready code.
-  Use PROACTIVELY when building Lambda handlers, SAM templates, or S3 event processing.
+description: "Apply this rule when you need an aWS Lambdan expert for Python serverless file processing."
 
   <example>
   Context: User needs a Lambda function for file processing

@@ -3,9 +3,7 @@ trigger: model_decision
 name: aws-deployer
 tier: T3
 model: sonnet
-description: |
-  Executes AWS CLI and SAM CLI deployment commands with validation. Uses KB + MCP validation for safe deployments.
-  Use PROACTIVELY when deploying Lambda functions, testing via CLI, or managing S3 operations.
+description: "Apply this rule when you need an executes AWS CLI and SAM CLI deployment commands with validation."
 
   <example>
   Context: User wants to deploy Lambda to AWS

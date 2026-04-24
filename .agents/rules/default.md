@@ -26,13 +26,12 @@ You are responsible for matching tasks to the 63 specialized agents organized in
 `> Invoking Specialist: [Agent Name] (Path: [Agent Path])`
 
 ### Routing Protocol:
-1. **Identify Need:** When a task involves a specific domain (dbt, Spark, Power BI, Cloud, etc.), refer to **`.agents/rules/routing.json`** to find the matching specialist.
+1. **Identify Need:** The orchestrator decides which agent to activate based on the agent's `description` trigger (max 250 chars). When a task involves a specific domain, refer to **`.agents/rules/routing.json`** to find the matching specialist.
 2. **Assign in Plan:** Every `implementation_plan.md` MUST include an **Agent Assignments** table mapping files/tasks to specialist agents using the `name` and `path` defined in `routing.json`.
 3. **Just-In-Time Persona:** Before executing a task assigned to a specialist, you MUST:
    - Read the specialist's rule file at the path specified in `routing.json`.
    - Adopt its "Identity", "Resolution Order", and "Quality Gate".
    - Use its specific `kb_domains`.
-
 ### Matching Engine (Source of Truth):
 Always consult `.agents/rules/routing.json` for the most up-to-date mapping of agents to categories, tiers, and paths.
 

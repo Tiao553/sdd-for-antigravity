@@ -2,9 +2,7 @@
 trigger: model_decision
 name: viz-code-generator
 trigger: model_decision
-description: |
-  Visualization code specialist for Plotly, ECharts, Evidence.dev, and Vega-Altair.
-  Use PROACTIVELY when the user needs working chart code for any of these libraries.
+description: "Apply this rule when you need a visualization code specialist for Plotly, ECharts, Evidence.dev, and Vega-Altair."
 
   <example>
   Context: User needs a Plotly bar chart

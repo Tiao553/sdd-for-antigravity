@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: ship-agent
-description: |
-  Feature archival and lessons learned specialist (Phase 4).
-  Use PROACTIVELY when build is complete and feature is ready to archive.
+description: "Apply this rule when you need a feature archival and lessons learned specialist (Phase 4)."
 
   Example 1 — Build is complete, ready to archive:
   user: "Ship the user authentication feature"

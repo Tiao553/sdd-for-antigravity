@@ -1,25 +1,17 @@
+<h1 align="center">⚠️ Notice</h3>
+
+<h3 align="center">
+  This repository is based on the original
+  <a href="https://github.com/luanmorenommaciel/agentspec">
+    <strong>AgentSpec</strong>
+  </a>
+  project. I created my own customized version specifically for
+  <strong>Antigravity</strong>, which is the IDE I use most in my daily workflow.
+</h3>
+
 <div align="center">
 
-```mermaid
-flowchart LR
-    classDef title fill:#1e1e2e,stroke:#cba6f7,stroke-width:3px,color:#cdd6f4,font-weight:bold,font-size:24px
-    classDef sub fill:#313244,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4,font-size:14px
-    classDef highlight fill:#cba6f7,stroke:#1e1e2e,stroke-width:2px,color:#1e1e2e,font-weight:bold
-
-    Main("AgentSpec <br/> Spec-Driven Data Engineering"):::title
-
-    Phases["5-Phase Workflow <br/> Brainstorm ➔ Define ➔ Design ➔ Build ➔ Ship"]:::sub
-    Agents["63 Specialized Agents <br/> Architect • Data Eng • Cloud • Platform"]:::sub
-    KB["25 Knowledge Domains <br/> KB-First Resolution"]:::sub
-    IDE("Built for Antigravity IDE"):::highlight
-
-    Main --- Phases
-    Main --- Agents
-    Main --- KB
-    Main --- IDE
-```
-
-<br/><br/>
+---
 
 [![Antigravity Workspace](https://img.shields.io/badge/Antigravity-Workspace-blueviolet?style=flat-square)](/)
 [![CI Pipeline](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml)
@@ -35,18 +27,9 @@ flowchart LR
 
 </div>
 
-<br/>
+![AgentSpec Landing Page](asset/landing_page_readme.png)
 
-<h1 align="center">⚠️ Notice</h3>
-
-<h3 align="center">
-  This repository is based on the original
-  <a href="https://github.com/luanmorenommaciel/agentspec">
-    <strong>AgentSpec</strong>
-  </a>
-  project. I created my own customized version specifically for
-  <strong>Antigravity</strong>, which is the IDE I use most in my daily workflow.
-</h3>
+---
 
 ## About This Fork
 
@@ -72,6 +55,19 @@ cd sdd-for-antigravity
 ```
 
 Open the folder in **Antigravity IDE** — that's it. Everything is pre-configured.
+
+### Agent Rules Configuration
+
+In order for the 63 specialized agents to be routed automatically, ensure that the activation mode for the `.agents/rules` is set to **Model Decision**. This mode relies on the `description` field as a trigger for the model to understand when to invoke each agent.
+
+![Example Configuration for Rules](asset/exemple_configuration_for_rules.png)
+
+If your rules are not configured this way, or if you need to update the trigger descriptions to properly match the "Model Decision" format (< 250 characters), you must run the provided synchronization scripts:
+
+```bash
+python scripts/update_descriptions.py
+python scripts/update_triggers_to_agents_rules.py
+```
 
 ### What Happens Automatically
 

@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: codebase-explorer
-description: |
-  Elite codebase analyst delivering Executive Summaries + Deep Dives.
-  Use PROACTIVELY when exploring unfamiliar repos, onboarding, or needing codebase health reports.
+description: "Apply this rule when you need an elite codebase analyst delivering Executive Summaries + Deep Dives."
 
   Example 1 — User wants to understand a new codebase:
     user: "Can you explore this repo and tell me what's going on?"

@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: pipeline-architect
-description: |
-  Orchestration specialist for Airflow, Dagster, and pipeline design patterns.
-  Use PROACTIVELY when creating DAGs, designing pipelines, or selecting orchestrators.
+description: "Apply this rule when you need a orchestration specialist for Airflow, Dagster, and pipeline design patterns."
 
   <example>
   Context: User needs a new pipeline

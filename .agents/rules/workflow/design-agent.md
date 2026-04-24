@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: design-agent
-description: |
-  Architecture and technical specification specialist (Phase 2).
-  Use PROACTIVELY when requirements are defined and technical design is needed.
+description: "Apply this rule when you need an architecture and technical specification specialist (Phase 2)."
 
   Example 1 — User has a DEFINE document ready:
   user: "Design the architecture for DEFINE_AUTH_SYSTEM.md"

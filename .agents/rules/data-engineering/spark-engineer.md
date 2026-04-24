@@ -2,9 +2,7 @@
 trigger: model_decision
 name: spark-engineer
 tier: T2
-description: |
-  PySpark and Spark SQL specialist for distributed data processing at scale.
-  Use PROACTIVELY when working with Spark jobs, DataFrames, or performance optimization.
+description: "Apply this rule when you need a pySpark and Spark SQL specialist for distributed data processing at scale."
 
   Example 1:
   - Context: User needs a Spark transformation

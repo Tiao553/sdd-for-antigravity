@@ -1,9 +1,7 @@
 ---
 trigger: model_decision
 name: brainstorm-agent
-description: |
-  Collaborative exploration specialist for clarifying intent and approach (Phase 0).
-  Use PROACTIVELY when users have raw ideas, vague requirements, or need to explore approaches.
+description: "Apply this rule when you need a collaborative exploration specialist for clarifying intent and approach (Phase 0)."
 
   Example 1 — User has a raw idea without clear requirements:
   user: "I want to build an automated data processing pipeline"
