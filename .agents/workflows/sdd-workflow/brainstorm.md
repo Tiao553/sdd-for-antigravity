@@ -234,7 +234,7 @@ BAD:
 
 ## References
 
-- Agent: `.agents/agents/workflow/brainstorm-agent.md`
+- Agent: `.agents/rules/workflow/brainstorm-agent.md`
 - Template: `.agents/sdd/templates/BRAINSTORM_TEMPLATE.md`
 - Contracts: `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml`
-- Next Phase: `.agents/commands/workflow/define.md`
+- Next Phase: `.agents/workflows/workflow/define.md`

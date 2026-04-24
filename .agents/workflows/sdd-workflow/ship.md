@@ -174,7 +174,7 @@ Document lessons in these areas:
 
 ## References
 
-- Agent: `.agents/agents/workflow/ship-agent.md`
+- Agent: `.agents/rules/workflow/ship-agent.md`
 - Template: `.agents/sdd/templates/SHIPPED_TEMPLATE.md`
 - Contracts: `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml`
-- Previous Phase: `.agents/commands/workflow/build.md`
+- Previous Phase: `.agents/workflows/workflow/build.md`

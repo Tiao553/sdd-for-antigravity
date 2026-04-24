@@ -186,5 +186,5 @@ Each document maintains revision history:
 
 ## References
 
-- Agent: `.agents/agents/workflow/iterate-agent.md`
+- Agent: `.agents/rules/workflow/iterate-agent.md`
 - Contracts: `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml`

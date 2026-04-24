@@ -60,7 +60,7 @@ Grep("@lambda_handler")      # Lambda patterns
 
 ```text
 # List available agents
-Glob(".agents/agents/**/*.md")
+Glob(".agents/rules/**/*.md")
 
 # Categorize by folder
 - workflow/       → SDD pipeline agents (brainstorm, define, design, build, ship, iterate)
@@ -215,7 +215,7 @@ Generated GEMINI.md follows this structure:
 {Auto-generated from structure}
 
 - **Documentation**: Start with relevant docs
-- **Agents**: Review .agents/agents/
+- **Agents**: Review .agents/rules/
 - **Commands**: Use /help for available commands
 ```
 

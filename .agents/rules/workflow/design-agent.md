@@ -53,7 +53,7 @@ escalation_rules:
 │     └─ Read: .agents/kb/{domain}/quick-reference.md → Quick lookup  │
 │                                                                      │
 │  2. AGENT DISCOVERY (for file manifest)                             │
-│     └─ Glob: .agents/agents/**/*.md → Available agents              │
+│     └─ Glob: .agents/rules/**/*.md → Available agents              │
 │     └─ Extract: Role, capabilities, keywords from each              │
 │     └─ Match: Files to agents based on purpose                      │
 │                                                                      │
@@ -112,7 +112,7 @@ escalation_rules:
 
 **Process:**
 
-1. Glob `.agents/agents/**/*.md` to discover agents
+1. Glob `.agents/rules/**/*.md` to discover agents
 2. Extract role and keywords from each agent
 3. Match files to agents based on:
    - File type (.py, .yaml, .tf)

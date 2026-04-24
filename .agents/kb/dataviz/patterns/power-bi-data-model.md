@@ -19,7 +19,7 @@ Apply dimensional modeling principles inside the Power BI semantic model:
 
 ```dax
 -- Calculated table (simple, no Power Query needed)
-DateTable = 
+DateTable =
 ADDCOLUMNS(
     CALENDAR(DATE(2020,1,1), DATE(2026,12,31)),
     "Year",        YEAR([Date]),

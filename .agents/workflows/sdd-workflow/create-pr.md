@@ -124,7 +124,7 @@ Based on file analysis, identify the primary change type:
 | `*.md`, `docs/**` | `docs:` |
 | `tests/**`, `*_test.py` | `test:` |
 | `.github/**`, `Makefile`, `pyproject.toml` | `chore:` |
-| `.agents/agents/**` | `refactor(agents):` |
+| `.agents/rules/**` | `refactor(agents):` |
 | `.agents/kb/**` | `docs(kb):` |
 | `.agents/sdd/**` | `docs(sdd):` |
 
@@ -313,10 +313,10 @@ BRANCH
 
 | Scope | Applies To |
 |-------|------------|
-| `agents` | `.agents/agents/**` |
+| `agents` | `.agents/rules/**` |
 | `kb` | `.agents/kb/**` |
 | `sdd` | `.agents/sdd/**` |
-| `commands` | `.agents/commands/**` |
+| `commands` | `.agents/workflows/**` |
 | `handlers` | `src/handlers/**` |
 | `services` | `src/services/**` |
 | `api` | `src/api/**` |
@@ -399,7 +399,7 @@ BRANCH
 
 ## Related
 
-- Review Command: `.agents/commands/review/review.md`
-- Code Reviewer Agent: `.agents/agents/python/code-reviewer.md`
+- Review Command: `.agents/workflows/review/review.md`
+- Code Reviewer Agent: `.agents/rules/python/code-reviewer.md`
 - Workflow: `.agents/sdd/_index.md`
-- Agents: `.agents/agents/workflow/`
+- Agents: `.agents/rules/workflow/`

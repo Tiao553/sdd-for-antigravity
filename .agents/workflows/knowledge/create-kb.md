@@ -30,7 +30,7 @@ description: Create a complete KB domain from scratch with MCP validation
 
 ## See Also
 
-- **Agent**: `.agents/agents/architect/kb-architect.md`
+- **Agent**: `.agents/rules/architect/kb-architect.md`
 - **Example**: `.agents/kb/{domain}/`
 - **Templates**: `.agents/kb/_templates/`
 - **Registry**: `.agents/kb/_index.yaml`

@@ -88,7 +88,7 @@
 
 ## Agent Assignment Rationale
 
-> Agents discovered from `.agents/agents/` - Build phase invokes matched specialists.
+> Agents discovered from `.agents/rules/` - Build phase invokes matched specialists.
 
 | Agent | Files Assigned | Why This Agent |
 |-------|----------------|----------------|
@@ -98,7 +98,7 @@
 | (general) | {if any} | {No specialist found - Build handles directly} |
 
 **Agent Discovery:**
-- Scanned: `.agents/agents/**/*.md`
+- Scanned: `.agents/rules/**/*.md`
 - Matched by: File type, purpose keywords, path patterns, KB domains
 
 ---

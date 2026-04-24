@@ -6,7 +6,7 @@ Evidence.dev components consume a named SQL query result via `data={queryName}`.
 
 ```markdown
 ```sql monthly_revenue
-SELECT 
+SELECT
   date_trunc('month', order_date) AS month,
   SUM(revenue)                    AS revenue,
   COUNT(*)                        AS orders

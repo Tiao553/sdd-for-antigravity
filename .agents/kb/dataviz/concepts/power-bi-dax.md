@@ -68,7 +68,7 @@ Time intelligence functions require a **dedicated Date table** marked as such:
 
 ## Variables in DAX
 ```dax
-YoY Growth = 
+YoY Growth =
 VAR CurrentSales = [Total Sales]
 VAR PriorSales = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))
 VAR Growth = DIVIDE(CurrentSales - PriorSales, PriorSales)

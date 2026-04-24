@@ -168,7 +168,7 @@ Before saving, verify:
 
 ## References
 
-- Agent: `.agents/agents/workflow/design-agent.md`
+- Agent: `.agents/rules/workflow/design-agent.md`
 - Template: `.agents/sdd/templates/DESIGN_TEMPLATE.md`
 - Contracts: `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml`
-- Next Phase: `.agents/commands/workflow/build.md`
+- Next Phase: `.agents/workflows/workflow/build.md`

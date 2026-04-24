@@ -95,7 +95,8 @@ Has @agent-name in manifest?
 
 1. Parse file manifest from DESIGN
 2. Identify dependencies between files
-3. Order tasks: config first → utilities → handlers → tests
+3. Create an isolated directory for the feature (`mkdir {FEATURE}`)
+4. Order tasks: config first → utilities → handlers → tests
 
 **Output:**
 

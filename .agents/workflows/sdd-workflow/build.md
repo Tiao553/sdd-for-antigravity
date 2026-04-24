@@ -78,9 +78,15 @@ Analyze imports and dependencies to determine execution order.
 
 ### Step 4: Execute Each Task
 
-For each file:
+**First Action:**
+Create an isolated directory for the feature:
+```bash
+mkdir -p {FEATURE}
+```
 
-1. **Write** - Create the file following code patterns from DESIGN
+**For each file:**
+
+1. **Write** - Create the file inside the isolated directory following code patterns from DESIGN
 2. **Verify** - Run verification command (lint, type check, import test)
 3. **Mark Complete** - Update progress
 
@@ -126,8 +132,9 @@ The build agent follows this loop for each task:
 ┌─────────────────────────────────────────────────────┐
 │                    EXECUTE TASK                      │
 ├─────────────────────────────────────────────────────┤
+│  0. Create isolated folder (mkdir {FEATURE}) once   │
 │  1. Read task from manifest                         │
-│  2. Write code following DESIGN patterns            │
+│  2. Write code inside the isolated folder           │
 │  3. Run verification command                        │
 │     └─ If FAIL → Fix and retry (max 3)             │
 │  4. Mark task complete                              │
@@ -177,7 +184,7 @@ If you encounter issues:
 
 ## References
 
-- Agent: `.agents/agents/workflow/build-agent.md`
+- Agent: `.agents/rules/workflow/build-agent.md`
 - Template: `.agents/sdd/templates/BUILD_REPORT_TEMPLATE.md`
 - Contracts: `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml`
-- Next Phase: `.agents/commands/workflow/ship.md`
+- Next Phase: `.agents/workflows/workflow/ship.md`

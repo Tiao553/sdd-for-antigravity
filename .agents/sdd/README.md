@@ -135,7 +135,7 @@ Traditional specs produce a task list. AgentSpec produces a **team assignment**.
 +------------------+         |          DESIGN              |
                              |                              |
                              |  Agent Matching:             |
-                             |  Glob(.agents/agents/**)     |
+                             |  Glob(.agents/rules/**)     |
                              |         |                    |
                              |         v                    |
                              |  +--------------------+      |
@@ -220,7 +220,7 @@ Glob(.agents/           agents:                 stg_orders.sql -> @dbt-specialis
                               Engineer"
 ```
 
-**Framework-Agnostic:** New agents added to `.agents/agents/` automatically become available for matching -- zero configuration.
+**Framework-Agnostic:** New agents added to `.agents/rules/` automatically become available for matching -- zero configuration.
 
 ### 3. Agent Delegation (Build Phase)
 
@@ -589,8 +589,8 @@ You're about to make a mistake if:
 1. **Create the agent file:**
 
 ```bash
-# Location: .agents/agents/{category}/{agent-name}.md
-touch .agents/agents/data-engineering/iceberg-specialist.md
+# Location: .agents/rules/{category}/{agent-name}.md
+touch .agents/rules/data-engineering/iceberg-specialist.md
 ```
 
 2. **Follow the standard structure:**
@@ -617,7 +617,7 @@ touch .agents/agents/data-engineering/iceberg-specialist.md
 | **Migrate** | Convert between table formats |
 ```
 
-3. **The agent is automatically discoverable** -- Design phase will find it via `Glob(.agents/agents/**/*.md)`
+3. **The agent is automatically discoverable** -- Design phase will find it via `Glob(.agents/rules/**/*.md)`
 
 ### Adding a New KB Domain
 
@@ -755,11 +755,11 @@ SCHEMA GOVERNANCE
 | Workflow Contracts | `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml` |
 | Templates | `.agents/sdd/templates/` |
 | Archive | `.agents/sdd/archive/` |
-| Agents (58) | `.agents/agents/` |
+| Agents (58) | `.agents/rules/` |
 | Knowledge Base (23) | `.agents/kb/` |
-| SDD Commands | `.agents/commands/workflow/` |
-| DE Commands | `.agents/commands/data-engineering/` |
-| Core Commands | `.agents/commands/core/` |
+| SDD Commands | `.agents/workflows/workflow/` |
+| DE Commands | `.agents/workflows/data-engineering/` |
+| Core Commands | `.agents/workflows/core/` |
 
 ---
 

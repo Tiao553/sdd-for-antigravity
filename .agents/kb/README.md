@@ -112,7 +112,7 @@ Each agent declares a `kb_domains` field in its frontmatter that determines whic
 
 ### Agent-to-KB Mapping (by agent group)
 
-**Architect agents** (8 agents in `.agents/agents/architect/`):
+**Architect agents** (8 agents in `.agents/rules/architect/`):
 
 | Agent | KB Domains |
 |-------|------------|
@@ -125,7 +125,7 @@ Each agent declares a `kb_domains` field in its frontmatter that determines whic
 | schema-designer | data-modeling, sql-patterns, data-quality |
 | the-planner | (none -- strategic planning) |
 
-**Cloud agents** (10 agents in `.agents/agents/cloud/`):
+**Cloud agents** (10 agents in `.agents/rules/cloud/`):
 
 | Agent | KB Domains |
 |-------|------------|
@@ -140,7 +140,7 @@ Each agent declares a `kb_domains` field in its frontmatter that determines whic
 | lambda-builder | aws, python, testing |
 | supabase-specialist | ai-data-engineering, data-modeling |
 
-**Platform agents** (6 agents in `.agents/agents/platform/`):
+**Platform agents** (6 agents in `.agents/rules/platform/`):
 
 | Agent | KB Domains |
 |-------|------------|
@@ -151,7 +151,7 @@ Each agent declares a `kb_domains` field in its frontmatter that determines whic
 | fabric-pipeline-developer | microsoft-fabric |
 | fabric-security-specialist | microsoft-fabric |
 
-**Data engineering agents** (15 agents in `.agents/agents/data-engineering/`):
+**Data engineering agents** (15 agents in `.agents/rules/data-engineering/`):
 
 | Agent | KB Domains |
 |-------|------------|
@@ -171,7 +171,7 @@ Each agent declares a `kb_domains` field in its frontmatter that determines whic
 | sql-optimizer | sql-patterns, data-modeling, dbt |
 | streaming-engineer | streaming, spark, sql-patterns |
 
-**Python agents** (6 agents in `.agents/agents/python/`):
+**Python agents** (6 agents in `.agents/rules/python/`):
 
 | Agent | KB Domains |
 |-------|------------|
@@ -182,7 +182,7 @@ Each agent declares a `kb_domains` field in its frontmatter that determines whic
 | llm-specialist | prompt-engineering, pydantic, genai |
 | python-developer | python, pydantic, testing |
 
-**Test agents** (3 agents in `.agents/agents/test/`):
+**Test agents** (3 agents in `.agents/rules/test/`):
 
 | Agent | KB Domains |
 |-------|------------|

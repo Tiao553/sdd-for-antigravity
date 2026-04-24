@@ -75,7 +75,7 @@ workflow:
 brainstorm:
   command:
     name: "/brainstorm"
-    file: ".agents/commands/workflow/brainstorm.md"
+    file: ".agents/workflows/workflow/brainstorm.md"
     args: "<idea-or-request>"
     examples:
       - '/brainstorm "Build a user notification system"'
@@ -84,7 +84,7 @@ brainstorm:
 
   agent:
     name: "brainstorm-agent"
-    file: ".agents/agents/workflow/brainstorm-agent.md"
+    file: ".agents/rules/workflow/brainstorm-agent.md"
     model: "opus"
     tools:
       - Read
@@ -198,7 +198,7 @@ brainstorm:
 define:
   command:
     name: "/define"
-    file: ".agents/commands/workflow/define.md"
+    file: ".agents/workflows/workflow/define.md"
     args: "<input>"
     examples:
       - "/define notes/meeting-notes.md"
@@ -207,7 +207,7 @@ define:
 
   agent:
     name: "define-agent"
-    file: ".agents/agents/workflow/define-agent.md"
+    file: ".agents/rules/workflow/define-agent.md"
     model: "opus"
     tools:
       - Read
@@ -314,7 +314,7 @@ define:
 design:
   command:
     name: "/design"
-    file: ".agents/commands/workflow/design.md"
+    file: ".agents/workflows/workflow/design.md"
     args: "<define-file>"
     examples:
       - "/design .agents/sdd/features/DEFINE_USER_NOTIFICATIONS.md"
@@ -323,7 +323,7 @@ design:
 
   agent:
     name: "design-agent"
-    file: ".agents/agents/workflow/design-agent.md"
+    file: ".agents/rules/workflow/design-agent.md"
     model: "opus"
     tools:
       - Read
@@ -400,14 +400,14 @@ design:
 build:
   command:
     name: "/build"
-    file: ".agents/commands/workflow/build.md"
+    file: ".agents/workflows/workflow/build.md"
     args: "<design-file>"
     examples:
       - "/build .agents/sdd/features/DESIGN_USER_NOTIFICATIONS.md"
 
   agent:
     name: "build-agent"
-    file: ".agents/agents/workflow/build-agent.md"
+    file: ".agents/rules/workflow/build-agent.md"
     model: "sonnet"
     tools:
       - Read
@@ -476,14 +476,14 @@ build:
 ship:
   command:
     name: "/ship"
-    file: ".agents/commands/workflow/ship.md"
+    file: ".agents/workflows/workflow/ship.md"
     args: "<define-file>"
     examples:
       - "/ship .agents/sdd/features/DEFINE_USER_NOTIFICATIONS.md"
 
   agent:
     name: "ship-agent"
-    file: ".agents/agents/workflow/ship-agent.md"
+    file: ".agents/rules/workflow/ship-agent.md"
     model: "haiku"
     tools:
       - Read
@@ -529,7 +529,7 @@ ship:
 iterate:
   command:
     name: "/iterate"
-    file: ".agents/commands/workflow/iterate.md"
+    file: ".agents/workflows/workflow/iterate.md"
     args: '<file> "<change-description>"'
     examples:
       - '/iterate DEFINE_DATA_EXPORT.md "Add support for CSV format"'
@@ -538,7 +538,7 @@ iterate:
 
   agent:
     name: "iterate-agent"
-    file: ".agents/agents/workflow/iterate-agent.md"
+    file: ".agents/rules/workflow/iterate-agent.md"
     model: "sonnet"
     tools:
       - Read

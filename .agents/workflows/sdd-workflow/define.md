@@ -173,8 +173,8 @@ Before saving, verify:
 
 ## References
 
-- Agent: `.agents/agents/workflow/define-agent.md`
+- Agent: `.agents/rules/workflow/define-agent.md`
 - Template: `.agents/sdd/templates/DEFINE_TEMPLATE.md`
 - Contracts: `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml`
-- Previous Phase: `.agents/commands/workflow/brainstorm.md` (optional)
-- Next Phase: `.agents/commands/workflow/design.md`
+- Previous Phase: `.agents/workflows/workflow/brainstorm.md` (optional)
+- Next Phase: `.agents/workflows/workflow/design.md`

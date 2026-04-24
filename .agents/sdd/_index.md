@@ -285,10 +285,10 @@ BRAINSTORM_*.md
 
 | Resource | Location |
 |----------|----------|
-| SDD Commands | `.agents/commands/workflow/` |
-| DE Commands | `.agents/commands/data-engineering/` |
-| Core Commands | `.agents/commands/core/` |
-| Agents (58) | `.agents/agents/` |
+| SDD Commands | `.agents/workflows/workflow/` |
+| DE Commands | `.agents/workflows/data-engineering/` |
+| Core Commands | `.agents/workflows/core/` |
+| Agents (58) | `.agents/rules/` |
 | KB Domains (23) | `.agents/kb/` |
 | Templates | `.agents/sdd/templates/` |
 | Contracts | `.agents/sdd/architecture/WORKFLOW_CONTRACTS.yaml` |
