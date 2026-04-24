@@ -9,8 +9,8 @@ flowchart LR
     Main("AgentSpec <br/> Spec-Driven Data Engineering"):::title
 
     Phases["5-Phase Workflow <br/> Brainstorm ➔ Define ➔ Design ➔ Build ➔ Ship"]:::sub
-    Agents["58 Specialized Agents <br/> Architect • Data Eng • Cloud • Platform"]:::sub
-    KB["23 Knowledge Domains <br/> KB-First Resolution"]:::sub
+    Agents["63 Specialized Agents <br/> Architect • Data Eng • Cloud • Platform"]:::sub
+    KB["25 Knowledge Domains <br/> KB-First Resolution"]:::sub
     IDE("Built for Antigravity IDE"):::highlight
 
     Main --- Phases
@@ -27,11 +27,11 @@ flowchart LR
 [![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
 
 **A single AI agent reviewing your data pipeline will miss things.**<br/>
-**58 specialized agents with 23 knowledge domains will not.**
+**63 specialized agents with 25 knowledge domains will not.**
 
 <br/>
 
-[About](#about-this-fork) · [Quick Start](#quick-start) · [Commands](#which-command-do-i-need) · [Agents](#58-agents-across-8-categories) · [Docs](docs/)
+[About](#about-this-fork) · [Setup](#setup) · [Quick Start](#quick-start) · [Commands](#which-command-do-i-need) · [Agents](#63-agents-across-9-categories) · [Docs](docs/)
 
 </div>
 
@@ -53,6 +53,57 @@ flowchart LR
 Every time you ask an AI to build a data pipeline, it starts from scratch — no memory of partition strategies, no awareness of SCD patterns, no understanding of your data contracts. You get hallucinated SQL, wrong incremental strategies, and pipelines that pass in dev but break in production.
 
 AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow where every phase has access to 23 knowledge base domains, every agent knows its boundaries, and every decision is confidence-scored against real documentation — not guessed.
+
+<br/>
+
+## Setup
+
+### Prerequisites
+
+- [**Antigravity IDE**](https://antigravity.google/download) installed
+- [**Node.js**](https://nodejs.org/) ≥ 18 (for MCP servers)
+- A `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable (for `/create-pr` and GitHub MCP)
+
+### Installation
+
+```bash
+git clone https://github.com/Tiao553/sdd-for-antigravity.git
+cd sdd-for-antigravity
+```
+
+Open the folder in **Antigravity IDE** — that's it. Everything is pre-configured.
+
+### What Happens Automatically
+
+When you open this project in Antigravity, the IDE reads:
+
+| File | Purpose |
+|:--|:--|
+| `GEMINI.md` | Project context, orchestration rules, and agent routing protocols |
+| `AGENTS.md` | Agent routing map and escalation rules |
+| `.agents/rules/default.md` | Orchestrator entrypoint and cognitive framework |
+| `.gemini/settings.json` | Execution permissions (auto-allow, deny, ask) |
+| `.gemini/mcp_config.json` | MCP servers (Context7, Sequential Thinking, GitHub) |
+
+> **No global configuration needed.** All settings are local to this repository and versioned in git. Anyone who clones the repo gets the full AgentSpec experience out of the box.
+
+### `.gemini/` Directory
+
+```
+.gemini/
+├── settings.json      # Execution policies: auto-run safe commands,
+│                      # deny destructive ops (DROP, rm -rf, force push),
+│                      # ask for git push, commit, npm install, etc.
+│
+└── mcp_config.json    # MCP servers:
+                       # • context7 — Up-to-date docs lookup (prevents hallucinations)
+                       # • sequential-thinking — Structured step-by-step reasoning
+                       # • github — PR creation, issues, repo management
+```
+
+### Optional: Global GEMINI.md
+
+If you use AgentSpec patterns across **multiple projects**, you can create a global config at `~/.gemini/GEMINI.md` with shared rules. However, this is **not recommended** — AgentSpec's 63 agents and KB-first resolution are project-specific and should stay local.
 
 <br/>
 
@@ -150,7 +201,7 @@ AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow 
 
 <br/>
 
-## 58 Agents Across 8 Categories
+## 63 Agents Across 9 Categories
 
 | Category | Count | Focus |
 |:--|:--|:--|
@@ -205,11 +256,14 @@ Each domain contains an `index.md`, `quick-reference.md`, `concepts/` (3-6 files
 sdd-for-antigravity/
 ├── GEMINI.md                # Main Antigravity context and system prompt
 ├── AGENTS.md                # Agent routing and escalation map
+├── .gemini/                 # Antigravity IDE local configuration
+│   ├── settings.json        # Execution permissions and policies
+│   └── mcp_config.json      # MCP server configuration
 ├── .agents/                 # Source of truth for Antigravity agents
-│   ├── rules/               # 58 agents across 8 categories
-│   ├── commands/            # 29 slash commands
+│   ├── rules/               # 63 agents across 9 categories
+│   ├── commands/            # 34 slash commands
 │   ├── skills/              # visual-explainer, excalidraw-diagram
-│   ├── kb/                  # 23 knowledge base domains
+│   ├── kb/                  # 25 knowledge base domains
 │   └── sdd/                 # Templates, contracts, features, archive
 │
 └── docs/                    # Getting started, concepts, tutorials, reference

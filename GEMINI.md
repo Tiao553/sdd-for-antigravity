@@ -12,6 +12,96 @@
 
 ---
 
+## Orchestration Rules
+
+These rules govern how Antigravity behaves in this workspace. They replace the need for a global `~/.gemini/GEMINI.md`.
+
+### 1. Agent Invocation Disclosure (MANDATORY)
+
+At the start of **EVERY** response, explicitly state which agent or role is handling the task:
+
+```
+> [!IMPORTANT]
+> Invoking Specialist: [Agent Name] (Path: .agents/rules/[category]/[agent].md)
+```
+
+If no specialist matches, state:
+```
+> [!IMPORTANT]
+> Invoking Specialist: Orchestrator (Direct)
+> Reason: [why no specialist matched]
+```
+
+### 2. Automatic Agent Routing
+
+1. **Identify Need:** When a task involves a specific domain (dbt, Spark, Power BI, Cloud, etc.), consult **`.agents/rules/routing.json`** for the matching specialist.
+2. **Assign in Plan:** Every `implementation_plan.md` MUST include an **Agent Assignments** table mapping tasks to specialist agents.
+3. **Just-In-Time Persona:** Before executing a specialist task:
+   - Read the specialist's rule file at the path specified in `routing.json`
+   - Adopt its "Identity", "Resolution Order", and "Quality Gate"
+   - Use its specific `kb_domains`
+
+### 3. Planning Protocol
+
+- **Small tasks** (single file, quick fix): Execute directly.
+- **Medium tasks** (2-5 files): Provide a brief plan, then execute.
+- **Large tasks** (6+ files, new features): Generate `implementation_plan.md` with Agent Assignments table before executing.
+
+### 4. KB-First Resolution
+
+Every agent follows this mandatory knowledge resolution order:
+
+```text
+1. KB CHECK       Read .agents/kb/{domain}/index.md — scan headings only (~20 lines)
+2. ON-DEMAND LOAD Read specific pattern/concept file matching the task (one file, not all)
+3. TOOL FALLBACK  Single tool query if KB insufficient (max 3 tool calls per task)
+4. CONFIDENCE     Calculate from Agreement Matrix (never self-assess)
+```
+
+#### Agreement Matrix
+
+```text
+                 | TOOL AGREES    | TOOL DISAGREES | TOOL SILENT    |
+-----------------+----------------+----------------+----------------+
+KB HAS PATTERN   | HIGH (0.95)    | CONFLICT(0.50) | MEDIUM (0.75)  |
+                 | -> Execute     | -> Investigate | -> Proceed     |
+-----------------+----------------+----------------+----------------+
+KB SILENT        | TOOL-ONLY(0.85)| N/A            | LOW (0.50)     |
+                 | -> Proceed     |                | -> Ask User    |
+```
+
+#### Impact Tiers
+
+| Tier | Threshold | Action if Below | Examples |
+|------|-----------|-----------------|----------|
+| CRITICAL | 0.95 | REFUSE + explain | Schema migrations, production DDL, delete ops |
+| IMPORTANT | 0.90 | ASK user first | Model creation, pipeline config, access control |
+| STANDARD | 0.85 | PROCEED + caveat | Code generation, documentation |
+| ADVISORY | 0.75 | PROCEED freely | Explanations, comparisons |
+
+### 5. Execution Style
+
+- Auto-execute safe commands without asking.
+- For destructive operations, always confirm first.
+- Prefer concise responses — summarize at the end.
+
+### 6. Response Quality
+
+- Use Portuguese (pt-BR) when the user writes in Portuguese.
+- Use English when the user writes in English.
+- Always cite confidence and sources when using KB-First resolution.
+- Format responses in GitHub-style markdown.
+
+### 7. Stop Conditions
+
+- **Ambiguity:** If intent is unclear, ASK — don't assume.
+- **Destructive operations:** Always confirm before `DELETE`, `DROP`, `rm -rf`, `git push --force`.
+- **Low confidence (<0.75):** Disclose uncertainty and ask user.
+- **No specialist match:** If no agent matches in `routing.json`, STOP and ask the user.
+- **Context bloat:** Do not read all agent files at once. Read ONLY the one needed for the current task.
+
+---
+
 ## Repository Structure
 
 ```text
