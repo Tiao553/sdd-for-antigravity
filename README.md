@@ -22,7 +22,7 @@ flowchart LR
 <br/><br/>
 
 [![Antigravity Workspace](https://img.shields.io/badge/Antigravity-Workspace-blueviolet?style=flat-square)](/)
-[![CI Pipeline](https://github.com/tiao553/sdd-for-gemini/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/tiao553/sdd-for-gemini/actions/workflows/ci.yml)
+[![CI Pipeline](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
 
@@ -41,7 +41,7 @@ flowchart LR
 
 <h3 align="center">
   This repository is based on the original
-  <a href="https://github.com/YOUR-LINK-HERE/AgentSpec">
+  <a href="https://github.com/luanmorenommaciel/agentspec">
     <strong>AgentSpec</strong>
   </a>
   project. I created my own customized version specifically for
@@ -202,7 +202,7 @@ Each domain contains an `index.md`, `quick-reference.md`, `concepts/` (3-6 files
 ## Project Structure
 
 ```
-sdd-for-gemini/
+sdd-for-antigravity/
 ├── GEMINI.md                # Main Antigravity context and system prompt
 ├── AGENTS.md                # Agent routing and escalation map
 ├── .agents/                 # Source of truth for Antigravity agents

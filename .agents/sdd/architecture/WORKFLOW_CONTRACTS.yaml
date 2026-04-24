@@ -854,4 +854,3 @@ version_history:
       - "Initial public release with 5-phase workflow and agent orchestration"
       - "16 core agents across 4 categories"
       - "Extensible KB domain system"
-

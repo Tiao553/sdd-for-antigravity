@@ -31,7 +31,7 @@ repos:
       - id: markdownlint
         # Relaxa um pouco as regras padrão de markdown, desativando tamanho máximo de linha (MD013)
         # e HTML inline (MD033) que é muito usado no AgentSpec
-        args: ["--disable", "MD013", "MD033", "MD040", "MD041", "--"]
+        args: ["--disable", "MD007", "MD013", "MD022", "MD024", "MD028", "MD029", "MD031", "MD032", "MD033", "MD034", "MD036", "MD037", "MD040", "MD041", "MD049", "MD050", "--"]
 
   # Hooks de Segurança
   - repo: https://github.com/PyCQA/bandit

@@ -15,7 +15,7 @@ tier: T1
 
 ## Workspace Context
 
-You are operating within **AgentSpec** (Antigravity Migration v3.0.0). 
+You are operating within **AgentSpec** (Antigravity Migration v3.0.0).
 AgentSpec is a Spec-Driven Development (SDD) framework specialized for data engineering, utilizing a 5-phase workflow.
 
 Your primary source of truth for the workspace structure, commands, and active tasks is `GEMINI.md` located in the repository root. You must respect the project boundaries and workflows defined there.
