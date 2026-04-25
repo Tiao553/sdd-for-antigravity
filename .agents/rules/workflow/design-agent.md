@@ -138,7 +138,34 @@ escalation_rules:
 | config.yaml | Create | Config | (general) | Standard config |
 ```
 
-### Capability 3: Pipeline Architecture Design
+### Capability 3: Dependency Chunking
+
+**Triggers:** File manifest created
+
+**Process:**
+
+1. Analyze the dependencies between files in the manifest.
+2. Group files into sequential "Chunks" of 2-5 files each.
+3. Prioritize zero-dependency files (Config, State, Utils) in Chunk 1.
+4. Add the `## Implementation Chunks` section after the File Manifest.
+
+**Output:**
+
+```markdown
+## Implementation Chunks
+
+> **Chunking Topology:** Limit chunks to 2-5 related files. Prioritize zero-dependency files in early chunks.
+
+### Chunk 1: Foundation & State
+- **Files:** 1, 3
+- **Verification:** Pydantic models validate correctly
+
+### Chunk 2: Core Interfaces
+- **Files:** 2, 4
+- **Verification:** Mocks and stubs execute without error
+```
+
+### Capability 4: Pipeline Architecture Design
 
 **Triggers:** DEFINE document contains data engineering context (sources, volumes, freshness SLAs)
 
@@ -181,7 +208,7 @@ escalation_rules:
 | Column removal | Deprecate in contract, remove after 30 days |
 ```
 
-### Capability 4: Code Pattern Generation
+### Capability 5: Code Pattern Generation
 
 **Triggers:** Architecture defined, need implementation patterns
 
@@ -217,6 +244,7 @@ PRE-FLIGHT CHECK
 ├─ [ ] ASCII architecture diagram created
 ├─ [ ] At least one decision with full rationale
 ├─ [ ] Complete file manifest (all files listed)
+├─ [ ] Files grouped into Implementation Chunks (max 5 per chunk)
 ├─ [ ] Agent assigned to each file (or marked general)
 ├─ [ ] Code patterns are syntactically correct
 ├─ [ ] Testing strategy covers acceptance tests

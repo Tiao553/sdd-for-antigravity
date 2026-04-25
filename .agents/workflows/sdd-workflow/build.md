@@ -40,11 +40,11 @@ The `/build` command executes the implementation, generating tasks on-the-fly fr
 
 ## What This Command Does
 
-1. **Parse** - Extract file manifest from DESIGN
-2. **Prioritize** - Order files by dependencies
-3. **Execute** - Create each file with verification
-4. **Validate** - Run tests after each significant change
-5. **Report** - Generate build report
+1. **Parse** - Extract Implementation Chunks from DESIGN
+2. **Initialize** - Create or read the living `BUILD_REPORT` artifact
+3. **Isolate** - Identify the next `⏳ Pending` chunk
+4. **Execute** - Create files for that specific chunk with verification
+5. **Report** - Update the chunk's status in the report and STOP
 
 ---
 
@@ -58,9 +58,14 @@ Read(.agents/sdd/features/DEFINE_{FEATURE}.md)
 Read(GEMINI.md)
 ```
 
-### Step 2: Extract Tasks from File Manifest
+### Step 2: Extract Target Chunk
 
-Convert the file manifest to a task list:
+Read the `BUILD_REPORT` to find the current state. If it doesn't exist, create it.
+Identify the first uncompleted chunk:
+
+```markdown
+Target: Chunk 1 - Foundation & State
+```
 
 ```markdown
 From DESIGN file manifest:
@@ -76,7 +81,7 @@ Generate:
 
 Analyze imports and dependencies to determine execution order.
 
-### Step 4: Execute Each Task
+### Step 4: Execute Chunk Files
 
 **First Action:**
 Create an isolated directory for the feature:
@@ -90,9 +95,9 @@ mkdir -p {FEATURE}
 2. **Verify** - Run verification command (lint, type check, import test)
 3. **Mark Complete** - Update progress
 
-### Step 5: Run Full Validation
+### Step 5: Run Full Validation (For the Chunk)
 
-After all files created:
+After the chunk files are created:
 
 ```bash
 # Lint check
@@ -105,11 +110,11 @@ mypy .
 pytest
 ```
 
-### Step 6: Generate Build Report
+### Step 6: Update Living Report
 
-```markdown
-Write(.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md)
-```
+Update the `Chunk Execution Log` in the `BUILD_REPORT_{FEATURE}.md`:
+- If all checks pass: Mark as ✅ Passed
+- If checks fail (and auto-retries exhausted): Mark as ❌ Failed, log the error.
 
 ---
 
@@ -126,19 +131,18 @@ Write(.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md)
 
 ## Execution Loop
 
-The build agent follows this loop for each task:
+The build agent follows this loop for each `/build` invocation:
 
 ```text
 ┌─────────────────────────────────────────────────────┐
-│                    EXECUTE TASK                      │
+│                 CHUNK EXECUTION                      │
 ├─────────────────────────────────────────────────────┤
-│  0. Create isolated folder (mkdir {FEATURE}) once   │
-│  1. Read task from manifest                         │
-│  2. Write code inside the isolated folder           │
-│  3. Run verification command                        │
+│  1. Identify next Pending chunk from BUILD_REPORT   │
+│  2. Write code for files in this chunk              │
+│  3. Run verification command (ruff, mypy, pytest)   │
 │     └─ If FAIL → Fix and retry (max 3)             │
-│  4. Mark task complete                              │
-│  5. Move to next task                               │
+│  4. Update BUILD_REPORT chunk status (✅ or ❌)       │
+│  5. STOP. Ask user to proceed to next chunk.        │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -162,10 +166,10 @@ Before marking complete, verify:
 ## Tips
 
 1. **Follow the DESIGN** - Don't improvise, use the code patterns
-2. **Verify Incrementally** - Test after each file, not at the end
-3. **Fix Forward** - If something breaks, fix it immediately
-4. **Self-Contained** - Each file should be independently functional
-5. **No Comments** - Code should be self-documenting
+2. **Chunk Execution** - Execute ONLY the next pending chunk. Do NOT build the whole project at once.
+3. **Verify Incrementally** - Use the `run_command` tool to test after the chunk is built (`ruff check`, `mypy`, `pytest`).
+4. **Fix Forward** - If a test fails, read the output using `command_status`, fix the code, and retry up to 3 times.
+5. **Living Artifact** - Keep the `BUILD_REPORT` updated. It is the source of truth for execution state.
 
 ---
 

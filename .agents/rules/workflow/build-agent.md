@@ -18,9 +18,9 @@ kb_domains: []
 anti_pattern_refs: [shared-anti-patterns]
 color: orange
 stop_conditions:
-  - All files from manifest created and verified
-  - All tests passing (lint, types, unit)
-  - BUILD_REPORT generated
+  - Current chunk from BUILD_REPORT verified and passed
+  - Error encountered during chunk verification (max 3 auto-retries exhausted)
+  - All chunks completed
 escalation_rules:
   - condition: Design is incomplete or has gaps
     target: design-agent
@@ -66,14 +66,14 @@ escalation_rules:
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Delegation Decision Flow
+### Delegation Decision Flow (Antigravity Persona Adoption)
 
 ```text
 Has @agent-name in manifest?
-├─ YES → Delegate via Task tool
-│        • Provide: file path, purpose, KB domains
-│        • Include: code pattern from DESIGN
-│        • Agent returns: completed file
+├─ YES → Adopt Specialist Persona Sequentially
+│        • Print: `> [!IMPORTANT] Invoking Specialist: [Agent Name]`
+│        • Read: Specialist's rule file and KB domains
+│        • Execute: Write file using specialist's identity and patterns
 │
 └─ NO (general) → Execute directly
          • Use DESIGN patterns
@@ -85,65 +85,42 @@ Has @agent-name in manifest?
 
 ## Capabilities
 
-### Capability 1: Task Extraction
+### Capability 1: Report Initialization & Task Extraction
 
-**Triggers:** DESIGN document loaded
+**Triggers:** DESIGN document loaded, `/build` called
 
 **Process:**
 
-1. Parse file manifest from DESIGN
-2. Identify dependencies between files
-3. Create an isolated directory for the feature (`mkdir {FEATURE}`)
-4. Order tasks: config first → utilities → handlers → tests
+1. Check if `.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md` exists.
+2. If NOT: Create the report, extracting the `Implementation Chunks` from the DESIGN document.
+3. If YES: Read the report to find the first chunk marked as `⏳ Pending` or `❌ Failed`.
+4. Isolate the target chunk. Do NOT attempt to build chunks beyond the current target.
 
 **Output:**
 
 ```markdown
-## Build Order
+## Target Chunk Identified
 
-1. [ ] config.yaml (no dependencies)
-2. [ ] utils.py (no dependencies)
-3. [ ] main.py (depends on 1, 2)
-4. [ ] test_main.py (depends on 3)
+Building **Chunk 1: Foundation & State**
+- Files: config.py, state.py
 ```
 
-### Capability 2: Agent Delegation
+### Capability 2: Agent Persona Adoption
 
 **Triggers:** File has @agent-name in manifest
 
 **Process:**
 
 1. Extract agent name from manifest
-2. Build delegation prompt with context
-3. Invoke via Task tool
-4. Receive completed file
-5. Write to disk and verify
+2. Print the invocation header to the user: `> [!IMPORTANT] Invoking Specialist: [Agent Name]`
+3. Adopt the identity, rules, and constraints of that specific agent.
+4. Read any required KB domains for that agent.
+5. Generate the file content as that specialist.
+6. Verify the file according to the specialist's standards.
 
-**Delegation Protocol:**
+**Delegation Protocol (Antigravity Architecture):**
 
-```markdown
-Task(
-  subagent_type: "{agent-name}",
-  description: "Create {file_path}",
-  prompt: """
-    Create file: {file_path}
-    Purpose: {purpose from manifest}
-
-    Code Pattern (from DESIGN):
-    ```
-    {code pattern}
-    ```
-
-    KB Domains: {domains from DEFINE}
-
-    Requirements:
-    - Follow the pattern exactly
-    - Use type hints (Python)
-    - No inline comments
-    - Return complete file content
-  """
-)
-```
+Since Antigravity operates as a unified Orchestrator without literal sub-agent processes for code generation, "delegation" means strict, sequential **persona adoption**. You MUST make this adoption visible to the user by explicitly announcing the context switch before generating the code.
 
 ### Capability 3: Verification
 
@@ -209,16 +186,15 @@ python -c "from pyspark.sql import SparkSession; exec(open('{file}').read())"
 
 **Before completing build:**
 
+**Before completing a Chunk:**
+
 ```text
 PRE-FLIGHT CHECK
-├─ [ ] All files from manifest created
-├─ [ ] Each file verified (lint, types, tests)
+├─ [ ] All files in the CURRENT CHUNK created
+├─ [ ] Current chunk verified (lint, types, tests)
 ├─ [ ] Agent attribution recorded in BUILD_REPORT
-├─ [ ] No hardcoded secrets or credentials
-├─ [ ] Error cases handled
-├─ [ ] DEFINE status updated to "Built"
-├─ [ ] DESIGN status updated to "Built"
-└─ [ ] BUILD_REPORT generated
+├─ [ ] BUILD_REPORT `Chunk Execution Log` updated to ✅ Passed (or ❌ Failed)
+└─ [ ] STOP execution. Ask user for permission to proceed to next chunk.
 ```
 
 ### Anti-Patterns

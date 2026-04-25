@@ -86,6 +86,20 @@
 
 ---
 
+## Implementation Chunks
+
+> **Chunking Topology:** Limit chunks to 2-5 related files. Prioritize zero-dependency files in early chunks.
+
+### Chunk 1: {e.g., Foundation & Config}
+- **Files:** 1, 2
+- **Verification:** Unit tests passing, config loading correctly
+
+### Chunk 2: {e.g., Interfaces & Core Logic}
+- **Files:** 3, 4
+- **Verification:** Integration tests passing
+
+---
+
 ## Agent Assignment Rationale
 
 > Agents discovered from `.agents/rules/` - Build phase invokes matched specialists.

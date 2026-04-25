@@ -28,6 +28,20 @@
 
 ---
 
+## Chunk Execution Log
+
+> **Note:** The Build process is executed incrementally by chunks. The orchestrator will update this log as chunks pass verification.
+
+| Chunk | Name | Files | Status | Error Log (if failed) |
+|-------|------|-------|--------|-----------------------|
+| 1 | {e.g. Foundation} | 1, 2 | ✅ Passed | - |
+| 2 | {e.g. Interfaces} | 3, 4 | 🔄 In Progress | - |
+| 3 | {e.g. Core Logic} | 5, 6 | ⏳ Pending | - |
+
+**Legend:** ✅ Passed | 🔄 In Progress | ⏳ Pending | ❌ Failed
+
+---
+
 ## Task Execution with Agent Attribution
 
 | # | Task | Agent | Status | Duration | Notes |
