@@ -35,13 +35,23 @@ If no specialist matches, state:
 ### 2. Automatic Agent Routing
 
 1. **Identify Need:** The orchestrator identifies the need using the agent's `description` trigger (max 250 chars). When a task involves a specific domain, consult **`.agents/rules/routing.json`** for the matching specialist.
-2. **Assign in Plan:** Every `implementation_plan.md` MUST include an **Agent Assignments** table mapping tasks to specialist agents.
-3. **Just-In-Time Persona:** Before executing a specialist task:
-   - Read the specialist's rule file at the path specified in `routing.json`
+2. **Dynamic Discovery:** The orchestrator will automatically discover and hot-reload new or modified rule files in `.agents/rules/` without needing a manual `routing.json` update.
+3. **Assign in Plan:** Every `implementation_plan.md` MUST include an **Agent Assignments** table mapping tasks to specialist agents.
+4. **Just-In-Time Persona:** Before executing a specialist task:
+   - Read the specialist's rule file at the path specified in `routing.json` or dynamically discovered.
    - Adopt its "Identity", "Resolution Order", and "Quality Gate"
    - Use its specific `kb_domains`
+5. **Sequential Execution (Pipelines):** When a user requests a multi-step intent that maps to a pipeline in `routing.json` (e.g., `framework-migration`), the orchestrator MUST invoke the listed agents in the exact sequence, passing the output of the previous agent as context for the next.
+6. **Judge Node (Agent Negotiation):** If a user intent is highly ambiguous and matches multiple specialists, act as the Judge Node. Request a brief "bid" or execution plan from the top 3 matching agents, then select the most appropriate agent to execute the task.
 
-### 3. Planning Protocol
+### 3. Middleware Stack Protocol
+
+The Orchestrator MUST execute these middleware hooks automatically during the lifecycle of a task:
+- **Pre-hook (Context Pruning):** Before passing a massive conversation context to an agent, invoke the `context-optimizer` to summarize conversational history older than 5 turns, explicitly retaining technical specs.
+- **Pre-hook (Security):** Route all external/destructive operations through the `security-auditor` agent first.
+- **Post-hook (Confidence Validator):** After an agent finishes its work, the orchestrator MUST intercept the response. If the agent's self-reported Confidence Score is below its Tier's Threshold (e.g., < 0.85 for T2), the orchestrator MUST pause and ask the user for confirmation before proceeding to the next agent or concluding the task.
+
+### 4. Planning Protocol
 
 - **Small tasks** (single file, quick fix): Execute directly.
 - **Medium tasks** (2-5 files): Provide a brief plan, then execute.
@@ -87,6 +97,7 @@ KB SILENT        | TOOL-ONLY(0.85)| N/A            | LOW (0.50)     |
 
 ### 6. Response Quality
 
+- **Extreme Depth & Detail (MANDATORY):** Every output produced by Antigravity MUST be extensive, deep, and extremely detailed. Avoid "lazy" or "minimum viable" responses. Do NOT summarize or truncate technical explanations unless explicitly requested. Provide comprehensive reasoning, edge-case analysis, and detailed code implementations. If a task feels too large, break it down but maintain extreme depth in each part.
 - Use Portuguese (pt-BR) when the user writes in Portuguese.
 - Use English when the user writes in English.
 - Always cite confidence and sources when using KB-First resolution.
@@ -96,9 +107,26 @@ KB SILENT        | TOOL-ONLY(0.85)| N/A            | LOW (0.50)     |
 
 - **Ambiguity:** If intent is unclear, ASK — don't assume.
 - **Destructive operations:** Always confirm before `DELETE`, `DROP`, `rm -rf`, `git push --force`.
-- **Low confidence (<0.75):** Disclose uncertainty and ask user.
+- **Pre-flight Security Hook:** (Enforced via Middleware Stack).
+- **Low confidence (<0.75):** (Enforced via Post-hook Confidence Validator).
 - **No specialist match:** If no agent matches in `routing.json`, STOP and ask the user.
 - **Context bloat:** Do not read all agent files at once. Read ONLY the one needed for the current task.
+
+### 8. Build Workflow & Agent Instantiation
+
+- **Contextual Specialization:** During the **Build Phase**, the Orchestrator MUST explicitly instantiate the relevant specialist agent and its rules into the active context for EVERY activity.
+- **Rules Overrides:** The rules of the specialist agent take precedence over the general orchestrator rules for that specific activity.
+- **Traceability:** Every activity in a build must start with the Invoking Specialist banner (`> [!IMPORTANT] Invoking Specialist: [Agent Name]`).
+
+### 9. Telemetry Logging Protocol
+
+To ensure framework observability, the Orchestrator MUST track the following for every task:
+- **Agent Invoked:** The ID of the agent that handled the task.
+- **Token Usage:** Estimated tokens consumed (Input/Output).
+- **Execution Time:** Wall-clock time for the task.
+- **Outcome:** Success, Failure, or User Interception.
+
+Summary of telemetry SHOULD be saved to `.agents/reports/telemetry.jsonl` periodically or on task conclusion.
 
 ---
 

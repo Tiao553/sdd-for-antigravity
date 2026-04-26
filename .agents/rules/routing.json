@@ -1026,5 +1026,24 @@
       "label": "Data Visualization",
       "description": "Chart selection, dashboard design, DAX, storytelling, viz code"
     }
+  },
+  "pipelines": {
+    "framework-migration": {
+      "description": "End-to-end framework translation, restructuring, and code-cleanup.",
+      "agents": [
+        "migration-architect",
+        "automation-scripter",
+        "code-reviewer",
+        "security-auditor"
+      ]
+    },
+    "pipeline-scaffold": {
+      "description": "Scaffolds an end-to-end data engineering pipeline from schema to tests.",
+      "agents": [
+        "schema-designer",
+        "pipeline-architect",
+        "test-generator"
+      ]
+    }
   }
 }

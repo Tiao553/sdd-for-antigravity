@@ -35,7 +35,7 @@
 
 Every time you ask an AI to build a data pipeline, it starts from scratch — no memory of partition strategies, no awareness of SCD patterns, no understanding of your data contracts. You get hallucinated SQL, wrong incremental strategies, and pipelines that pass in dev but break in production.
 
-AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow where every phase has access to 23 knowledge base domains, every agent knows its boundaries, and every decision is confidence-scored against real documentation — not guessed.
+AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow where every phase has access to 23 knowledge base domains, every agent knows its boundaries, and every decision is confidence-scored against real documentation. This fork transforms AgentSpec into a **High-Performance Cognitive Engine** for Antigravity, prioritizing extreme depth, exhaustive detail, and architectural precision in every interaction.
 
 <br/>
 
@@ -75,9 +75,9 @@ When you open this project in Antigravity, the IDE reads:
 
 | File | Purpose |
 |:--|:--|
-| `GEMINI.md` | Project context, orchestration rules, and agent routing protocols |
-| `AGENTS.md` | Agent routing map and escalation rules |
-| `.agents/rules/default.md` | Orchestrator entrypoint and cognitive framework |
+| `GEMINI.md` | Project context, orchestration rules, semantic routing, and middleware protocols |
+| `AGENTS.md` | Agent routing map, category distribution, and escalation rules |
+| `.agents/rules/default.md` | Orchestrator entrypoint, cognitive framework, and depth standards |
 | `.gemini/settings.json` | Execution permissions (auto-allow, deny, ask) |
 | `.gemini/mcp_config.json` | MCP servers (Context7, Sequential Thinking, GitHub) |
 
@@ -100,6 +100,19 @@ When you open this project in Antigravity, the IDE reads:
 ### Optional: Global GEMINI.md
 
 If you use AgentSpec patterns across **multiple projects**, you can create a global config at `~/.gemini/GEMINI.md` with shared rules. However, this is **not recommended** — AgentSpec's 63 agents and KB-first resolution are project-specific and should stay local.
+
+<br/>
+
+## Advanced Orchestration Features
+
+This fork introduces enterprise-grade orchestration capabilities to the Antigravity workspace:
+
+- **Semantic Vector Routing**: Replaces keyword-based matching with semantic similarity for more accurate agent selection.
+- **Judge Node (Agent Negotiation)**: Resolves ambiguous intents by having agents "bid" on tasks, with the orchestrator selecting the best-fit specialist.
+- **Middleware Stack**:
+  - **Pre-hook (Context Pruning)**: Automatically condenses conversation history to prevent token bloat and maintain focus.
+  - **Post-hook (Confidence Validator)**: Intercepts low-confidence responses and enforces the Agreement Matrix thresholds globally.
+- **Strict Build Workflow**: Forces the instantiation of specialist agents and their specific rules/KB domains for every single activity during the build phase.
 
 <br/>
 
