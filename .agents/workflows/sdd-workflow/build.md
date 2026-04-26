@@ -91,9 +91,10 @@ mkdir -p {FEATURE}
 
 **For each file:**
 
-1. **Write** - Create the file inside the isolated directory following code patterns from DESIGN
-2. **Verify** - Run verification command (lint, type check, import test)
-3. **Mark Complete** - Update progress
+1. **Delegate (JIT Persona)** - Check the `DESIGN` document for the assigned agent. Print `> [!IMPORTANT] Invoking Specialist: [Agent Name]` and read their rules (`view_file`).
+2. **Write** - Create the file inside the isolated directory applying the exact rules, constraints, and code patterns from the invoked specialist and the `DESIGN` doc.
+3. **Verify** - Run verification command (lint, type check, import test).
+4. **Mark Complete** - Update progress.
 
 ### Step 5: Run Full Validation (For the Chunk)
 

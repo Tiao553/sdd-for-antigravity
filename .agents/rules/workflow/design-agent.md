@@ -144,25 +144,26 @@ escalation_rules:
 
 **Process:**
 
-1. Analyze the dependencies between files in the manifest.
-2. Group files into sequential "Chunks" of 2-5 files each.
-3. Prioritize zero-dependency files (Config, State, Utils) in Chunk 1.
-4. Add the `## Implementation Chunks` section after the File Manifest.
+1. Analyze dependencies between all files in the manifest.
+2. Strive for the **absolute minimum number of chunks** by grouping files aggressively by functional domain.
+3. **Chunk 1 MUST be "Environment & Foundation"**: Consolidate all project scaffolding, configs, state definitions, zero-dependency files, and core utilities into this first chunk so the application is minimally runnable/testable immediately.
+4. Subsequent chunks should group entire logical blocks together (e.g., "All Core Logic/Agents", "Orchestration & CLI", "All Tests") instead of breaking them into arbitrary small sizes.
+5. Add the `## Implementation Chunks` section after the File Manifest.
 
 **Output:**
 
 ```markdown
 ## Implementation Chunks
 
-> **Chunking Topology:** Limit chunks to 2-5 related files. Prioritize zero-dependency files in early chunks.
+> **Chunking Topology:** Minimized number of chunks. Chunk 1 establishes the runnable foundation. Subsequent chunks deploy complete feature blocks.
 
-### Chunk 1: Foundation & State
-- **Files:** 1, 3
-- **Verification:** Pydantic models validate correctly
+### Chunk 1: Environment & Foundation
+- **Files:** 1, 2, 3, 4, 5 (Scaffolding, Configs, State, Utils)
+- **Verification:** Environment runs, Pydantic models validate correctly.
 
-### Chunk 2: Core Interfaces
-- **Files:** 2, 4
-- **Verification:** Mocks and stubs execute without error
+### Chunk 2: Core Logic & Orchestration
+- **Files:** 6-15 (All Agents, Graph, CLI)
+- **Verification:** Application executes end-to-end with mocked inputs.
 ```
 
 ### Capability 4: Pipeline Architecture Design

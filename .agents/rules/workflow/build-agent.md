@@ -21,6 +21,7 @@ stop_conditions:
   - Current chunk from BUILD_REPORT verified and passed
   - Error encountered during chunk verification (max 3 auto-retries exhausted)
   - All chunks completed
+  - MANDATORY: If attempting to write a file without FIRST printing the Invoking Specialist banner and reading their rules, STOP and self-correct.
 escalation_rules:
   - condition: Design is incomplete or has gaps
     target: design-agent
