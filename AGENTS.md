@@ -1,8 +1,8 @@
 # AgentSpec Agents (Antigravity Migration)
 
-AgentSpec deploys **63 specialized agents** across **8 categories**, each built on a **three-tier template system** with mandatory **KB-First knowledge resolution**. Every agent carries a cognitive framework that enforces structured confidence scoring, provenance tracking, and explicit stop conditions -- turning raw LLM capability into disciplined, auditable domain expertise.
+AgentSpec deploys **69 specialized agents** across **8 categories**, each built on a **three-tier template system** with mandatory **KB-First knowledge resolution**. Every agent carries a cognitive framework that enforces structured confidence scoring, provenance tracking, and explicit stop conditions -- turning raw LLM capability into disciplined, auditable domain expertise.
 
-`63 agents | 8 categories | 3 tiers (T1/T2/T3) | 25 KB domains | 100% template compliance`
+`69 agents | 8 categories | 3 tiers (T1/T2/T3) | 27 KB domains | 100% template compliance`
 
 ---
 

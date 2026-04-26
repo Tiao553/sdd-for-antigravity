@@ -18,12 +18,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
 
-**A single AI agent reviewing your data pipeline will miss things.**<br/>
-**63 specialized agents with 25 knowledge domains will not.**
+**What is AgentSpec?** An Antigravity plugin that provides structured AI-assisted development through a 5-phase SDD workflow, specialized for data engineering with 69 agents, 34 commands, 27 KB domains, and 2 skills.
 
 <br/>
 
-[About](#about-this-fork) · [Setup](#setup) · [Quick Start](#quick-start) · [Commands](#which-command-do-i-need) · [Agents](#63-agents-across-9-categories) · [Docs](docs/)
+[About](#about-this-fork) · [Setup](#setup) · [Quick Start](#quick-start) · [Commands](#which-command-do-i-need) · [Agents](#69-agents-across-9-categories) · [Docs](docs/)
 
 </div>
 
@@ -35,7 +34,7 @@
 
 Every time you ask an AI to build a data pipeline, it starts from scratch — no memory of partition strategies, no awareness of SCD patterns, no understanding of your data contracts. You get hallucinated SQL, wrong incremental strategies, and pipelines that pass in dev but break in production.
 
-AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow where every phase has access to 23 knowledge base domains, every agent knows its boundaries, and every decision is confidence-scored against real documentation. This fork transforms AgentSpec into a **High-Performance Cognitive Engine** for Antigravity, prioritizing extreme depth, exhaustive detail, and architectural precision in every interaction.
+AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow where every phase has access to 27 knowledge base domains, every agent knows its boundaries, and every decision is confidence-scored against real documentation. This fork transforms AgentSpec into a **High-Performance Cognitive Engine** for Antigravity, prioritizing extreme depth, exhaustive detail, and architectural precision in every interaction.
 
 <br/>
 
@@ -58,7 +57,7 @@ Open the folder in **Antigravity IDE** — that's it. Everything is pre-configur
 
 ### Agent Rules Configuration
 
-In order for the 63 specialized agents to be routed automatically, ensure that the activation mode for the `.agents/rules` is set to **Model Decision**. This mode relies on the `description` field as a trigger for the model to understand when to invoke each agent.
+In order for the 69 specialized agents to be routed automatically, ensure that the activation mode for the `.agents/rules` is set to **Model Decision**. This mode relies on the `description` field as a trigger for the model to understand when to invoke each agent.
 
 ![Example Configuration for Rules](asset/exemple_configuration_for_rules.png)
 
@@ -99,7 +98,7 @@ When you open this project in Antigravity, the IDE reads:
 
 ### Optional: Global GEMINI.md
 
-If you use AgentSpec patterns across **multiple projects**, you can create a global config at `~/.gemini/GEMINI.md` with shared rules. However, this is **not recommended** — AgentSpec's 63 agents and KB-first resolution are project-specific and should stay local.
+If you use AgentSpec patterns across **multiple projects**, you can create a global config at `~/.gemini/GEMINI.md` with shared rules. However, this is **not recommended** — AgentSpec's 69 agents and KB-first resolution are project-specific and should stay local.
 
 <br/>
 
@@ -210,17 +209,17 @@ This fork introduces enterprise-grade orchestration capabilities to the Antigrav
 
 <br/>
 
-## 63 Agents Across 9 Categories
+## 69 Agents Across 9 Categories
 
 | Category | Count | Focus |
 |:--|:--|:--|
-| **Architect** | 8 | Schema design, pipeline architecture, medallion layers, GenAI systems |
-| **Cloud** | 10 | AWS Lambda, GCP Cloud Run, Supabase, CI/CD, Terraform |
+| **Architect** | 9 | Schema design, pipeline architecture, medallion layers, GenAI systems, implementation planning |
+| **Cloud** | 11 | AWS Lambda, GCP Cloud Run, Supabase, CI/CD, Terraform, GitHub Actions |
 | **Data Engineering** | 15 | dbt, Spark, Airflow, streaming, Lakeflow, SQL optimization |
 | **Platform** | 6 | Microsoft Fabric end-to-end (architecture, pipelines, security, AI, logging, CI/CD) |
 | **Python** | 6 | Code review, documentation, cleaning, prompt engineering |
 | **Workflow** | 6 | Brainstorm, define, design, build, ship, iterate |
-| **Dev** | 4 | Codebase exploration, shell scripting, meeting analysis, prompt crafting |
+| **Dev** | 8 | Codebase exploration, shell scripting, meeting analysis, prompt crafting, automation, evaluation, context optimization |
 | **Test** | 3 | Test generation, data quality analysis, data contract authoring |
 
 Every agent follows the same cognitive framework:
@@ -232,7 +231,7 @@ Every agent follows the same cognitive framework:
 
 <br/>
 
-## 23 Knowledge Base Domains
+## 27 Knowledge Base Domains
 
 | Category | Domains |
 |:--|:--|
@@ -241,6 +240,7 @@ Every agent follows the same cognitive framework:
 | **Infrastructure** | `lakehouse` · `lakeflow` · `cloud-platforms` · `terraform` |
 | **Cloud** | `aws` · `gcp` · `microsoft-fabric` |
 | **AI & Modern** | `ai-data-engineering` · `modern-stack` · `genai` · `prompt-engineering` |
+| **Security & Quality** | `security` · `evaluation` · `context` |
 | **Foundations** | `pydantic` · `python` · `testing` |
 
 Each domain contains an `index.md`, `quick-reference.md`, `concepts/` (3-6 files), and `patterns/` (3-6 files with production code). Agents load domains on-demand, not upfront.
@@ -269,10 +269,10 @@ sdd-for-antigravity/
 │   ├── settings.json        # Execution permissions and policies
 │   └── mcp_config.json      # MCP server configuration
 ├── .agents/                 # Source of truth for Antigravity agents
-│   ├── rules/               # 63 agents across 9 categories
+│   ├── rules/               # 69 agents across 9 categories
 │   ├── commands/            # 34 slash commands
 │   ├── skills/              # visual-explainer, excalidraw-diagram
-│   ├── kb/                  # 25 knowledge base domains
+│   ├── kb/                  # 27 knowledge base domains
 │   └── sdd/                 # Templates, contracts, features, archive
 │
 └── docs/                    # Getting started, concepts, tutorials, reference
