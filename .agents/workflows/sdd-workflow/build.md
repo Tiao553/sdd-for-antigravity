@@ -41,10 +41,11 @@ The `/build` command executes the implementation, generating tasks on-the-fly fr
 ## What This Command Does
 
 1. **Parse** - Extract Implementation Chunks from DESIGN
-2. **Initialize** - Create or read the living `BUILD_REPORT` artifact
+2. **Plan & Task** - ALWAYS create/update `implementation_plan.md` and `task.md` with extreme depth
 3. **Isolate** - Identify the next `⏳ Pending` chunk
 4. **Execute** - Create files for that specific chunk with verification
-5. **Report** - Update the chunk's status in the report and STOP
+5. **Persist State** - ALWAYS update `.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md` after every file/interaction
+6. **Report** - Finalize chunk status in the report and STOP
 
 ---
 
@@ -58,10 +59,19 @@ Read(.agents/sdd/features/DEFINE_{FEATURE}.md)
 Read(GEMINI.md)
 ```
 
-### Step 2: Extract Target Chunk
+### Step 2: Planning & Task Extraction (Mandatory)
 
-Read the `BUILD_REPORT` to find the current state. If it doesn't exist, create it.
-Identify the first uncompleted chunk:
+Before writing any code, you MUST generate or update two critical artifacts in the conversation's artifact directory:
+
+1. **`implementation_plan.md`**:
+   - **Extreme Depth**: Detail every technical decision, edge case, and architectural pattern.
+   - **Agent Assignments**: A table mapping every file to a specialist agent found in `routing.json`.
+   - **Workflow Reference**: Explicitly link to `.agents/workflows/sdd-workflow/build.md`.
+   - **Agent References**: Link to each specialist's `.md` file in `.agents/rules/`.
+
+2. **`task.md`**:
+   - **Granularity**: Break down chunks into tiny, verifiable sub-tasks.
+   - **Allocation**: State which agent is responsible for each sub-task.
 
 ```markdown
 Target: Chunk 1 - Foundation & State
@@ -69,11 +79,12 @@ Target: Chunk 1 - Foundation & State
 
 ```markdown
 From DESIGN file manifest:
-| File | Action | Purpose |
+| File | Action | Agent Allocation (from routing.json) |
+|------|--------|------------------------------------|
 
 Generate:
-- [ ] Create/Modify {file1}
-- [ ] Create/Modify {file2}
+- [ ] Sub-task 1.1: [Agent] Description
+- [ ] Sub-task 1.2: [Agent] Description
 - [ ] ...
 ```
 
@@ -91,10 +102,13 @@ mkdir -p {FEATURE}
 
 **For each file:**
 
-1. **Delegate (JIT Persona)** - Check the `DESIGN` document for the assigned agent. Print `> [!IMPORTANT] Invoking Specialist: [Agent Name]` and read their rules (`view_file`).
-2. **Write** - Create the file inside the isolated directory applying the exact rules, constraints, and code patterns from the invoked specialist and the `DESIGN` doc.
-3. **Verify** - Run verification command (lint, type check, import test).
-4. **Mark Complete** - Update progress.
+1. **Delegate (JIT Persona)** - Check the `implementation_plan.md` for the assigned agent.
+2. **Reference Check (MANDATORY)** - You MUST read the specialist's rule file (from `routing.json`) AND the `routing.json` itself before execution.
+3. **Banner Protocol** - Print `> [!IMPORTANT] Invoking Specialist: [Agent Name] (Path: [Agent Path])`.
+4. **Write** - Create the file inside the isolated directory applying the exact rules, constraints, and code patterns from the invoked specialist and the `DESIGN` doc.
+5. **Verify** - Run verification command (lint, type check, import test).
+6. **Mark Complete** - Update progress in `task.md`.
+7. **Persist (MANDATORY)** - Immediately update `.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md`. This is the **System of Record (SoR)** that allows you to resume work on any computer via Git.
 
 ### Step 5: Run Full Validation (For the Chunk)
 

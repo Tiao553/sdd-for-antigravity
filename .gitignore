@@ -49,3 +49,7 @@ output/
 # IDE
 .vscode/
 .idea/
+
+# Caches
+.mypy_cache/
+.ruff_cache/
