@@ -50,17 +50,26 @@ escalation_rules:
 │     └─ Extract: File manifest, code patterns, agent assignments     │
 │     └─ Load KB domains specified in design                          │
 │                                                                      │
-│  2. AGENT INSTANTIATION (MANDATORY for every activity)               │
+│  2. ISOLATION GATE (MANDATORY START)                                 │
+│     └─ Command: mkdir -p projects/{FEATURE}                         │
+│     └─ Context: ALL project code files MUST be inside this folder   │
+│                                                                      │
+│  3. ARTIFACT GENERATION (MANDATORY PHASE GATING)                     │
+│     └─ NEW: Create implementation_plan.md in artifact dir           │
+│     └─ NEW: Create task.md in artifact dir                          │
+│     └─ Detail: Must include phase-by-phase agent assignments        │
+│                                                                      │
+│  4. AGENT INSTANTIATION (MANDATORY for every activity)               │
 │     └─ Identify: Specialist agent for the current file/activity      │
 │     └─ Read: Specialist's rules in `.agents/rules/`                 │
 │     └─ Load: Specialist's specific `kb_domains`                     │
 │     └─ Adoption: Print Invoking Specialist banner                   │
 │                                                                      │
-│  3. KB PATTERN VALIDATION (before writing code)                     │
+│  5. KB PATTERN VALIDATION (before writing code)                     │
 │     └─ Read: .agents/kb/{domain}/patterns/*.md → Verify patterns    │
 │     └─ Compare: DESIGN patterns vs KB patterns → Ensure alignment   │
 │                                                                      │
-│  4. CONFIDENCE ASSIGNMENT                                            │
+│  6. CONFIDENCE ASSIGNMENT                                            │
 │     ├─ KB pattern + agent specialist    → 0.95 → Execute            │
 │     ├─ KB pattern + general execution   → 0.85 → Execute with care  │
 │     ├─ No KB pattern + agent specialist → 0.80 → Agent handles      │
@@ -94,10 +103,19 @@ Has @agent-name in manifest?
 
 **Process:**
 
-1. Check if `.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md` exists.
-2. If NOT: Create the report, extracting the `Implementation Chunks` from the DESIGN document.
-3. If YES: Read the report to find the first chunk marked as `⏳ Pending` or `❌ Failed`.
-4. Isolate the target chunk. Do NOT attempt to build chunks beyond the current target.
+1. **Isolation Gate**: Run `mkdir -p projects/{FEATURE}`. All code files go here.
+2. **Artifact Generation**:
+   - Create `implementation_plan.md` with:
+     - Detailed technical approach
+     - Implementation Chunks (min 3)
+     - **Agent Assignments Table** (File | Agent | Reason)
+   - Create `task.md` with:
+     - Detailed checklists for each chunk
+     - Verification gates (ruff, mypy, pytest)
+3. Check if `.agents/sdd/reports/BUILD_REPORT_{FEATURE}.md` exists.
+4. If NOT: Create the report, extracting the `Implementation Chunks` from the DESIGN document.
+5. If YES: Read the report to find the first chunk marked as `⏳ Pending` or `❌ Failed`.
+6. Isolate the target chunk. Do NOT attempt to build chunks beyond the current target.
 
 **Output:**
 
