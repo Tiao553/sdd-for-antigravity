@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>/validate — Council Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+    --bg: #faf7f3;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --text: #1c1917;
+    --text-dim: #78716c;
+    --primary: #b45309;
+    --primary-dim: rgba(180,83,9,0.08);
+    --teal: #0f766e;
+    --teal-dim: rgba(15,118,110,0.09);
+    --blue: #1d4ed8;
+    --blue-dim: rgba(29,78,216,0.08);
+    --rose: #be123c;
+    --rose-dim: rgba(190,18,60,0.08);
+    --council: #6b21a8;
+    --council-dim: rgba(107,33,168,0.09);
+    --green: #15803d;
+    --green-dim: rgba(21,128,61,0.09);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1410;
+      --surface: #292118;
+      --border: rgba(255,255,255,0.08);
+      --text: #faf7f3;
+      --text-dim: #a8a29e;
+      --primary: #f59e0b;
+      --primary-dim: rgba(245,158,11,0.12);
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45,212,191,0.12);
+      --blue: #60a5fa;
+      --blue-dim: rgba(96,165,250,0.12);
+      --rose: #fb7185;
+      --rose-dim: rgba(251,113,133,0.12);
+      --council: #c084fc;
+      --council-dim: rgba(192,132,252,0.12);
+      --green: #4ade80;
+      --green-dim: rgba(74,222,128,0.12);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 39px,
+      var(--border) 39px, var(--border) 40px
+    ), repeating-linear-gradient(
+      90deg, transparent, transparent 39px,
+      var(--border) 39px, var(--border) 40px
+    );
+    color: var(--text);
+    font-family: var(--font-body);
+    padding: 48px 40px;
+    min-height: 100vh;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .anim { animation: fadeUp 0.45s ease-out both; animation-delay: calc(var(--i,0) * 0.07s); }
+  @media (prefers-reduced-motion: reduce) { .anim { animation: none; } }
+
+  .container { max-width: 1060px; margin: 0 auto; }
+
+  h1 { font-size: 36px; font-weight: 700; letter-spacing: -1px; margin-bottom: 4px; }
+  .subtitle {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .lead {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-dim);
+    max-width: 740px;
+    margin-bottom: 48px;
+  }
+  .lead code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--primary-dim);
+    color: var(--primary);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Phase label */
+  .phase-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  /* Connector */
+  .connector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .connector::before, .connector::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+  .connector-parallel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+    margin: 0;
+  }
+  .connector-parallel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: var(--border);
+  }
+  .parallel-arm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+  .parallel-arm::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+
+  /* Crew card */
+  .crew {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .crew-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .crew-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .crew-title {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .crew-tag {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--border);
+    color: var(--text-dim);
+  }
+  .crew-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Agent pill */
+  .agent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .agent-icon {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .agent-name {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .agent-desc {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* Parallel layout */
+  .parallel-crews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Artifact badge */
+  .artifact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px dashed var(--border);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--text-dim);
+    background: var(--surface);
+  }
+  .artifact-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Merge zone */
+  .merge-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    padding: 0;
+    height: 40px;
+    margin: 0;
+  }
+  .merge-zone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: var(--border);
+  }
+  .merge-arm-left, .merge-arm-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .merge-arm-left::after, .merge-arm-right::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+  }
+  .merge-center {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .legend-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 680px) {
+    body { padding: 20px 16px; }
+    h1 { font-size: 24px; }
+    .parallel-crews { grid-template-columns: 1fr; }
+    .parallel-arm::before { height: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <p class="phase-label anim" style="--i:0">AgentSpec SDD — Phase 3.5</p>
+  <h1 class="anim" style="--i:1">/validate</h1>
+  <p class="subtitle anim" style="--i:2">build → validate → ship &nbsp;·&nbsp; CrewAI multi-crew architecture</p>
+  <p class="lead anim" style="--i:3">
+    A council of specialized AI crews that sits between <code>/build</code> and <code>/ship</code>.
+    Two parallel ingestion flows (Spec + Code) feed a <strong>DeliveryCrew</strong> that generates a delta artifact,
+    which the <strong>CouncilCrew</strong> uses to produce the final validation report, gap analysis, and production runbook.
+  </p>
+
+  <!-- ─── TRIGGER ─── -->
+  <div class="anim" style="--i:4">
+    <div class="crew" style="border-color: var(--primary); max-width: 420px; margin: 0 auto;">
+      <div class="crew-header">
+        <div class="crew-dot" style="background: var(--primary)"></div>
+        <span class="crew-title">Trigger: /validate &lt;feature&gt;</span>
+        <span class="crew-tag">entry point</span>
+      </div>
+      <div class="crew-body">
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--primary-dim); color: var(--primary)">CLI</span>
+          <div>
+            <div class="agent-name">Validate Orchestrator</div>
+            <div class="agent-desc">Reads BUILD_REPORT, DEFINE, DESIGN, BRAINSTORM + project code tree. Spawns SpecCrew and CodeCrew in parallel.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SPLIT → PARALLEL ─── -->
+  <div class="connector-parallel anim" style="--i:5">
+    <div class="parallel-arm"></div>
+    <div class="parallel-arm"></div>
+  </div>
+
+  <!-- ─── PARALLEL CREWS ─── -->
+  <div class="parallel-crews anim" style="--i:6">
+
+    <!-- SPEC CREW -->
+    <div class="crew" style="border-color: var(--teal)">
+      <div class="crew-header">
+        <div class="crew-dot" style="background: var(--teal)"></div>
+        <span class="crew-title">SpecCrew</span>
+        <span class="crew-tag">flow 1.1</span>
+      </div>
+      <div class="crew-body">
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--teal-dim); color: var(--teal)">MGR</span>
+          <div>
+            <div class="agent-name">Spec Manager LLM</div>
+            <div class="agent-desc">Classifies artifact content. Routes each section to the right specialist. CrewAI hierarchical process.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--teal-dim); color: var(--teal)">ARC</span>
+          <div>
+            <div class="agent-name">Data Architect</div>
+            <div class="agent-desc">Reviews schema design, data modeling choices, medallion layer alignment vs DESIGN doc.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--teal-dim); color: var(--teal)">ENG</span>
+          <div>
+            <div class="agent-name">Data Engineer</div>
+            <div class="agent-desc">Validates pipeline spec, DAG logic, transformation logic vs DEFINE requirements.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--teal-dim); color: var(--teal)">SWE</span>
+          <div>
+            <div class="agent-name">Software Engineer</div>
+            <div class="agent-desc">Reviews code structure, patterns, and API contracts as documented in DESIGN.</div>
+          </div>
+        </div>
+        <div class="artifact">
+          <div class="artifact-dot" style="background: var(--teal)"></div>
+          spec_report.json
+        </div>
+      </div>
+    </div>
+
+    <!-- CODE CREW -->
+    <div class="crew" style="border-color: var(--blue)">
+      <div class="crew-header">
+        <div class="crew-dot" style="background: var(--blue)"></div>
+        <span class="crew-title">CodeCrew</span>
+        <span class="crew-tag">flow 1.2</span>
+      </div>
+      <div class="crew-body">
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--blue-dim); color: var(--blue)">MGR</span>
+          <div>
+            <div class="agent-name">Code Manager LLM</div>
+            <div class="agent-desc">Runs ruff, mypy, pytest. Classifies findings by severity and domain. Routes to correct specialist.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--blue-dim); color: var(--blue)">SWE</span>
+          <div>
+            <div class="agent-name">Software Engineer</div>
+            <div class="agent-desc">Reviews code quality, linting results, type safety, complexity metrics, anti-patterns.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--blue-dim); color: var(--blue)">ENG</span>
+          <div>
+            <div class="agent-name">Data Engineer</div>
+            <div class="agent-desc">Reviews pipeline implementation, transformation correctness, test coverage of data logic.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--blue-dim); color: var(--blue)">OPS</span>
+          <div>
+            <div class="agent-name">DevOps Specialist</div>
+            <div class="agent-desc">Checks CI/CD config, Dockerfile, infra code, dependency manifest, secrets hygiene.</div>
+          </div>
+        </div>
+        <div class="artifact">
+          <div class="artifact-dot" style="background: var(--blue)"></div>
+          code_report.json
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MERGE → DELIVERY CREW ─── -->
+  <div class="merge-zone anim" style="--i:7">
+    <div class="merge-arm-left"></div>
+    <div class="merge-center"></div>
+    <div class="merge-arm-right"></div>
+  </div>
+
+  <!-- ─── DELIVERY CREW ─── -->
+  <div class="anim" style="--i:8">
+    <div class="crew" style="border-color: var(--rose); max-width: 680px; margin: 0 auto;">
+      <div class="crew-header">
+        <div class="crew-dot" style="background: var(--rose)"></div>
+        <span class="crew-title">DeliveryCrew — Delta Comparator</span>
+        <span class="crew-tag">new layer</span>
+      </div>
+      <div class="crew-body">
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--rose-dim); color: var(--rose)">CMP</span>
+          <div>
+            <div class="agent-name">Delivery Comparator</div>
+            <div class="agent-desc">Receives original context (BRAINSTORM + DEFINE + DESIGN intents) and both crew outputs. Performs structured delta analysis: what was planned vs. what was delivered.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--rose-dim); color: var(--rose)">GAP</span>
+          <div>
+            <div class="agent-name">Gap Mapper</div>
+            <div class="agent-desc">Maps every requirement from DEFINE to its implementation evidence. Flags missing, partial, or misaligned deliverables with severity scores.</div>
+          </div>
+        </div>
+        <div class="artifact">
+          <div class="artifact-dot" style="background: var(--rose)"></div>
+          delivery_delta.json — intent vs. delivery comparison artifact
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONNECTOR ─── -->
+  <div class="connector anim" style="--i:9">feeds CouncilCrew</div>
+
+  <!-- ─── COUNCIL CREW ─── -->
+  <div class="anim" style="--i:10">
+    <div class="crew" style="border-color: var(--council); max-width: 680px; margin: 0 auto;">
+      <div class="crew-header">
+        <div class="crew-dot" style="background: var(--council)"></div>
+        <span class="crew-title">CouncilCrew — Final Verdict</span>
+        <span class="crew-tag">council</span>
+      </div>
+      <div class="crew-body">
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--council-dim); color: var(--council)">JDG</span>
+          <div>
+            <div class="agent-name">Council Judge</div>
+            <div class="agent-desc">Reads delivery_delta.json + all reports. Computes final validation score (0–100) across 5 dimensions: alignment, quality, coverage, security, prod-readiness.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--council-dim); color: var(--council)">RPT</span>
+          <div>
+            <div class="agent-name">Report Writer</div>
+            <div class="agent-desc">Generates exhaustive VALIDATION_REPORT with executive summary, per-dimension scores, gap catalog, and remediation guidance.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--council-dim); color: var(--council)">PRD</span>
+          <div>
+            <div class="agent-name">Production Readiness Officer</div>
+            <div class="agent-desc">IF score ≥ threshold: generates runbook, pre-flight checklist, deployment roadmap with tasks, rollback plan, and SLA definition.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONNECTOR ─── -->
+  <div class="connector anim" style="--i:11">outputs</div>
+
+  <!-- ─── OUTPUTS ─── -->
+  <div class="anim" style="--i:12">
+    <div class="crew" style="border-color: var(--green); max-width: 680px; margin: 0 auto;">
+      <div class="crew-header">
+        <div class="crew-dot" style="background: var(--green)"></div>
+        <span class="crew-title">Validation Artifacts</span>
+        <span class="crew-tag">outputs</span>
+      </div>
+      <div class="crew-body">
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--green-dim); color: var(--green)">RPT</span>
+          <div>
+            <div class="agent-name">VALIDATION_REPORT_{FEATURE}.md</div>
+            <div class="agent-desc">Full council report: score, gap catalog, findings per dimension, test results summary.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--green-dim); color: var(--green)">RBK</span>
+          <div>
+            <div class="agent-name">RUNBOOK_{FEATURE}.md</div>
+            <div class="agent-desc">Step-by-step production deployment guide: pre-flight checks, deploy tasks, rollback, SLA. Only generated if score ≥ threshold.</div>
+          </div>
+        </div>
+        <div class="agent">
+          <span class="agent-icon" style="background: var(--green-dim); color: var(--green)">RMP</span>
+          <div>
+            <div class="agent-name">ROADMAP_{FEATURE}.md</div>
+            <div class="agent-desc">Gap remediation roadmap: prioritized list of missing items with effort estimates and suggested assignees.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── LEGEND ─── -->
+  <div class="legend anim" style="--i:13">
+    <div class="legend-item"><div class="legend-swatch" style="background: var(--primary)"></div> Orchestrator</div>
+    <div class="legend-item"><div class="legend-swatch" style="background: var(--teal)"></div> SpecCrew (flow 1.1)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background: var(--blue)"></div> CodeCrew (flow 1.2)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background: var(--rose)"></div> DeliveryCrew (new)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background: var(--council)"></div> CouncilCrew</div>
+    <div class="legend-item"><div class="legend-swatch" style="background: var(--green)"></div> Output artifacts</div>
+  </div>
+
+</div>
+</body>
+</html>

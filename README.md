@@ -1,3 +1,33 @@
+## Harness Engineering for Data Engineering
+
+<div align="center">
+
+[![Antigravity Workspace](https://img.shields.io/badge/Antigravity-Workspace-blueviolet?style=flat-square)](/)
+[![CI Pipeline](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
+
+**A single AI agent reviewing your data pipeline will miss things.**<br/>
+**63 specialized agents with 25 knowledge domains will not.**
+
+[About](#harness-engineering-for-data-engineering) · [Setup](#setup) · [Quick Start](#quick-start) · [Commands](#which-command-do-i-need) · [Agents](#63-agents-across-9-categories) · [Docs](docs/)
+
+</div>
+
+---
+
+Welcome to **AgentSpec for Antigravity** — an advanced **Harness Engineering** framework built specifically for Data Engineering.
+
+Building robust data pipelines with LLMs is notoriously difficult because standard models start from scratch, hallucinate SQL, and lack context about your specific architecture. This repository solves that by combining three core pillars into a single, high-performance cognitive engine:
+
+1. **Spec-Driven Development (SDD) for Data Engineering:** A rigorous 5-phase workflow (Brainstorm → Define → Design → Build → Ship) that ensures every piece of code is backed by validated requirements and architectural design before a single line is written.
+2. **Knowledge Base (KB) Agents:** A fleet of 63 specialized agents organized across 9 categories, heavily grounded in 25 distinct knowledge domains. Our "KB-First" resolution pattern ensures agents consult established patterns (e.g., Medallion architectures, SCD types, partition strategies) *before* making technical decisions.
+3. **Control Usage & Orchestration:** An enterprise-grade orchestration layer featuring Agent Negotiation (Judge Node), semantic routing, strict confidence scoring, and Pre/Post hooks. It explicitly controls *how* and *when* an agent executes, ensuring predictable, high-quality outputs and preventing destructive operations.
+
+This framework transforms raw LLM capabilities into disciplined, auditable Data Engineering domain expertise.
+
+---
+
 <h1 align="center">⚠️ Notice</h3>
 
 <h3 align="center">
@@ -9,35 +39,9 @@
   <strong>Antigravity</strong>, which is the IDE I use most in my daily workflow.
 </h3>
 
-<div align="center">
-
----
-
-[![Antigravity Workspace](https://img.shields.io/badge/Antigravity-Workspace-blueviolet?style=flat-square)](/)
-[![CI Pipeline](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
-
-**A single AI agent reviewing your data pipeline will miss things.**<br/>
-**63 specialized agents with 25 knowledge domains will not.**
-
-<br/>
-
-[About](#about-this-fork) · [Setup](#setup) · [Quick Start](#quick-start) · [Commands](#which-command-do-i-need) · [Agents](#63-agents-across-9-categories) · [Docs](docs/)
-
-</div>
-
 ![AgentSpec Landing Page](asset/landing_page_readme.png)
 
 ---
-
-## About This Fork
-
-Every time you ask an AI to build a data pipeline, it starts from scratch — no memory of partition strategies, no awareness of SCD patterns, no understanding of your data contracts. You get hallucinated SQL, wrong incremental strategies, and pipelines that pass in dev but break in production.
-
-AgentSpec solves this with **Spec-Driven Data Engineering**: a 5-phase workflow where every phase has access to 23 knowledge base domains, every agent knows its boundaries, and every decision is confidence-scored against real documentation. This fork transforms AgentSpec into a **High-Performance Cognitive Engine** for Antigravity, prioritizing extreme depth, exhaustive detail, and architectural precision in every interaction.
-
-<br/>
 
 ## Setup
 
