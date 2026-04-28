@@ -82,15 +82,16 @@ class ValidateSkill:
         Crews are imported lazily to avoid circular imports and to allow
         the skill to be used without crewai installed (e.g. in testing).
         """
-        # Lazy imports to prevent circular dependency issues
+        ctx = self.build_context()
+
+        # Lazy imports to prevent circular dependency issues and avoid CrewAI
+        # side effects before local SDD pre-flight checks pass.
         import concurrent.futures
 
         from .crews.code_crew import CodeCrew
         from .crews.council_crew import CouncilCrew
         from .crews.delivery_crew import DeliveryCrew
         from .crews.spec_crew import SpecCrew
-
-        ctx = self.build_context()
 
         # Phase 1 — Parallel execution
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:

@@ -194,3 +194,10 @@ class ValidationReport(BaseModel):
         ..., description="True if score in [70, 89] AND zero CRITICAL issues"
     )
     summary: Optional[str] = Field(None, description="Executive summary from RPT agent")
+    artifact_plan: Dict[str, List[str] | str | bool] = Field(
+        default_factory=dict,
+        description=(
+            "JSON-only guidance for deterministic skill-side document rendering. "
+            "The crew must not write markdown artifacts."
+        ),
+    )

@@ -24,8 +24,9 @@ from .schemas import ValidateContext
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 
-SDD_FEATURES_DIR = Path(".agents/sdd/features")
-SDD_REPORTS_DIR = Path(".agents/sdd/reports")
+SDD_FEATURES_DIR = Path(".github/sdd/features")
+SDD_REPORTS_DIR = Path(".github/sdd/reports")
+SKILLS_DIR = Path(".github/skills")
 
 # Whitelisted commands — DO NOT add arbitrary commands here.
 _ALLOWED_COMMANDS: set[str] = {"ruff", "mypy", "pytest"}
@@ -73,16 +74,40 @@ def _safe_run(command: List[str]) -> Dict[str, Any]:
 # ─── SDD File Readers ─────────────────────────────────────────────────────────
 
 
-def _read_sdd_file(feature_name: str, prefix: str, directory: Path) -> str:
+def _feature_slug(feature_name: str) -> str:
+    """Convert FEATURE_NAME into the kebab-case directory convention."""
+    return feature_name.lower().replace("_", "-")
+
+
+def find_feature_dir(feature_name: str) -> Path:
+    """Return the feature directory, preferring the standard kebab-case path."""
+    preferred = SDD_FEATURES_DIR / _feature_slug(feature_name)
+    if preferred.exists():
+        return preferred
+
+    matches = sorted(SDD_FEATURES_DIR.rglob(f"DEFINE_{feature_name}.md"))
+    if matches:
+        return matches[0].parent
+
+    matches = sorted(SDD_FEATURES_DIR.rglob(f"DESIGN_{feature_name}.md"))
+    if matches:
+        return matches[0].parent
+
+    return preferred
+
+
+def _read_sdd_file(feature_name: str, prefix: str, directories: List[Path]) -> str:
     """
     Read a single SDD document from disk.
 
-    Searches for `{PREFIX}_{FEATURE_NAME}.md` in the given directory.
+    Searches for `{PREFIX}_{FEATURE_NAME}.md` in the given directories.
     Returns empty string if not found (graceful degradation for optional files).
     """
-    path = directory / f"{prefix}_{feature_name}.md"
-    if path.exists():
-        return path.read_text(encoding="utf-8")
+    filename = f"{prefix}_{feature_name}.md"
+    for directory in directories:
+        path = directory / filename
+        if path.exists():
+            return path.read_text(encoding="utf-8")
     return ""
 
 
@@ -127,32 +152,38 @@ def read_sdd_context(feature_name: str) -> ValidateContext:
     Raises:
         FileNotFoundError: If DEFINE or DESIGN documents are missing.
     """
-    define_content = _read_sdd_file(feature_name, "DEFINE", SDD_FEATURES_DIR)
-    design_content = _read_sdd_file(feature_name, "DESIGN", SDD_FEATURES_DIR)
-    build_report_content = _read_sdd_file(feature_name, "BUILD_REPORT", SDD_REPORTS_DIR)
+    feature_dir = find_feature_dir(feature_name)
+    sdd_dirs = [feature_dir, SDD_FEATURES_DIR]
+    report_dirs = [feature_dir, SDD_REPORTS_DIR]
+
+    define_content = _read_sdd_file(feature_name, "DEFINE", sdd_dirs)
+    design_content = _read_sdd_file(feature_name, "DESIGN", sdd_dirs)
+    build_report_content = _read_sdd_file(feature_name, "BUILD_REPORT", report_dirs)
 
     missing: List[str] = []
     if not define_content:
         missing.append(f"DEFINE_{feature_name}.md")
     if not design_content:
         missing.append(f"DESIGN_{feature_name}.md")
+    if not build_report_content:
+        missing.append(f"BUILD_REPORT_{feature_name}.md")
     if missing:
         raise FileNotFoundError(
             f"Required SDD files not found: {', '.join(missing)}. "
-            "Run /define and /design first."
+            "Run /define, /design, and /build first."
         )
 
-    brainstorm_content = _read_sdd_file(feature_name, "BRAINSTORM", SDD_FEATURES_DIR)
+    brainstorm_content = _read_sdd_file(feature_name, "BRAINSTORM", sdd_dirs)
 
     # Infer code tree from skill directory.
     # Convention tries multiple candidates in order:
-    #   1. .agents/skills/{kebab-full}  (e.g. validate-workflow)
-    #   2. .agents/skills/{first-word}  (e.g. validate — actual dir for this feature)
-    kebab_full = feature_name.lower().replace("_", "-")
+    #   1. .github/skills/{kebab-full}  (e.g. validate-workflow)
+    #   2. .github/skills/{first-word}  (e.g. validate — actual dir for this feature)
+    kebab_full = _feature_slug(feature_name)
     first_word = kebab_full.split("-")[0]
     candidates = [
-        f".agents/skills/{kebab_full}",
-        f".agents/skills/{first_word}",
+        str(SKILLS_DIR / kebab_full),
+        str(SKILLS_DIR / first_word),
     ]
     code_tree: List[str] = []
     for candidate in candidates:

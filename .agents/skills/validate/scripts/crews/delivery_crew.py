@@ -16,7 +16,6 @@ AgentSpec persona mapping:
 
 from __future__ import annotations
 
-from crewai import Agent, Crew, Process, Task
 from ..schemas import DeliveryDelta, ValidateContext, SpecReport, CodeReport
 
 
@@ -28,6 +27,8 @@ def _build_delivery_crew(
     """
     Construct the 2 DeliveryCrew agents and the comparison tasks.
     """
+    from crewai import Agent, Task
+
     # ── CMP: Delivery Comparator (the-planner persona) ─────────────────────
     comparator = Agent(
         role="Delivery Comparator",
@@ -115,6 +116,8 @@ class DeliveryCrew:
 
     def run(self) -> DeliveryDelta:
         agents, tasks = _build_delivery_crew(self.ctx, self.spec_report, self.code_report)
+
+        from crewai import Crew, Process
 
         crew = Crew(
             agents=agents,

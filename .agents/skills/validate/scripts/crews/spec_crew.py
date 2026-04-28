@@ -22,8 +22,6 @@ from __future__ import annotations
 
 import json
 
-from crewai import Agent, Crew, Process, Task
-
 from ..llm import get_llm
 from ..schemas import Finding, Severity, SpecReport, ValidateContext
 
@@ -34,6 +32,8 @@ def _build_spec_crew(ctx: ValidateContext) -> tuple[Agent, list[Agent], Task]:
 
     Returns: (manager_agent, specialist_list, task)
     """
+    from crewai import Agent, Task
+
     # ── MGR: Spec Manager LLM (design-agent persona) ──────────────────────
     manager = Agent(
         role="Spec Manager",
@@ -157,6 +157,8 @@ class SpecCrew:
         appropriate specialist. Results are merged into a single SpecReport.
         """
         manager, specialists, task = _build_spec_crew(self.ctx)
+
+        from crewai import Crew, Process
 
         crew = Crew(
             agents=specialists,

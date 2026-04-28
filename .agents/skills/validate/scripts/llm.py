@@ -17,7 +17,7 @@ def _load_dotenv() -> None:
     try:
         from dotenv import load_dotenv
 
-        # scripts/ → validate/ → skills/ → .agents/ → project root
+        # scripts/ → validate/ → skills/ → .github/ → project root
         project_root = Path(__file__).parent.parent.parent.parent.parent
         env_file = project_root / ".env"
         if env_file.exists():

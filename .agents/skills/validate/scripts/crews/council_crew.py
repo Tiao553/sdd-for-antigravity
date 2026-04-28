@@ -18,8 +18,15 @@ AgentSpec persona mapping:
 
 from __future__ import annotations
 
-from crewai import Agent, Crew, Process, Task
-from ..schemas import ValidationReport, ValidateContext, SpecReport, CodeReport, DeliveryDelta
+from ..schemas import (
+    CodeReport,
+    DeliveryDelta,
+    Finding,
+    Severity,
+    SpecReport,
+    ValidateContext,
+    ValidationReport,
+)
 
 
 def _build_council_crew(
@@ -31,6 +38,8 @@ def _build_council_crew(
     """
     Construct the 3 CouncilCrew agents and the final verdict tasks.
     """
+    from crewai import Agent, Task
+
     # ── JDG: The Judge (genai-architect persona) ───────────────────────────
     judge = Agent(
         role="The Judge",
@@ -95,7 +104,10 @@ def _build_council_crew(
             "ARTIFACT ELIGIBILITY:\n"
             "  runbook_eligible = score >= 90 AND zero CRITICAL findings\n"
             "  roadmap_eligible = 70 <= score < 90 AND zero CRITICAL findings\n\n"
-            "CRITICAL: You MUST produce ONLY the following JSON fields. Do NOT add any other fields.\n"
+            "CRITICAL: You MUST only return JSON guidance. Do NOT write markdown documents, "
+            "do NOT include full RUNBOOK or ROADMAP content, and do NOT create files.\n"
+            "The validate skill will render documents from templates after reading your JSON.\n"
+            "Produce ONLY the following JSON fields. Do NOT add any other fields.\n"
             "Produce a JSON object with EXACTLY these fields:\n"
             "{\n"
             f'  "feature": "{ctx.feature_name}",\n'
@@ -112,20 +124,105 @@ def _build_council_crew(
             '  "findings": [<list of all non-CRITICAL Finding objects>],\n'
             '  "runbook_eligible": <true or false>,\n'
             '  "roadmap_eligible": <true or false>,\n'
-            '  "summary": "<one paragraph executive summary>"\n'
+            '  "summary": "<one paragraph executive summary>",\n'
+            '  "artifact_plan": {\n'
+            '    "recommended_artifact": "VALIDATION_REPORT|RUNBOOK|ROADMAP|NONE",\n'
+            '    "create_validation_report": true,\n'
+            '    "create_runbook": <true or false>,\n'
+            '    "create_roadmap": <true or false>,\n'
+            '    "roadmap_items": ["short remediation item", ...],\n'
+            '    "runbook_notes": ["short operation note", ...]\n'
+            "  }\n"
             "}\n\n"
             "IMPORTANT: Each Finding object must have: title, description, severity (LOW|MEDIUM|HIGH|CRITICAL), category.\n"
-            "Do NOT include fields like requirement_coverage, artifacts, or any other custom fields."
+            "Do NOT include fields like requirement_coverage, artifacts, markdown, or any other custom fields."
         ),
         expected_output=(
             "A valid JSON object with exactly these fields: feature, score, status, dimensions, "
-            "critical_issues, findings, runbook_eligible, roadmap_eligible, summary. "
+            "critical_issues, findings, runbook_eligible, roadmap_eligible, summary, artifact_plan. "
             "No other fields allowed."
         ),
         agent=judge
     )
 
     return [judge, writer, officer], [verdict_task]
+
+
+def _build_deterministic_report(
+    ctx: ValidateContext,
+    spec_report: SpecReport,
+    code_report: CodeReport,
+    delivery_delta: DeliveryDelta,
+    summary: str | None = None,
+) -> ValidationReport:
+    """Apply the validation contract in code; LLM output only guides narrative."""
+    score = round(
+        spec_report.alignment_score * 0.30
+        + code_report.quality_score * 0.25
+        + spec_report.architecture_score * 0.20
+        + code_report.devops_score * 0.15
+        + delivery_delta.delta_score * 0.10,
+        2,
+    )
+
+    findings: list[Finding] = [*spec_report.findings, *code_report.findings]
+    for gap in delivery_delta.logic_gaps:
+        findings.append(
+            Finding(
+                title="Delivery Gap",
+                description=gap,
+                severity=Severity.HIGH,
+                category="Coverage",
+            )
+        )
+
+    critical_issues = [f for f in findings if f.severity == Severity.CRITICAL]
+    non_critical = [f for f in findings if f.severity != Severity.CRITICAL]
+    runbook_eligible = score >= 90 and not critical_issues
+    roadmap_eligible = 70 <= score < 90 and not critical_issues
+    status = "FAILED" if critical_issues or score < 70 else "PASSED" if score >= 90 else "WARNING"
+    recommended_artifact = (
+        "RUNBOOK"
+        if runbook_eligible
+        else "ROADMAP"
+        if roadmap_eligible
+        else "VALIDATION_REPORT"
+    )
+
+    roadmap_items = [
+        finding.description for finding in non_critical if finding.severity in {Severity.HIGH, Severity.MEDIUM}
+    ][:10]
+    runbook_notes = [
+        "Use the validation score and critical issue list as deployment gates.",
+        "Re-run /validate after any remediation before shipping.",
+    ]
+
+    return ValidationReport(
+        feature=ctx.feature_name,
+        score=score,
+        status=status,
+        dimensions={
+            "Spec Alignment": spec_report.alignment_score,
+            "Code Quality": code_report.quality_score,
+            "Architecture Fidelity": spec_report.architecture_score,
+            "Security & DevOps": code_report.devops_score,
+            "Production Readiness": delivery_delta.delta_score,
+        },
+        critical_issues=critical_issues,
+        findings=non_critical,
+        runbook_eligible=runbook_eligible,
+        roadmap_eligible=roadmap_eligible,
+        summary=summary
+        or "Validation completed. Review the scoring breakdown and gap catalog before promotion.",
+        artifact_plan={
+            "recommended_artifact": recommended_artifact,
+            "create_validation_report": True,
+            "create_runbook": runbook_eligible,
+            "create_roadmap": roadmap_eligible,
+            "roadmap_items": roadmap_items,
+            "runbook_notes": runbook_notes,
+        },
+    )
 
 
 class CouncilCrew:
@@ -150,6 +247,8 @@ class CouncilCrew:
             self.ctx, self.spec_report, self.code_report, self.delivery_delta
         )
 
+        from crewai import Crew, Process
+
         crew = Crew(
             agents=agents,
             tasks=tasks,
@@ -170,22 +269,26 @@ class CouncilCrew:
             import re as _re
             raw = _re.sub(r",\s*\.\.\.\s*(?=[,\]])", "", raw)
             raw = _re.sub(r"\[\s*\.\.\.\s*\]", "[]", raw)
-            return ValidationReport.model_validate_json(raw)
-        except Exception as exc:
-            return ValidationReport(
-                feature=self.ctx.feature_name,
-                score=0.0,
-                status="FAILED",
-                dimensions={
-                    "Spec Alignment": 0.0,
-                    "Code Quality": 0.0,
-                    "Architecture Fidelity": 0.0,
-                    "Security & DevOps": 0.0,
-                    "Production Readiness": 0.0,
-                },
-                critical_issues=[],
-                findings=[],
-                runbook_eligible=False,
-                roadmap_eligible=False,
-                summary=f"Parse error in CouncilCrew: {exc}",
+            parsed = ValidationReport.model_validate_json(raw)
+            return _build_deterministic_report(
+                self.ctx,
+                self.spec_report,
+                self.code_report,
+                self.delivery_delta,
+                summary=parsed.summary,
             )
+        except Exception as exc:
+            report = _build_deterministic_report(
+                self.ctx,
+                self.spec_report,
+                self.code_report,
+                self.delivery_delta,
+                summary=f"CouncilCrew returned invalid JSON guidance: {exc}",
+            )
+            report.status = "FAILED"
+            report.runbook_eligible = False
+            report.roadmap_eligible = False
+            report.artifact_plan["create_runbook"] = False
+            report.artifact_plan["create_roadmap"] = False
+            report.artifact_plan["recommended_artifact"] = "VALIDATION_REPORT"
+            return report

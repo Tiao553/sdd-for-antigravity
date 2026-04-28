@@ -22,8 +22,6 @@ from __future__ import annotations
 
 import json
 
-from crewai import Agent, Crew, Process, Task
-
 from ..llm import get_llm
 from ..schemas import CodeReport, Finding, Severity, ValidateContext
 from ..tools import run_mypy, run_ruff
@@ -70,6 +68,8 @@ def _build_code_crew(
 
     Returns: (manager_agent, specialist_list, task)
     """
+    from crewai import Agent, Task
+
     # ── MGR: Code Manager LLM (code-reviewer persona) ─────────────────────
     manager = Agent(
         role="Code Manager",
@@ -199,7 +199,7 @@ class CodeCrew:
         Step 3: Parse crew output into a validated CodeReport Pydantic model.
         """
         # Step 1 — Run deterministic tools (whitelisted, no arbitrary shell)
-        skill_path = ".agents/skills/validate"
+        skill_path = ".github/skills/validate"
         ruff_result = run_ruff(skill_path)
         mypy_result = run_mypy(skill_path)
 
@@ -209,6 +209,8 @@ class CodeCrew:
 
         # Step 2 — Crew analysis
         manager, specialists, task = _build_code_crew(self.ctx, ruff_result, mypy_result)
+
+        from crewai import Crew, Process
 
         crew = Crew(
             agents=specialists,

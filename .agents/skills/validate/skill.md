@@ -4,7 +4,8 @@ description: >
   Multi-agent quality gate for AgentSpec SDD Phase 3.5.
   Orchestrates four specialized CrewAI crews (SpecCrew, CodeCrew, DeliveryCrew, CouncilCrew)
   to validate that an implemented feature matches its DEFINE requirements and DESIGN intent.
-  Produces a weighted validation score, a final report, and optionally RUNBOOK or ROADMAP artifacts.
+  Produces a weighted validation score plus JSON artifact guidance; the skill renders
+  VALIDATION_REPORT, RUNBOOK, or ROADMAP documents from templates.
 entrypoint: scripts/main.py
 tools:
   - run_command
@@ -20,7 +21,7 @@ builds an immutable `ValidateContext`, and passes it through a four-crew pipelin
 ## Directory Structure
 
 ```
-.agents/skills/validate/
+.github/skills/validate/
 ├── skill.md               ← This file (skill descriptor)
 └── scripts/               ← All executable code lives here
     ├── __init__.py        ← ValidateSkill entry class
@@ -42,7 +43,7 @@ builds an immutable `ValidateContext`, and passes it through a four-crew pipelin
 The skill is invoked by the `/validate` workflow. The workflow calls:
 
 ```bash
-python3 .agents/skills/validate/scripts/main.py <FEATURE_NAME>
+python3 .github/skills/validate/scripts/main.py <FEATURE_NAME>
 ```
 
 Where `<FEATURE_NAME>` is the feature identifier (e.g. `VALIDATE_WORKFLOW`).
@@ -84,10 +85,17 @@ ValidateContext (built from DEFINE + DESIGN + BUILD_REPORT + code_tree)
 | Security & DevOps | 15% | `CodeReport.devops_score` |
 | Production Readiness | 10% | `DeliveryDelta.delta_score` |
 
+## Artifact Contract
+
+The crews must return JSON only. They must not write files or return full markdown documents.
+`ValidationReport.artifact_plan` guides deterministic skill-side rendering from
+`.github/sdd/templates/`.
+
 ## Artifact Eligibility
 
 | Score | No CRITICAL Issues | Artifact Generated |
 |-------|-------------------|-------------------|
+| Any | Any | `VALIDATION_REPORT_{FEATURE}.md` |
 | ≥ 90 | ✅ | `RUNBOOK_{FEATURE}.md` |
 | 70–89 | ✅ | `ROADMAP_{FEATURE}.md` |
-| < 70 | Any | No artifact, Exit code 1 |
+| < 70 | Any | Validation report only, Exit code 1 |

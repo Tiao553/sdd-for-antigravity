@@ -2,7 +2,7 @@
 code_crew.py — Legacy flat stub (superseded by crews/code_crew.py).
 
 Kept for backwards compatibility. The active implementation lives in
-.agents/skills/validate/scripts/crews/code_crew.py (Hierarchical · 4 agents).
+.github/skills/validate/scripts/crews/code_crew.py (Hierarchical · 4 agents).
 """
 
 from crewai import Agent
