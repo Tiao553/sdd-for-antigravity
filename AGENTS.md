@@ -21,7 +21,7 @@ The orchestrator is Antigravity itself. It reads all 58 agent description fields
 
 ### Layer 2: Agent Template (Cognitive Framework)
 
-Every agent inherits from `.agents/rules/default.md`, which defines structured thinking:
+Every agent inherits from `rules/AGENTS.md`, which defines structured thinking:
 
 - **KB-First Resolution** -- check local knowledge before external sources
 - **Agreement Matrix** -- structured confidence scoring (KB vs Tool alignment)
@@ -40,12 +40,12 @@ User
   |
   v
 Orchestrator (Antigravity)
-  |-- reads agent descriptions from `.agents/rules/`
+  |-- reads agent descriptions from `rules/specialists/`
   |-- pattern-matches message to capabilities
   |-- selects best-fit agent
   v
 Agent Instance
-  |-- KB-First: read .agents/kb/{domain}/
+  |-- KB-First: read kb/{domain}/
   |-- Agreement Matrix: calculate confidence
   |-- Impact Tier: check threshold for task type
   |-- Execute (confidence met) or Stop (below threshold)

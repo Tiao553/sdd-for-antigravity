@@ -22,7 +22,7 @@ At the start of **EVERY** response, explicitly state which agent or role is hand
 
 ```
 > [!IMPORTANT]
-> Invoking Specialist: [Agent Name] (Path: .agents/rules/[category]/[agent].md)
+> Invoking Specialist: [Agent Name] (Path: rules/specialists/[category]/[agent].md)
 ```
 
 If no specialist matches, state:
@@ -34,8 +34,8 @@ If no specialist matches, state:
 
 ### 2. Automatic Agent Routing
 
-1. **Identify Need:** The orchestrator identifies the need using the agent's `description` trigger (max 250 chars). When a task involves a specific domain, consult **`.agents/rules/routing.json`** for the matching specialist.
-2. **Dynamic Discovery:** The orchestrator will automatically discover and hot-reload new or modified rule files in `.agents/rules/` without needing a manual `routing.json` update.
+1. **Identify Need:** The orchestrator identifies the need using the agent's `description` trigger (max 250 chars). When a task involves a specific domain, consult **`rules/routing.json`** for the matching specialist.
+2. **Dynamic Discovery:** The orchestrator will automatically discover and hot-reload new or modified rule files in `rules/specialists/` without needing a manual `routing.json` update.
 3. **Assign in Plan:** Every `implementation_plan.md` MUST include an **Agent Assignments** table mapping tasks to specialist agents.
 4. **Just-In-Time Persona:** Before executing a specialist task:
    - Read the specialist's rule file at the path specified in `routing.json` or dynamically discovered.
@@ -62,7 +62,7 @@ The Orchestrator MUST execute these middleware hooks automatically during the li
 Every agent follows this mandatory knowledge resolution order:
 
 ```text
-1. KB CHECK       Read .agents/kb/{domain}/index.md — scan headings only (~20 lines)
+1. KB CHECK       Read kb/{domain}/index.md — scan headings only (~20 lines)
 2. ON-DEMAND LOAD Read specific pattern/concept file matching the task (one file, not all)
 3. TOOL FALLBACK  Single tool query if KB insufficient (max 3 tool calls per task)
 4. CONFIDENCE     Calculate from Agreement Matrix (never self-assess)
@@ -133,58 +133,75 @@ Summary of telemetry SHOULD be saved to `.agents/reports/telemetry.jsonl` period
 ## Repository Structure
 
 ```text
-sdd-for-antigravity/
+sdd-for-antigravity/ (Antigravity Plugin)
+├── plugin.json              # Official Antigravity Plugin manifest (schema v1)
+├── mcp_config.json          # Bundled MCP servers (context7, sequential-thinking, github)
+├── hooks.json               # Lifecycle hooks (security guard PreToolUse, session-init)
 ├── GEMINI.md                # Main Antigravity context and system prompt
 ├── AGENTS.md                # Antigravity agent routing and escalation map
-├── .agents/                 # Antigravity agent configuration
-│   ├── rules/               # Agent entrypoints and templates
-│   │   ├── default.md       # Antigravity default entrypoint baseline
-│   │   ├── architect/       # 8 system-level design agents
-│   │   ├── cloud/           # 10 AWS, GCP, cloud services, CI/CD
-│   │   ├── platform/        # 6 Microsoft Fabric specialists
-│   │   ├── python/          # 6 Python dev, code quality, prompts
-│   │   ├── test/            # 3 testing, data quality, contracts
-│   │   ├── data-engineering/ # 15 DE implementation specialists
-│   │   ├── data-viz/         # 5 visualization specialists
-│   │   ├── dev/             # 4 developer tools & productivity
-│   │   └── workflow/        # 6 SDD phase agents
-│   │
-│   ├── commands/            # 34 slash commands
-│   │   ├── workflow/        # SDD commands (7)
-│   │   ├── data-engineering/ # DE commands (8)
-│   │   ├── data-viz/         # Data visualization commands (4)
-│   │   ├── core/            # Utility commands (5)
-│   │   ├── knowledge/       # KB commands (1)
-│   │   ├── review/          # Review commands (1)
-│   │   └── visual-explainer/ # Visual documentation commands (8)
-│   │
-│   ├── skills/              # Reusable capability packs
-│   │   ├── visual-explainer/ # HTML page generation
-│   │   └── excalidraw-diagram/ # Excalidraw JSON generation
-│   │
-│   ├── sdd/                 # SDD framework
-│   │   ├── architecture/    # WORKFLOW_CONTRACTS.yaml, ARCHITECTURE.md
-│   │   ├── templates/       # 5 document templates (DE-aware)
-│   │   ├── features/        # Active development
-│   │   ├── reports/         # Build reports
-│   │   └── archive/         # Shipped features
-│   │
-│   └── kb/                  # Knowledge Base (23 domains)
-│       ├── _templates/      # 7 KB domain templates
-│       ├── _index.yaml      # Domain registry
-│       ├── dbt/             # dbt patterns and concepts
-│       └── ...              # 22 other domains
-│
-├── docs/                    # Documentation
-│   ├── getting-started/     # Installation and first pipeline
-│   ├── concepts/            # SDD pillars through DE lens
-│   ├── tutorials/           # dbt, star schema, Spark, streaming tutorials
-│   └── reference/           # Full catalog: agents, commands, KB domains
-│
 ├── CHANGELOG.md             # Version history
-├── CONTRIBUTING.md          # Contribution guide
-├── SECURITY.md              # Security policy
-└── README.md                # Project overview
+├── LICENSE                  # MIT License
+├── README.md                # Project overview and installation guide
+├── assets/                  # Plugin visual assets
+│   └── logo.svg             # Plugin icon for Antigravity UI
+│
+├── agents/                  # Native Antigravity Subagents
+│   ├── security-auditor.md  # Pre-flight safety, credential leak & DDL auditor
+│   ├── spec-crew.md         # Phase 3.5 functional compliance evaluator
+│   ├── code-crew.md         # Phase 3.5 architecture, SQL & code quality evaluator
+│   ├── delivery-crew.md     # Phase 3.5 SRE, runbook & operational readiness evaluator
+│   └── council-crew.md      # Phase 3.5 chief arbitrator & gate verdict synthesizer
+│
+├── skills/                  # 38 First-Class Skills & Slash Commands
+│   ├── sdd-init/            # /sdd-init - Workspace bootstrapper
+│   ├── brainstorm/          # /brainstorm - Phase 0
+│   ├── define/              # /define - Phase 1
+│   ├── design/              # /design - Phase 2
+│   ├── build/               # /build - Phase 3
+│   ├── validate/            # /validate - Phase 3.5 multi-agent quality gate
+│   ├── ship/                # /ship - Phase 4
+│   ├── pipeline/            # /pipeline - DAG scaffolding
+│   ├── schema/              # /schema - Star/snowflake schema design
+│   ├── data-quality/        # /data-quality - Quality checks generation
+│   ├── lakehouse/           # /lakehouse - Table formats & catalogs
+│   ├── sql-review/          # /sql-review - SQL optimization & review
+│   └── ... (26 other skills)
+│
+├── rules/                   # Active Plugin Rules & Specialists
+│   ├── AGENTS.md            # Consolidated Orchestrator baseline & cognitive framework
+│   ├── routing.json         # Semantic agent routing table (63 specialists)
+│   └── specialists/         # 63 domain specialists loaded on-demand (JIT)
+│       ├── architect/       # 10 architecture & system design agents
+│       ├── cloud/           # 11 AWS, GCP, cloud services & deployment agents
+│       ├── data-engineering/# 13 data engineering implementation specialists
+│       ├── data-viz/        # 5 data visualization specialists
+│       ├── dev/             # 4 developer tools & productivity agents
+│       ├── platform/        # 6 Microsoft Fabric specialists
+│       ├── python/          # 6 Python development & code quality agents
+│       ├── test/            # 3 testing, contracts & data quality agents
+│       └── workflow/        # 6 SDD lifecycle phase agents
+│
+├── kb/                      # Knowledge Base (26 domains loaded KB-first)
+│   ├── _templates/          # Domain templates
+│   ├── _index.yaml          # Domain registry & taxonomy
+│   ├── dbt/                 # dbt patterns, incremental strategies & macros
+│   ├── spark/               # Spark patterns, memory management & AQE
+│   ├── medallion/           # Bronze/Silver/Gold layer patterns
+│   └── ... (21 other domains)
+│
+├── sdd/                     # SDD Framework Core Templates & Contracts
+│   ├── architecture/        # WORKFLOW_CONTRACTS.yaml, ARCHITECTURE.md
+│   └── templates/           # BRAINSTORM, DEFINE, DESIGN, BUILD_REPORT, etc.
+│
+├── scripts/                 # Utility, validation, and hook scripts
+│   ├── security_pre_hook.py # PreToolUse command interceptor
+│   ├── session_start_hook.py# SessionStart initializer
+│   ├── validate_plugin_manifest.py # Automated plugin verification test suite
+│   ├── update_descriptions.py # Specialist trigger description optimizer
+│   ├── update_triggers_to_agents_rules.py # Model decision trigger synchronizer
+│   └── embed_agents.py      # Semantic vector routing index builder
+│
+└── docs/                    # Architectural guides, tutorials & references
 ```
 
 ---

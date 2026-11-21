@@ -5,7 +5,7 @@
 [![Antigravity Workspace](https://img.shields.io/badge/Antigravity-Workspace-blueviolet?style=flat-square)](/)
 [![CI Pipeline](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Tiao553/sdd-for-antigravity/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/v3.0.0-green?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/v3.1.0-green?style=flat-square)](CHANGELOG.md)
 
 **A single AI agent reviewing your data pipeline will miss things.**<br/>
 **63 specialized agents with 25 knowledge domains will not.**
@@ -53,12 +53,26 @@ This framework transforms raw LLM capabilities into disciplined, auditable Data 
 
 ### Installation
 
+You can use AgentSpec either as a **Global Plugin** across all your projects or as a **Standalone Workspace**:
+
+#### Option A: Install as an Antigravity Plugin (Recommended)
+Install AgentSpec into your local Antigravity plugin directory so all 38 skills, 63 specialists, and 26 knowledge domains are instantly active in **any workspace or repository**:
+
+```bash
+git clone https://github.com/Tiao553/sdd-for-antigravity.git ~/.gemini/config/plugins/agentspec-de
+```
+*(On Windows: `%USERPROFILE%\.gemini\config\plugins\agentspec-de`)*
+
+Once cloned, open **Antigravity IDE** → **Customizations** to see `agentspec-de` active. Run `/sdd-init` in any of your data engineering projects to scaffold the local `.agents/sdd/` directory.
+
+#### Option B: Standalone Workspace
+Clone and open this repository directly in Antigravity:
+
 ```bash
 git clone https://github.com/Tiao553/sdd-for-antigravity.git
 cd sdd-for-antigravity
 ```
-
-Open the folder in **Antigravity IDE** — that's it. Everything is pre-configured.
+Open the folder in **Antigravity IDE** — everything is pre-configured.
 
 ### Agent Rules Configuration
 

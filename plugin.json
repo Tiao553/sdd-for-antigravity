@@ -1,0 +1,33 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "agentspec-de",
+  "displayName": "AgentSpec (Data Engineering)",
+  "description": "Enterprise-grade Spec-Driven Development (SDD) harness for Data Engineering with 63 specialized agents, 25 knowledge domains, lifecycle security hooks, and 37 slash command skills.",
+  "version": "3.1.0",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Scaffold a medallion data pipeline for orders with dbt and Spark",
+    "Design an ODCS data contract and schema for customer events",
+    "Validate my pipeline implementation against the DESIGN specification"
+  ],
+  "author": {
+    "name": "Sebastião & AgentSpec Community",
+    "url": "https://github.com/Tiao553/sdd-for-antigravity"
+  },
+  "homepage": "https://github.com/Tiao553/sdd-for-antigravity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tiao553/sdd-for-antigravity.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "data-engineering",
+    "sdd",
+    "dbt",
+    "spark",
+    "lakehouse",
+    "airflow",
+    "quality-gates",
+    "spec-driven-development"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "security-guard": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python scripts/security_pre_hook.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "session-init": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python scripts/session_start_hook.py"
+      }
+    ]
+  }
+}
